@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude 发展历程与深度解析</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.umd.min.js"></script>
+    <style>
+        body {
+            background-color: #1a1a2e; /* 深色背景 */
+            color: #e0e0e0; /* 亮色文字 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* 确保在内容之下 */
+        }
+        .content-card {
+            background: rgba(255, 255, 255, 0.05); /* 玻璃拟态背景 */
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(128, 0, 128, 0.3), 0 0 30px rgba(0, 0, 255, 0.2); /* 霓虹光效 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 25px rgba(128, 0, 128, 0.6), 0 0 45px rgba(0, 0, 255, 0.4); /* 悬停发光效果 */
+        }
+        h1, h2, h3 {
+            color: #9f7aea; /* 紫色标题 */
+            font-weight: bold;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 1em; text-align: center; }
+        h2 { font-size: 2em; margin-top: 1.5em; margin-bottom: 0.8em; border-bottom: 2px solid #9f7aea; padding-bottom: 0.3em;}
+        h3 { font-size: 1.5em; margin-top: 1em; margin-bottom: 0.5em; color: #63b3ed; }
+        p, li {
+            line-height: 1.8;
+            margin-bottom: 1em;
+            color: #c0c0c0;
+        }
+        ul { list-style-type: disc; margin-left: 20px; }
+        strong { color: #a0aec0; }
+        .reference-link {
+            font-size: 0.8em;
+            color: #63b3ed;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            margin-right: 8px;
+            color: #9f7aea;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer a {
+            color: #9f7aea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        /* 滚动动画的初始状态 */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Added transition for smoothness */
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center my-12">
+            <h1 class="text-5xl font-bold text-purple-400">Claude 发展历程与深度解析</h1>
+        </header>
+
+        <main id="main-content">
+            <!-- Markdown content will be inserted here by JavaScript -->
+        </main>
+
+        <footer class="footer">
+            <p class="text-gray-400">信息来源：综合网络资源，包括但不限于维基百科、Claude官网、各类科技媒体文章等。</p>
+            <p>
+                <a href="https://docs.anthropic.com/" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-globe icon"></i>Claude 官方网站
+                </a>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">&copy; 2024 AI Timeline Project. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        const markdownContent = `
+# Claude AI 发展历程与深度解析
+
+## 一、Claude 的诞生与初心
+
+### 1.1 创立背景与动机
+Anthropic 公司成立于2021年，由前 OpenAI 的核心成员创立，其中包括 Dario Amodei 和 Daniela Amodei 兄妹。他们离开 OpenAI 的主要原因是对于 OpenAI 在微软投资后可能过于商业化，以及对AI安全和发展方向的担忧。Dario Amodei 认为，在未能充分解决大型模型安全问题之前就将其大规模推广（如GPT-3的上线）是不负责任的，并可能带来潜在风险。
+
+Anthropic 的核心研究动机是构建“可靠、可解释、可控的，并以人类（利益）为中心”的人工智能系统。公司名称“Anthropic”本身也意为“与人类有关的”，彰显了其以人为本的理念。其目标是开发对人类有益、诚实且无害的AI系统，并保证其高度的可靠性和可预测性。
+
+### 1.2 开发团队及其所属机构
+Claude AI 由 Anthropic PBC 开发。Anthropic 是一家总部位于美国的人工智能安全和研究公司。
+创始团队主要来自 OpenAI，核心人物包括：
+*   **Dario Amodei**：前 OpenAI 研究副总裁，现任 Anthropic CEO。
+*   **Daniela Amodei**：前 OpenAI 安全与政策副总裁，现任 Anthropic 总裁。
+*   其他联合创始人还包括 Jared Kaplan、Jack Clark、Ben Mann 以及曾领导GPT-3开发的 Tom Brown 等多名 OpenAI 前员工。
+
+近年来，Anthropic 也吸引了更多AI领域的顶尖人才，如2024年加入的 Jan Leike（前OpenAI对齐团队负责人）、John Schulman 和 Durk Kingma 等。Instagram的联合创始人 Mike Krieger 也加入了Anthropic并担任首席产品官。
+
+## 二、核心技术演进与版本迭代
+
+Anthropic 的核心技术理念之一是 **Constitutional AI (宪法AI)**。这是一种训练AI模型的方法，通过设定一套指导原则（“宪法”），使模型在输出时能更好地遵循有益、诚实和无害 (HHH - Helpful, Honest, Harmless) 的标准。这些原则部分参考了联合国《世界人权宣言》和苹果公司的数据隐私规则等。
+
+### 2.1 Claude (初代) 和 Claude Instant
+*   **发布与测试**：Claude 初代模型于2022年夏季完成训练，但出于安全测试的考虑并未立即公开发布。在2022年12月相关论文发表后，Claude 开始在部分合作伙伴（如Notion Labs, Quora, DuckDuckGo）的应用中进行测试。Claude 和 Claude Instant 于2023年3月15日正式发布。
+*   **技术特点**：Claude Instant 是一个更轻量级、响应速度更快的版本。早期 Claude 的能力水平接近于 GPT-3.5。
+*   **核心优势**：从设计之初就高度重视安全性，旨在减少有害内容的输出。
+
+### 2.2 Claude 2
+*   **发布时间**：2023年7月11日。
+*   **技术改进**：
+    *   显著提升了整体性能。
+    *   支持更长的上下文窗口，达到100,000 tokens。
+    *   在编程、数学计算和逻辑推理等方面的能力得到大幅增强。
+    *   对中文等非英语语言的理解和处理能力有所提高。
+*   **核心优势**：能力上开始逼近甚至在某些方面超越 GPT-3.5，成为市场上一个有力的竞争者。
+
+### 2.3 Claude 2.1
+*   **发布时间**：2023年11月21日。
+*   **技术改进**：
+    *   上下文窗口进一步扩大到200,000 tokens。
+    *   在减少错误答案（幻觉）方面有所改进，提高了回答的准确性。
+
+### 2.4 Claude 3 系列 (Opus, Sonnet, Haiku)
+*   **发布时间**：2024年3月4日。
+*   **子模型特点**：
+    *   **Claude 3 Opus**：系列中最强大、最智能的模型，适用于处理高度复杂的分析任务、多步骤任务以及高阶数学和编程挑战。成本也相对最高。
+    *   **Claude 3 Sonnet**：在性能和运行速度之间取得了良好平衡，适合处理高效、大规模的企业级任务。
+    *   **Claude 3 Haiku**：系列中速度最快、成本效益最高的模型，适用于需要快速响应的轻量级操作。
+*   **技术突破与优势**：
+    *   **多模态能力**：首次支持图像和文本作为输入，可以分析照片、图表、图形等视觉信息。
+    *   **超长上下文窗口**：标准版支持200,000 tokens，并有能力处理超过1,000,000 tokens 的输入，满足特定客户需求。
+    *   **性能领先**：Opus 模型在多项行业基准测试中（如MMLU知识问答、GPQA研究生级别推理、GSM8K基础数学）的得分超越了当时的 GPT-4 和 Gemini 1.0 Ultra。
+    *   **减少不必要的拒绝**：显著改善了对用户指令的理解，减少了因误判而拒绝回答无害问题的频率。
+    *   **快速响应与高回忆率**：Haiku 模型能在数秒内处理包含图表的密集研究论文；Sonnet 的速度是 Claude 2 的两倍。Opus 在长上下文输入下的回忆准确率超过99%。
+    *   **溯源引用**：计划支持答案溯源功能，可以将回答内容指向参考材料中的精确句子。
+
+### 2.5 Claude 3.5 Sonnet
+*   **发布时间**：2024年6月。
+*   **技术改进**：作为对 Claude 3 Sonnet 的升级，在智能性、速度和成本效益方面均有提升。特别是在视觉推理、代码生成和理解细微指令方面表现更佳。引入了“Artifacts”功能，允许用户在与模型交互时，在一个专用窗口中查看、编辑和构建模型生成的内容（如代码、文档）。
+
+### 2.6 Claude 3.7 Sonnet (信息较少，基于初步提及)
+*   **发布提及**：近期被提及为 Anthropic 迄今为止最智能的模型之一，并可能是市场上首款混合推理模型。
+*   **潜在技术特点**：可能提供标准和扩展两种思考模式，其中扩展模式能展示详细的推理链条，特别适用于科研等复杂领域。API 或支持更精细地控制模型的思考时间。
+
+## 三、重要里程碑与成就
+
+*   **巨额融资与战略合作**：
+    *   **Google**：自2023年起累计投资约20亿美元。
+    *   **Amazon**：自2023年起累计投资高达80亿美元，并与AWS达成战略合作，Anthropic 将 AWS 作为其主要的云服务提供商，其模型也在 Amazon Bedrock 上提供。
+    *   其他重要投资者包括 FTX (早期)、Spark Capital、Menlo Ventures、SK电讯等。
+*   **模型性能突破**：
+    *   Claude 3 Opus (2024年3月) 在多项基准测试中超越 GPT-4，成为AI能力的新标杆。
+*   **AI安全与伦理的行业引领**：
+    *   持续投入并推广 Constitutional AI 的理念和实践。
+    *   发布《经济指数》(Anthropic Economic Index) 报告，深入分析AI对劳动力市场的影响，并开源相关数据集供研究。
+*   **产品与服务扩展**：
+    *   推出 Claude 的 iOS (2024年5月) 和 Android (2024年7月) 移动应用程序。
+    *   发布 Claude Enterprise 版本，专为大型企业客户设计，提供更强的安全性、管理功能和定制化选项。
+    *   推出“提示缓存”(Prompt Caching) 等功能，帮助企业降低API使用成本并提升性能。
+
+## 四、实际应用案例
+
+Claude AI 因其强大的自然语言处理能力、对安全性的重视以及长上下文处理能力，在多个领域展现出广泛的应用价值：
+
+*   **内容创作与编辑**：辅助撰写各类文本，如商业报告、技术文档、营销文案、新闻稿、创意故事等；对现有内容进行编辑、改写、润色和摘要。
+*   **编程与软件开发**：生成代码片段、调试现有代码、解释复杂代码逻辑、辅助软件测试、进行网络故障排除等。
+*   **数据分析与信息提取**：从大量文本数据（包括PDF、表格）中提取关键信息、进行数据分析、生成洞察。
+*   **企业级解决方案**：
+    *   **客户服务**：赋能聊天机器人，提供更智能、更自然的客户支持。
+    *   **流程自动化**：自动化处理重复性的文本密集型任务，如文档归类、信息校验等。
+    *   **知识管理**：构建企业内部知识库的智能问答系统，帮助员工快速获取信息。
+    *   **工作工具集成**：通过如 Model Context Protocol (MCP) 等技术，与 Jira, Confluence, Asana, HubSpot 等常见工作软件集成，使 Claude 能够理解项目历史和团队知识库，提供更具上下文感知能力的辅助。
+*   **教育与学习**：辅助教学材料准备、个性化学习辅导、复杂概念解释、语言学习等。
+*   **科研领域**：Claude 3.7 Sonnet 等模型的增强推理能力，使其适用于辅助科学研究，如分析实验数据、理解复杂科学文献等。
+*   **法律与合规**：辅助合同审查、法律文件摘要、合规性检查等。
+*   **金融服务**：市场趋势分析、财务报告解读、风险评估辅助等。
+*   **区块链技术**：探索应用于智能合约的安全审计，帮助识别潜在漏洞。
+
+## 五、社会讨论与影响
+
+Claude AI 的发展和应用，与其他大型语言模型一样，引发了广泛的社会讨论，尤其集中在以下几个方面：
+
+### 5.1 隐私问题
+*   **数据保护承诺**：Anthropic 强调其重视用户数据的安全和隐私，声称采取了包括数据加密、安全的服务器基础设施和严格的数据访问控制在内的多层安全措施来保护用户数据。
+*   **透明的隐私政策**：公司致力于提供透明的隐私政策，保障用户的知情权和选择权，明确告知数据收集的目的、使用范围和存储期限。
+*   **隐私保护技术**：如其 Clio 系统，在用于分析大规模对话数据以改进模型和识别滥用模式时，设计上考虑了用户隐私的保护。
+*   **潜在担忧**：尽管有上述承诺，但与所有AI服务一样，用户对于API调用日志的存储策略、数据是否会被间接用于模型训练等方面仍可能存在担忧。
+
+### 5.2 安全性问题
+*   **核心设计理念**：Claude 的核心目标之一就是构建安全的AI。其 Constitutional AI 框架和 HHH (Helpful, Honest, Harmless) 原则旨在从根本上减少有害输出。
+*   **滥用风险**：Anthropic 自身也曾发布报告指出，包括 Claude 在内的前沿AI模型存在被恶意行为者滥用的风险，例如用于制造虚假信息进行“舆论引导”、辅助凭证窃取、进行招聘诈骗或开发恶意软件等。AI技术的进步客观上可能降低了实施这些恶意行为的技术门槛。
+*   **应对与缓解措施**：Anthropic 采取了多种安全措施来阻止模型生成已知的有害内容，并利用技术手段（如Clio系统和分层摘要）分析对话数据以识别和封禁滥用账户。同时，通过“红队测试”等方式主动发现和修补模型的安全漏洞。
+*   **算法透明度**：公司表示致力于提高其算法的透明度和可解释性，帮助用户和社会理解其工作原理和决策过程，以建立信任。
+
+### 5.3 公平性问题
+*   **减少偏见**：Constitutional AI 的原则中包含了避免产生带有偏见（如性别歧视、种族主义等）的输出。模型被鼓励在生成内容时考虑不同文化背景（包括非西方、非富裕或非工业化文化）的价值观和观点。
+*   **持续挑战**：尽管做出了努力，但确保AI模型在各种情境下都能做到完全公平无偏见仍然是一个持续的技术和社会挑战，需要不断地进行数据审计、模型评估和算法优化。
+
+### 5.4 对劳动市场的影响
+*   **《经济指数》报告**：Anthropic 发布了《经济指数》报告，基于 Claude 的使用数据分析AI对劳动力市场和工作方式的实际影响。
+*   **增强而非取代**：初步研究表明，当前AI（如Claude）的应用更多地体现在增强人类现有工作的能力（如软件开发、技术写作），而非大规模地完全自动化和取代岗位。
+*   **技能需求变化**：AI的普及可能会导致对具备AI协作能力和新技能的劳动者的需求增加，同时一些重复性较高的任务可能面临被AI辅助或替代的风险。AI在中高薪酬的知识型职业（如程序员、数据科学家）相关任务中的应用更为普遍。
+
+## 六、当前局限性
+
+尽管 Claude AI 取得了显著进展，但仍面临一些与其他大型语言模型相似的局限性：
+
+*   **知识截止日期**：模型的知识主要基于其训练数据，因此对于训练数据截止日期之后的最新事件、信息和发展可能无法准确回答。例如，Claude 3 的训练数据截止到2023年8月，后续版本（如Claude 3.5 Sonnet）的知识更新至2024年4月。
+*   **实时网络访问限制**：核心的 Claude 模型通常不具备直接、实时的互联网浏览能力。它依赖于用户在交互时提供相关信息，或通过特定的集成工具间接获取外部数据。
+*   **“幻觉”问题**：即模型有时会生成听起来合理但不准确或完全虚构的信息。尽管 Anthropic 一直在努力减少此类情况（例如 Claude 3 Opus 在这方面有所改进），但这仍然是当前大语言模型普遍存在的问题。
+*   **成本因素**：最强大的模型（如 Claude 3 Opus）的API调用费用相对较高，可能比其主要竞争对手（如 GPT-4 Turbo）更贵，这可能限制其在某些成本敏感场景下的应用。
+*   **多模态能力的侧重**：虽然 Claude 3 系列开始支持图像输入，其主要优势仍在于文本处理。在图像生成、视频处理等其他多模态输出能力方面，与专门为此设计的模型（如 DALL-E, Sora）相比尚有差距。
+*   **复杂推理的边界**：尽管在逻辑推理和复杂任务处理方面能力不断增强，但在面对极其复杂或需要深度领域专业知识的推理时，仍可能表现出局限性。
+*   **可控性与可预测性挑战**：虽然以安全和可控为目标，但确保模型在所有情况下都能完全按照预期行事，并避免所有潜在的非预期行为，仍然是一个持续的研发挑战。
+*   **区域可访问性**：在某些国家和地区，用户可能因政策限制而无法直接注册和使用 Claude 服务。
+
+## 七、未来发展方向与展望
+
+Claude AI 的未来发展预计将围绕以下几个关键方向：
+
+*   **模型能力的持续提升**：
+    *   **更强的智能与推理**：进一步提升模型的逻辑推理能力、问题解决能力和对复杂指令的理解与执行能力。
+    *   **减少幻觉与提升准确性**：持续优化训练方法和模型架构，以最大限度地减少不准确信息的生成，提高回答的真实性和可靠性。
+    *   **更长的上下文处理**：继续扩展有效处理和记忆超长上下文信息的能力。
+*   **多模态能力的深化与扩展**：
+    *   在现有图像理解的基础上，可能会进一步增强对多种数据类型（如音频、视频）的理解和生成能力，实现更丰富的多模态交互。
+*   **企业级服务与应用的强化**：
+    *   **深化行业解决方案**：针对金融、医疗、法律、教育等特定行业的需求，开发更具针对性的功能和模型版本。
+    *   **增强集成与协作**：通过 Model Context Protocol (MCP) 等技术，进一步提升 Claude 与企业现有工作流程和软件工具的无缝集成能力，使其成为更强大的智能工作助手。
+    *   **定制化与可控性**：为企业用户提供更多的模型微调选项和更精细的控制能力，以满足其特定的业务需求和安全合规要求。
+*   **AI安全、伦理与对齐的持续引领**：
+    *   继续将AI安全和伦理作为研发的核心，投入资源研究和实践更先进的AI对齐技术，确保AI发展与人类价值观保持一致。
+    *   推动AI透明度和可解释性的研究，使用户和社会能更好地理解和信任AI系统。
+*   **成本优化与普惠化**：
+    *   通过模型优化和新的定价策略（如 Claude 3 Haiku 和提示缓存功能），努力降低先进AI技术的使用门槛，使其能被更广泛的用户和开发者所用。
+*   **开发者生态与社区建设**：
+    *   可能会进一步开放API，提供更完善的开发工具和文档，鼓励开发者围绕 Claude 构建创新的应用和服务，繁荣生态系统。
+*   **探索前沿AI研究方向**：
+    *   可能涉足更前沿的AI研究领域，如因果推理、自主学习等，以期实现更根本性的技术突破。
+
+总体而言，Claude AI 预计将继续在追求更高智能水平的同时，坚定不移地以AI安全和人类福祉为导向，努力成为一个既强大又负责任的人工智能平台。`;
+        // Convert Markdown to HTML and inject it into the main content area
+        // Wrap sections in cards for styling and animation
+        function renderMarkdown() {
+            const mainContentElement = document.getElementById('main-content');
+            if (!mainContentElement) {
+                console.error("renderMarkdown Error: 'main-content' element not found!");
+                document.body.innerHTML = "Error: 'main-content' element not found! Critical error."; // Drastic fallback
+                return;
+            }
+
+            console.log("renderMarkdown: Starting. Markdown content length:", markdownContent ? markdownContent.length : 0);
+
+            if (!markdownContent || markdownContent.trim() === "") {
+                mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Markdown content is empty or missing.</p></div>";
+                console.warn("renderMarkdown: markdownContent is empty.");
+                return;
+            }
+
+            try {
+                const rawHtml = marked.parse(markdownContent.replace(/<mcreference[^>]*>[^<]*<\/mcreference>/g, ''));
+                console.log("renderMarkdown: Parsed HTML length:", rawHtml ? rawHtml.length : 0);
+
+                if (!rawHtml || rawHtml.trim() === "") {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Parsing markdown resulted in empty HTML. Check console for details (e.g., issues with 'marked' library or markdown syntax).</p></div>";
+                    console.warn("renderMarkdown: marked.parse(markdownContent) resulted in empty HTML.");
+                    return;
+                }
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = rawHtml;
+
+                if (tempDiv.children.length === 0 && rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: No child elements found after parsing markdown, but raw HTML is not empty. Displaying raw HTML.");
+                    mainContentElement.innerHTML = rawHtml;
+                    addScrollAnimations();
+                    return;
+                }
+
+                let cardHtml = '';
+                let currentCardContent = '';
+                let cardCount = 0;
+
+                Array.from(tempDiv.children).forEach(node => {
+                    if (node.tagName === 'H1') { // Skip the main H1, it's already in the header
+                        return;
+                    }
+
+                    if (node.tagName === 'H2') {
+                        if (currentCardContent) { // If there's content for a previous card, finalize it
+                            cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                            cardCount++;
+                        }
+                        currentCardContent = node.outerHTML; // Start new card with H2
+                    } else {
+                        // Append other content to the current card section
+                        if (currentCardContent) { // If a card (started by H2) is active
+                            currentCardContent += node.outerHTML;
+                        } else if (cardHtml === '' && !currentCardContent) {
+                            // This handles content that might appear before the very first H2 (after skipping H1)
+                            // It starts the first card with this content.
+                            currentCardContent = node.outerHTML;
+                        }
+                        // Content not fitting these conditions (e.g. orphaned after a card is closed but before new H2) might be skipped.
+                        // Given the expected structure (H1, then H2 sections), this should be robust.
+                    }
+                });
+
+                if (currentCardContent) { // Finalize the last card's content
+                    cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                    cardCount++;
+                }
+
+                console.log("renderMarkdown: Number of cards generated:", cardCount);
+                console.log("renderMarkdown: Final cardHtml length:", cardHtml.length);
+
+                if (cardHtml.trim() !== "") {
+                    mainContentElement.innerHTML = cardHtml;
+                } else if (rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: Card generation resulted in empty HTML. Falling back to raw HTML.");
+                    mainContentElement.innerHTML = rawHtml; // Fallback to raw HTML if card logic produced nothing but parsing was successful
+                } else {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Failed to generate card HTML and raw HTML is also empty. Content processing failed.</p></div>";
+                    console.error("renderMarkdown: Both cardHtml and rawHtml are effectively empty after processing.");
+                }
+
+                addScrollAnimations(); // Apply scroll animations to newly added cards
+
+            } catch (error) {
+                mainContentElement.innerHTML = `<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error during markdown rendering: ${error.message}. Check browser console for stack trace.</p></div>`;
+                console.error("Error in renderMarkdown function execution:", error);
+            }
+        }
+
+        // Scroll-triggered animations using a single IntersectionObserver
+        function addScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            if (animatedElements.length === 0) {
+                // console.warn("addScrollAnimations: No '.scroll-animate' elements found to animate.");
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0px)';
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                renderMarkdown(); // This function now also calls addScrollAnimations internally
+            } catch (e) {
+                console.error("Error during initial page setup (DOMContentLoaded):", e);
+                const mainContentElement = document.getElementById('main-content');
+                if (mainContentElement) {
+                    // Display a user-friendly error message on the page
+                    mainContentElement.innerHTML = `
+                        <div class="content-card" style="color: #ff6b6b; background: rgba(255,255,255,0.1); opacity:1; transform:translateY(0);">
+                            <h2 style="color: #ff6b6b;"><i class="fas fa-exclamation-triangle icon"></i> 页面加载错误</h2>
+                            <p>抱歉，加载此页面内容时发生错误。</p>
+                            <p><strong>错误详情:</strong> ${e.message}</p>
+                            <p>请尝试刷新页面，或按 F12 打开浏览器控制台查看更多技术信息。</p>
+                        </div>`;
+                } else {
+                    // Fallback if main-content is not even available
+                    document.body.innerHTML = `错误: ${e.message}. 未找到主要内容容器。`;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
