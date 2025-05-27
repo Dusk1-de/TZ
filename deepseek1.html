@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣闻</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2a2a4e 100%);
+            color: #e0e0e0;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .content-card {
+            background: rgba(40, 40, 70, 0.6);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(128, 0, 128, 0.37), 0 0 40px rgba(0, 0, 255, 0.25);
+            max-width: 900px; /* Increased max-width */
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(128, 0, 128, 0.45), 0 0 50px rgba(0, 0, 255, 0.3);
+        }
+        h1 {
+            color: #bb86fc;
+            font-weight: 700;
+            font-size: 2.8em;
+            margin-bottom: 1.2em;
+            text-shadow: 0 0 10px rgba(187, 134, 252, 0.5);
+        }
+        h2.section-title {
+            color: #a16eff;
+            font-weight: 600;
+            font-size: 1.8em;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            border-bottom: 2px solid rgba(161, 110, 255, 0.3);
+            padding-bottom: 0.5em;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 1.5rem;
+        }
+        .video-item-card {
+            background: rgba(50, 50, 80, 0.7);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensures content is spaced out */
+        }
+        .video-item-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(187, 134, 252, 0.3);
+        }
+        .video-item-card img {
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        .video-item-card h3 a {
+            color: #dabfff;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .video-item-card h3 a:hover {
+            color: #bb86fc;
+            text-decoration: underline;
+        }
+        .video-item-card p {
+            font-size: 0.85em;
+            color: #b0b0d0;
+            line-height: 1.6;
+            margin-bottom: 0.5em;
+        }
+        .back-button {
+            display: inline-flex; /* For aligning icon and text */
+            align-items: center; /* For aligning icon and text */
+            margin-top: 2.5rem;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #bb86fc, #9f7aea);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(187, 134, 252, 0.4);
+        }
+        .back-button:hover {
+            background: linear-gradient(135deg, #9f7aea, #bb86fc);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(187, 134, 252, 0.6);
+        }
+        .back-button i {
+            margin-right: 8px;
+        }
+        .view-all-link a {
+            color: #dabfff;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .view-all-link a:hover {
+            color: #bb86fc;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-card">
+        <h1>趣闻天地</h1>
+        <div class="text-left mt-8">
+            <div class="video-grid">
+                <div class="video-item-card">
+                    <h3><a href="https://www.bilibili.com/video/av114557381053997" target="_blank" rel="noopener noreferrer">【清华大学】DeepSeek从入门到精通，全程干货无废话！让你少走99%的弯路！</a></h3>
+                    <img src="https://i1.hdslb.com/bfs/archive/a6284695fbb1684a60b0384d836e5f02e2963d20.png" alt="【清华大学】DeepSeek从入门到精通，全程干货无废话！让你少走99%的弯路！封面">
+                    <p>播放量：2.9万</p>
+                    <p>时长：15:42</p>
+                    <p>发布时间：2025-05-23</p>
+                </div>
+                <div class="video-item-card">
+                    <h3><a href="https://www.bilibili.com/video/av113963769532483" target="_blank" rel="noopener noreferrer">DeepSeek 和 GPT 进行一场象棋对决！</a></h3>
+                    <img src="https://i2.hdslb.com/bfs/archive/fa46091198f1e3a0f14692f42776d4fc5c40266b.jpg" alt="DeepSeek 和 GPT 进行一场象棋对决！封面">
+                    <p>播放量：257.9万</p>
+                    <p>时长：8:36</p>
+                    <p>发布时间：2025-02-08</p>
+                </div>
+                <div class="video-item-card">
+                    <h3><a href="https://www.bilibili.com/video/av114075807782824" target="_blank" rel="noopener noreferrer">「手把手教学」DeepSeek论文急救！一键生成+AIGC检测直降70%+毕业论文格式完美文献真实！</a></h3>
+                    <img src="https://i0.hdslb.com/bfs/archive/10581621162e47870f856698cbacb6595dfd528e.jpg" alt="「手把手教学」DeepSeek论文急救！一键生成+AIGC检测直降70%+毕业论文格式完美文献真实！封面">
+                    <p>播放量：56.9万</p>
+                    <p>时长：12:11</p>
+                    <p>发布时间：2025-02-27</p>
+                </div>
+                <div class="video-item-card">
+                    <h3><a href="https://www.bilibili.com/video/av113970044209798" target="_blank" rel="noopener noreferrer">颤抖吧人类！DeepSeek狼人杀，9款AI神仙打架，逻辑碾压全场？</a></h3>
+                    <img src="https://i0.hdslb.com/bfs/archive/3f054311dffaa3c93b71fc3bd9903d8caaaad390.jpg" alt="颤抖吧人类！DeepSeek狼人杀，9款AI神仙打架，逻辑碾压全场？封面">
+                    <p>播放量：188.1万</p>
+                    <p>时长：19:07</p>
+                    <p>发布时间：2025-02-08</p>
+                </div>
+                <div class="video-item-card">
+                    <h3><a href="https://www.bilibili.com/video/av114000780070477" target="_blank" rel="noopener noreferrer">30秒教会你如何用deepseek和kimi一键生成PPT！</a></h3>
+                    <img src="https://i2.hdslb.com/bfs/archive/2f9135e89988c91ccf7e41de276c4510166e10ba.jpg" alt="30秒教会你如何用deepseek和kimi一键生成PPT！封面">
+                    <p>播放量：48.5万</p>
+                    <p>时长：1:07</p>
+                    <p>发布时间：2025-02-14</p>
+                </div>
+                <div class="video-item-card">
+                    <h3><a href="https://www.bilibili.com/video/av114163552617963" target="_blank" rel="noopener noreferrer">当我在AI里通关"我的世界"……</a></h3>
+                    <img src="https://i0.hdslb.com/bfs/archive/e84e7410949c7f64131fa815415ffca1c4a3a501.jpg" alt="当我在AI里通关&quot;我的世界&quot;……封面">
+                    <p>播放量：35.8万</p>
+                    <p>时长：7:22</p>
+                    <p>发布时间：2025-03-15</p>
+                </div>
+                <div class="video-item-card">
+                    <h3><a href="https://www.bilibili.com/video/av114522937368438" target="_blank" rel="noopener noreferrer">Deepseek也要玩公嬷接力赛</a></h3>
+                    <img src="https://i2.hdslb.com/bfs/archive/8286d3e77f23279208df0f8c14983d5b170a54b8.jpg" alt="Deepseek也要玩公嬷接力赛封面">
+                    <p>播放量：21.2万</p>
+                    <p>时长：2:38</p>
+                    <p>发布时间：2025-05-17</p>
+                </div>
+                <div class="video-item-card">
+                    <h3><a href="https://www.bilibili.com/video/av114538842229377" target="_blank" rel="noopener noreferrer">【TDM】DeepSeek吉祥物兽兽第二弹</a></h3>
+                    <img src="https://i1.hdslb.com/bfs/archive/82876198830744955aa336f0c2a90117590c999d.jpg" alt="【TDM】DeepSeek吉祥物兽兽第二弹封面">
+                    <p>播放量：2.1万</p>
+                    <p>时长：0:17</p>
+                    <p>发布时间：2025-05-20</p>
+                </div>
+                <div class="video-item-card">
+                    <h3><a href="https://www.bilibili.com/video/av114563336900256" target="_blank" rel="noopener noreferrer">李川大战DeepSeek 比比谁更油腻</a></h3>
+                    <img src="https://i2.hdslb.com/bfs/archive/220c858cb6e4377cb2dc6d76f4faef535b1bf4d3.jpg" alt="李川大战DeepSeek 比比谁更油腻封面">
+                    <p>播放量：7.2万</p>
+                    <p>时长：10:48</p>
+                    <p>发布时间：2025-05-24</p>
+                </div>
+                <div class="video-item-card">
+                    <h3><a href="https://www.bilibili.com/video/av114551844640218" target="_blank" rel="noopener noreferrer">当AI成为了群里的权限狗.......【麦麦bot】</a></h3>
+                    <img src="https://i2.hdslb.com/bfs/archive/d907eba4c4c0fc508a66bebcef5d442eee79f466.jpg" alt="当AI成为了群里的权限狗.......【麦麦bot】封面">
+                    <p>播放量：3.9万</p>
+                    <p>时长：1:50</p>
+                    <p>发布时间：2025-05-22</p>
+                </div>
+            </div>
+            <div class="mt-8 view-all-link">
+                 <p><a href="https://www.bilibili.com/search?keyword=Deepseek" target="_blank" rel="noopener noreferrer">查看完整视频列表 <i class="fas fa-external-link-alt ml-1"></i></a></p>
+            </div>
+        </div>
+        
+        <!-- 示例：嵌入一个YouTube视频 -->
+        <!-- 
+        <div class="aspect-w-16 aspect-h-9 my-8">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        -->
+
+        <a href="deepseek.html" class="back-button"><i class="fas fa-arrow-left"></i> 返回主页</a>
+    </div>
+</body>
+</html>
