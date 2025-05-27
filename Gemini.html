@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini 发展历程与深度解析</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.umd.min.js"></script>
+    <style>
+        body {
+            background-color: #1a1a2e; /* 深色背景 */
+            color: #e0e0e0; /* 亮色文字 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* 确保在内容之下 */
+        }
+        .content-card {
+            background: rgba(255, 255, 255, 0.05); /* 玻璃拟态背景 */
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(128, 0, 128, 0.3), 0 0 30px rgba(0, 0, 255, 0.2); /* 霓虹光效 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 25px rgba(128, 0, 128, 0.6), 0 0 45px rgba(0, 0, 255, 0.4); /* 悬停发光效果 */
+        }
+        h1, h2, h3 {
+            color: #9f7aea; /* 紫色标题 */
+            font-weight: bold;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 1em; text-align: center; }
+        h2 { font-size: 2em; margin-top: 1.5em; margin-bottom: 0.8em; border-bottom: 2px solid #9f7aea; padding-bottom: 0.3em;}
+        h3 { font-size: 1.5em; margin-top: 1em; margin-bottom: 0.5em; color: #63b3ed; }
+        p, li {
+            line-height: 1.8;
+            margin-bottom: 1em;
+            color: #c0c0c0;
+        }
+        ul { list-style-type: disc; margin-left: 20px; }
+        strong { color: #a0aec0; }
+        .reference-link {
+            font-size: 0.8em;
+            color: #63b3ed;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            margin-right: 8px;
+            color: #9f7aea;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer a {
+            color: #9f7aea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        /* 滚动动画的初始状态 */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Added transition for smoothness */
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center my-12">
+            <h1 class="text-5xl font-bold text-purple-400">Gemini 发展历程与深度解析</h1>
+        </header>
+
+        <main id="main-content">
+            <!-- Markdown content will be inserted here by JavaScript -->
+        </main>
+
+        <footer class="footer">
+            <p class="text-gray-400">信息来源：综合网络资源，包括但不限于维基百科、Gemini官网、各类科技媒体文章等。</p>
+            <p>
+                <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-globe icon"></i>Gemini 官方网站
+                </a>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">&copy; 2024 AI Timeline Project. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        const markdownContent = `
+# Google Gemini 信息汇总
+
+## 一.简介
+
+Google Gemini 项目的启动，旨在打造一个能够理解世界并与之互动的更通用的人工智能模型。其研究动机源于对当前AI模型在多模态理解、复杂推理和无缝交互方面局限性的突破渴望。Google希望通过Gemini，构建一个能够处理文本、图像、音频、视频和代码等多种信息类型，并能在不同规模和设备上高效运行的统一模型，从而推动AI在科学发现、知识扩展和人类创造力提升等领域的应用。
+
+Gemini 主要由 Google DeepMind 和 Google Research 的团队合作开发。Google DeepMind 以其在人工智能研究领域的突破性进展（如AlphaGo）而闻名，而Google Research 则在机器学习、自然语言处理等多个AI核心领域拥有深厚积累。这两个团队的合作为Gemini的诞生提供了强大的技术支撑和人才保障。
+
+## 二.版本发布、技术改进与优势
+
+### Gemini 1.0 (2023年12月6日发布)
+
+*   **概述**：作为首个版本，Gemini 1.0 被定位为Google迄今为止功能最强大、最通用的模型。它从一开始就被设计为多模态的，能够无缝地理解、操作和组合不同类型的信息，包括文本、代码、音频、图像和视频。
+*   **模型版本**：
+    *   **Gemini Ultra**：规模最大、能力最强的模型，适用于高度复杂的任务。在32个广泛使用的学术基准测试中，有30个超越了当时的SOTA结果。特别是在MMLU（大规模多任务语言理解）基准测试中，Gemini Ultra是第一个超越人类专家的模型，得分高达90.0%。在新的MMMU基准测试中，它也取得了59.4%的SOTA分数，该测试包含需要深思熟虑的多模态任务。
+    *   **Gemini Pro**：在各种任务上表现最佳的模型，具有良好的可扩展性。在语言理解、推理、数学和编程等领域表现优异。
+    *   **Gemini Nano**：最高效的设备上模型，分为Nano-1 (1.8B参数) 和 Nano-2 (3.25B参数) 两个版本，适用于智能手机等终端设备，能够在离线状态下运行。
+*   **技术改进与优势**：
+    *   **原生多模态**：与其他先训练不同模态组件再拼接的模型不同，Gemini从一开始就进行多模态预训练，并使用额外的多模态数据进行微调，使其能够无缝理解和推理各种输入。
+    *   **高级编码能力**：Gemini能够理解、解释和生成高质量的代码，支持包括Java、Python、C++和Go在内的多种流行编程语言。其代码生成系统AlphaCode 2在竞技编程问题上表现出色。
+    *   **可扩展性和效率**：Gemini在Google自研的TPU v4和v5e上进行训练，具有出色的训练效率和可扩展性。
+    *   **责任与安全**：Gemini在设计之初就将责任和安全置于核心地位，进行了全面的安全评估，包括偏见和毒性测试，并与外部专家合作进行压力测试。
+
+### Gemini 1.5 (2024年2月发布)
+
+*   **Gemini 1.5 Pro**：
+    *   **概述**：作为1.0 Pro的升级版，Gemini 1.5 Pro在保持与1.0 Ultra相当性能的同时，大幅提升了效率。
+    *   **技术改进与优势**：
+        *   **长上下文窗口**：引入了突破性的长上下文理解能力，标准版支持高达100万个token的上下文窗口，是之前任何大规模基础模型中最大的。实验版本甚至成功测试了高达1000万个token的上下文。
+        *   **更复杂的推理能力**：能够处理更长、更复杂的文档和代码库，进行跨文档的分析和推理。
+        *   **多模态理解增强**：能够处理和推理长达1小时的视频、11小时的音频、超过3万行的代码库或超过70万字的文本。
+
+### Gemini 2.0 (2024年12月12日发布)
+*   **概述**：Gemini 2.0 在多模态能力、工具集成、推理效率和应用场景上实现了重大突破，旨在为用户提供更智能、更高效的AI服务。
+*   **技术改进与优势**:
+    *   **速度优化**：Gemini 2.0 Flash 速度是前代 Gemini 1.5 Pro 的 2倍，Flash Thinking 支持低延迟响应，接近人类对话流畅度。
+    *   **超长上下文窗口**：Gemini 2.0 Pro：支持 200万 tokens（约150万英文单词），相比 Gemini 1.5 Pro 的 100万 tokens 提升一倍。
+    *   **成本优化**：Gemini 2.0 Flash-Lite：每百万 tokens 输入成本仅 7.5美分，较 Gemini 1.5 的成本降低 50%。
+*   **Gemini 2.0 Flash Thinking**：作为首个引入“思考”能力的模型，为后续版本奠定了基础。
+
+### Gemini 2.5 (2025年3月25日发布)
+
+*   **Gemini 2.5 Pro Experimental**：
+    *   **概述**：作为最新的旗舰模型，Gemini 2.5 Pro在多个基准测试中取得了SOTA成绩，并在LMArena排行榜上名列第一。
+    *   **技术改进与优势**：
+        *   **“思考”能力 (Thinking Models)**：模型在响应前能够进行内部“思考”和推理，从而提升性能和准确性。这建立在强化学习和思维链提示等技术之上。
+        *   **增强的推理能力**：在GPQA和AIME 2025等数学和科学基准测试中表现领先。在Humanity’s Last Exam（一个衡量人类知识和推理前沿的数据集）上取得了18.8%的SOTA分数（无工具使用）。
+        *   **高级编码能力**：在SWE-Bench Verified（行业标准的代理代码评估）上，使用自定义代理设置取得了63.8%的成绩。能够通过单行提示生成可执行的游戏代码。
+        *   **原生多模态与长上下文窗口**：继承并增强了Gemini的优秀特性，提供100万token的上下文窗口（计划扩展到200万token），并能处理文本、音频、图像、视频和代码库。
+        *   **Deep Think模式**：进一步增强了Gemini 2.5 Pro的推理能力。
+        *   **原生音频输出**：能够以更具表现力的方式进行对话，捕捉语音的细微差别。
+*   **Gemini 2.5 Flash**：在推理、多模态、代码和长上下文方面得到改进，同时效率更高。
+
+## 三.重要里程碑与成就
+
+*   **2023年12月**：Gemini Ultra在MMLU基准测试中成为首个超越人类专家的模型，得分90.0%。
+*   **2023年12月**：Gemini Ultra在MMMU多模态基准测试中取得59.4%的SOTA分数。
+*   **2024年**：Gemini 1.5 Pro引入了高达100万token的上下文窗口，创下大规模基础模型的新纪录。
+*   **2025年3月**：Gemini 2.5 Pro Experimental在LMArena排行榜上取得第一名，并在多个推理和编码基准测试中领先。
+*   **持续的性能提升**：Gemini系列模型在各种基准测试中不断刷新记录，尤其是在多模态理解、复杂推理和代码生成方面，展现了其领先的技术实力。
+
+这些成就标志着AI在理解复杂信息、进行深度推理以及与世界进行多模态交互方面取得了重大进展，为AI在更广泛领域的应用铺平了道路。
+
+## 四.实际应用案例
+
+*   **Google产品集成**：
+    *   **Bard (现为Gemini)**：使用微调版的Gemini Pro进行更高级的推理、规划和理解，并逐步扩展到更多语言和地区。Bard Advanced将提供对Gemini Ultra的访问。
+    *   **Pixel 8 Pro**：首款搭载Gemini Nano的智能手机，为录音机应用的“摘要”功能和Gboard的“智能回复”功能提供支持。
+    *   **Google搜索**：Gemini正在被用于改进搜索生成体验（SGE），使其更快、质量更高。
+    *   **Chrome、Ads、Duet AI**：计划将Gemini集成到更多Google产品和服务中。
+*   **开发者与企业应用**：
+    *   **Google AI Studio 和 Vertex AI**：开发者和企业客户可以通过API访问Gemini Pro，用于构建和部署AI应用。Vertex AI提供更全面的数据控制和企业级安全功能。
+    *   **Android开发**：Android开发者可以通过AICore（Android 14中的新系统功能）使用Gemini Nano进行设备端任务开发。
+*   **教育领域**：
+    *   **辅助教学与研究**：Gemini的强大理解和推理能力使其成为下一代教育工具的潜力股，可以帮助学生学习、辅助教师备课、以及支持科研人员进行文献分析和数据处理。
+    *   **个性化学习**：能够根据学生的学习进度和特点提供定制化的学习内容和辅导。
+    *   **教育资源管理**：例如，帮助密西西比州的学校网络进行资助申请，展示了其在教育管理方面的应用潜力。
+*   **科学研究**：Gemini的多模态能力和长上下文处理能力，使其能够分析复杂的科学数据（如基因序列、天文观测数据），加速科学发现的进程。
+*   **创意产业**：Gemini能够生成文本、图像、音频和视频，为内容创作、艺术设计等领域提供新的工具和可能性。
+
+这些案例展示了Gemini如何通过其强大的多模态理解、推理和生成能力，在不同领域解决实际问题并创造价值。
+
+## 五.社会讨论与政策法规
+
+Gemini的出现和发展，与其他大型AI模型一样，引发了广泛的社会讨论，主要集中在以下几个方面：
+
+*   **隐私**：Gemini处理大量个人和敏感数据的能力引发了对数据隐私泄露的担忧。如何确保用户数据的安全和合规使用是一个核心议题。
+*   **安全性**：AI模型的潜在滥用，例如生成虚假信息、深度伪造（deepfakes）或用于恶意目的（如网络攻击），对社会安全构成威胁。
+*   **公平性与偏见**：AI模型的训练数据可能包含现实世界中的偏见，导致模型在决策时产生不公平的结果，加剧社会不平等。确保Gemini的输出不带有歧视性，并对不同人群公平对待至关重要。
+*   **就业影响**：AI的自动化能力可能取代某些人类工作岗位，引发对未来就业结构和社会适应性的讨论。
+*   **伦理挑战**：AI的自主性和决策能力不断增强，带来了关于责任归属、透明度和可解释性等伦理问题。
+
+**政策与法规回应**：
+
+针对这些担忧，全球范围内的政府和监管机构正在积极探索和制定相应的政策法规。虽然目前尚未有专门针对Gemini的特定法规，但通用的人工智能治理框架和原则正在形成。
+
+*   **Google的应对措施**：Google强调在Gemini的开发过程中将责任和安全置于核心地位，进行了全面的安全评估，包括偏见和毒性测试，并与外部专家合作进行压力测试，以识别和减轻潜在风险。Google也发布了关于AI安全和内容保护的新措施。
+*   **行业自律与标准**：AI行业内部也在推动制定相关的伦理准则和最佳实践，以促进AI的负责任发展。
+*   **国际合作**：各国政府和国际组织正在加强合作，共同应对AI带来的全球性挑战，寻求在促进创新和保障安全之间的平衡。
+
+总体而言，社会对Gemini等AI模型的讨论反映了对其巨大潜力和潜在风险的复杂认知。政策制定者、开发者和公众需要共同努力，确保AI技术的发展能够造福社会，同时有效管理其带来的挑战。
+
+## 六.当前局限性与未来发展方向
+
+**当前局限性**：
+
+*   **“幻觉”问题**：像其他大型语言模型一样，Gemini有时可能会生成不准确或无意义的信息（即“幻觉”），这限制了其在需要高度可靠性场景下的应用。
+*   **可解释性不足**：Gemini的决策过程往往像一个“黑箱”，难以完全理解其内部逻辑，这在需要透明度和问责制的领域是一个挑战。
+*   **对训练数据的依赖**：模型的性能和行为在很大程度上取决于训练数据的质量和覆盖范围。数据中的偏见或不足可能导致模型性能下降或产生不公平的结果。
+*   **计算资源消耗**：训练和运行像Gemini这样的大型模型需要巨大的计算资源，这可能限制其可访问性和可持续性。
+*   **安全风险**：尽管进行了安全测试，但模型仍可能被恶意利用或产生有害输出，需要持续的监控和改进。
+*   **长上下文处理的挑战**：虽然Gemini在长上下文处理方面取得了显著进展，但在极长的文本或多模态序列中保持连贯性和准确性仍然是一个持续的挑战。
+
+**未来发展方向**：
+
+*   **增强推理与规划能力**：进一步提升模型的逻辑推理、复杂问题解决和长期规划能力，使其能够处理更具挑战性的任务。
+*   **提升记忆能力**：改进模型的记忆机制，使其能够更好地记住和利用过去的交互信息，提供更个性化和连贯的体验。
+*   **扩大上下文窗口**：继续扩展模型能够处理的上下文长度，使其能够理解和生成更长、更复杂的文档、对话和代码库。
+*   **提高效率和可访问性**：优化模型架构和训练方法，降低计算资源消耗，使更多开发者和用户能够使用和受益于Gemini。
+*   **增强多模态融合**：进一步提升不同模态信息之间的无缝融合和理解能力，实现更自然的跨模态交互。
+*   **提升可控性和可定制性**：为用户提供更多控制模型行为和输出风格的选项，使其能够更好地适应特定应用场景的需求。
+*   **加强责任与安全研究**：持续投入研究，开发更有效的技术来检测和减轻模型的偏见、毒性和其他潜在风险，确保AI的负责任发展。
+*   **探索新的模型架构和学习范式**：研究更先进的模型架构（如稀疏专家模型）和学习方法（如持续学习、自监督学习），以突破当前技术的瓶颈。
+
+克服这些技术障碍和社会问题，将是Gemini及整个AI领域未来发展的关键。Google表示将继续快速创新并负责任地推进其模型的能力，致力于构建一个能够增强创造力、扩展知识、推动科学进步并改变数十亿人生活和工作方式的AI未来。
+
+
+`;
+
+        // Convert Markdown to HTML and inject it into the main content area
+        // Wrap sections in cards for styling and animation
+        function renderMarkdown() {
+            const mainContentElement = document.getElementById('main-content');
+            if (!mainContentElement) {
+                console.error("renderMarkdown Error: 'main-content' element not found!");
+                document.body.innerHTML = "Error: 'main-content' element not found! Critical error."; // Drastic fallback
+                return;
+            }
+
+            console.log("renderMarkdown: Starting. Markdown content length:", markdownContent ? markdownContent.length : 0);
+
+            if (!markdownContent || markdownContent.trim() === "") {
+                mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Markdown content is empty or missing.</p></div>";
+                console.warn("renderMarkdown: markdownContent is empty.");
+                return;
+            }
+
+            try {
+                const rawHtml = marked.parse(markdownContent.replace(/<mcreference[^>]*>[^<]*<\/mcreference>/g, ''));
+                console.log("renderMarkdown: Parsed HTML length:", rawHtml ? rawHtml.length : 0);
+
+                if (!rawHtml || rawHtml.trim() === "") {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Parsing markdown resulted in empty HTML. Check console for details (e.g., issues with 'marked' library or markdown syntax).</p></div>";
+                    console.warn("renderMarkdown: marked.parse(markdownContent) resulted in empty HTML.");
+                    return;
+                }
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = rawHtml;
+
+                if (tempDiv.children.length === 0 && rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: No child elements found after parsing markdown, but raw HTML is not empty. Displaying raw HTML.");
+                    mainContentElement.innerHTML = rawHtml;
+                    addScrollAnimations();
+                    return;
+                }
+
+                let cardHtml = '';
+                let currentCardContent = '';
+                let cardCount = 0;
+
+                Array.from(tempDiv.children).forEach(node => {
+                    if (node.tagName === 'H1') { // Skip the main H1, it's already in the header
+                        return;
+                    }
+
+                    if (node.tagName === 'H2') {
+                        if (currentCardContent) { // If there's content for a previous card, finalize it
+                            cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                            cardCount++;
+                        }
+                        currentCardContent = node.outerHTML; // Start new card with H2
+                    } else {
+                        // Append other content to the current card section
+                        if (currentCardContent) { // If a card (started by H2) is active
+                            currentCardContent += node.outerHTML;
+                        } else if (cardHtml === '' && !currentCardContent) {
+                            // This handles content that might appear before the very first H2 (after skipping H1)
+                            // It starts the first card with this content.
+                            currentCardContent = node.outerHTML;
+                        }
+                        // Content not fitting these conditions (e.g. orphaned after a card is closed but before new H2) might be skipped.
+                        // Given the expected structure (H1, then H2 sections), this should be robust.
+                    }
+                });
+
+                if (currentCardContent) { // Finalize the last card's content
+                    cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                    cardCount++;
+                }
+
+                console.log("renderMarkdown: Number of cards generated:", cardCount);
+                console.log("renderMarkdown: Final cardHtml length:", cardHtml.length);
+
+                if (cardHtml.trim() !== "") {
+                    mainContentElement.innerHTML = cardHtml;
+                } else if (rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: Card generation resulted in empty HTML. Falling back to raw HTML.");
+                    mainContentElement.innerHTML = rawHtml; // Fallback to raw HTML if card logic produced nothing but parsing was successful
+                } else {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Failed to generate card HTML and raw HTML is also empty. Content processing failed.</p></div>";
+                    console.error("renderMarkdown: Both cardHtml and rawHtml are effectively empty after processing.");
+                }
+
+                addScrollAnimations(); // Apply scroll animations to newly added cards
+
+            } catch (error) {
+                mainContentElement.innerHTML = `<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error during markdown rendering: ${error.message}. Check browser console for stack trace.</p></div>`;
+                console.error("Error in renderMarkdown function execution:", error);
+            }
+        }
+
+        // Scroll-triggered animations using a single IntersectionObserver
+        function addScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            if (animatedElements.length === 0) {
+                // console.warn("addScrollAnimations: No '.scroll-animate' elements found to animate.");
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0px)';
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                renderMarkdown(); // This function now also calls addScrollAnimations internally
+            } catch (e) {
+                console.error("Error during initial page setup (DOMContentLoaded):", e);
+                const mainContentElement = document.getElementById('main-content');
+                if (mainContentElement) {
+                    // Display a user-friendly error message on the page
+                    mainContentElement.innerHTML = `
+                        <div class="content-card" style="color: #ff6b6b; background: rgba(255,255,255,0.1); opacity:1; transform:translateY(0);">
+                            <h2 style="color: #ff6b6b;"><i class="fas fa-exclamation-triangle icon"></i> 页面加载错误</h2>
+                            <p>抱歉，加载此页面内容时发生错误。</p>
+                            <p><strong>错误详情:</strong> ${e.message}</p>
+                            <p>请尝试刷新页面，或按 F12 打开浏览器控制台查看更多技术信息。</p>
+                        </div>`;
+                } else {
+                    // Fallback if main-content is not even available
+                    document.body.innerHTML = `错误: ${e.message}. 未找到主要内容容器。`;
+                }
+            }
+        });
+
+    </script>
+</body>
+<html>

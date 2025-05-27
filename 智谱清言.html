@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智谱清言 发展历程与深度解析</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.umd.min.js"></script>
+    <style>
+        body {
+            background-color: #1a1a2e; /* 深色背景 */
+            color: #e0e0e0; /* 亮色文字 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* 确保在内容之下 */
+        }
+        .content-card {
+            background: rgba(255, 255, 255, 0.05); /* 玻璃拟态背景 */
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(128, 0, 128, 0.3), 0 0 30px rgba(0, 0, 255, 0.2); /* 霓虹光效 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 25px rgba(128, 0, 128, 0.6), 0 0 45px rgba(0, 0, 255, 0.4); /* 悬停发光效果 */
+        }
+        h1, h2, h3 {
+            color: #9f7aea; /* 紫色标题 */
+            font-weight: bold;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 1em; text-align: center; }
+        h2 { font-size: 2em; margin-top: 1.5em; margin-bottom: 0.8em; border-bottom: 2px solid #9f7aea; padding-bottom: 0.3em;}
+        h3 { font-size: 1.5em; margin-top: 1em; margin-bottom: 0.5em; color: #63b3ed; }
+        p, li {
+            line-height: 1.8;
+            margin-bottom: 1em;
+            color: #c0c0c0;
+        }
+        ul { list-style-type: disc; margin-left: 20px; }
+        strong { color: #a0aec0; }
+        .reference-link {
+            font-size: 0.8em;
+            color: #63b3ed;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            margin-right: 8px;
+            color: #9f7aea;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer a {
+            color: #9f7aea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        /* 滚动动画的初始状态 */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Added transition for smoothness */
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center my-12">
+            <h1 class="text-5xl font-bold text-purple-400">智谱清言 发展历程与深度解析</h1>
+        </header>
+
+        <main id="main-content">
+            <!-- Markdown content will be inserted here by JavaScript -->
+        </main>
+
+        <footer class="footer">
+            <p class="text-gray-400">信息来源：综合网络资源，包括但不限于维基百科、智谱清言官网、各类科技媒体文章等。</p>
+            <p>
+                <a href="https://chatglm.cn" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-globe icon"></i>智谱清言 官方网站
+                </a>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">&copy; 2024 AI Timeline Project. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        const markdownContent = `
+# 智谱清言综合信息
+
+## 一.项目起始点和研究动机
+
+智谱AI（Zhipu AI）最初孵化自清华大学知识工程实验室（KEG Lab），该实验室在知识图谱、自然语言处理和人工智能领域有深厚积累。智谱AI的创立旨在将学术研究成果转化为具有实际应用价值的AI技术和产品，特别是在大语言模型领域。其研究动机可以概括为探索和实现通用人工智能（AGI），并在此过程中通过技术创新和产品化，解决实际问题，赋能各行各业。
+
+CEO张鹏曾表示，公司致力于AGI的研发，并将当前的大模型商业化视为实现AGI目标的“路费”。公司强调自主可控的技术创新，致力于打造全栈自研的技术体系。
+
+智谱AI的核心团队源于清华大学计算机系的知识工程实验室（KEG Lab）。
+
+*   **所属机构：** 智谱AI（北京智谱华章科技有限公司）
+*   **核心人物：**
+    *   **张鹏：** CEO，清华大学计算机系博士，曾任清华大学计算机系副研究员。
+    *   **唐杰：** 清华大学计算机系教授，KEG实验室负责人，智谱AI的首席科学家（信息来源于公开报道，具体职位可能随时间变化）。
+
+团队在自然语言处理、知识图谱、机器学习等领域拥有多年的研究经验和技术积累。
+
+## 二.版本发布、技术改进和优势（按时间顺序）
+
+智谱AI在大模型领域的技术演进主要围绕其GLM（General Language Model）系列模型展开。
+
+*   **GLM-130B (2022年)**
+    *   **模型架构：** 基于Transformer架构，参数量达到1300亿。
+    *   **训练数据：** 使用了大量中英文语料进行预训练。
+    *   **技术改进：** 采用了双向注意力机制，提升了对上下文的理解能力。在当时是国内参数规模领先的预训练语言模型之一。
+    *   **优势：** 在中文理解和生成方面表现出色，具备较强的零样本学习能力。
+    *   **开源情况：** 开放了模型权重，推动了国内大模型技术的发展。
+
+*   **ChatGLM系列 (2023年开始)**
+    *   **ChatGLM (初代，约2023年初):**
+        *   **技术改进：** 在GLM-130B的基础上进行了指令微调和人类反馈强化学习（RLHF），使其更擅长对话和遵循指令。
+        *   **优势：** 提升了对话的流畅性和相关性，能够进行多轮对话。
+    *   **ChatGLM2 (约2023年中):**
+        *   **技术改进：** 进一步优化了模型性能和对话效果，可能在训练数据、模型结构或训练方法上有所调整。
+        *   **优势：** 相比初代ChatGLM，在上下文理解、逻辑推理等方面有所增强。
+    *   **ChatGLM3 (2023年10月发布):**
+        *   **模型架构：** 包含ChatGLM3-6B、ChatGLM3-6B-Base、ChatGLM3-6B-32K等多个版本。
+        *   **技术改进：**
+            *   **更强的基础模型：** ChatGLM3-6B-Base 具有更强的基础能力。
+            *   **更完整的功能支持：** 新增了工具调用（Function Call）、代码解释器（Code Interpreter）、Embedding等功能。
+            *   **全面的开源序列：** 开源了包括对话模型、基础模型、长文本模型在内的多个版本。
+            *   **多模态能力探索：** 开始探索多模态能力，例如结合CogVLM实现图像理解。
+        *   **优势：** 功能更全面，性能更强，开源力度更大，为开发者提供了更多选择和便利。
+
+*   **GLM-4系列 (2024年1月16日发布，Zhipu DevDay)**
+    *   **模型架构：** 包括GLM-4、GLM-4-Air、GLM-4-9B等型号。
+    *   **训练数据：** 预训练数据量达到数万亿级别的中英文token。
+    *   **技术改进和优势：**
+        *   **性能大幅提升：** 在MMLU、GSM8K、MATH等多个权威评测集上，性能逼近或部分超越GPT-4。
+        *   **长文本能力：** 支持128K上下文窗口，在LongBench测试中表现优异，并在“大海捞针”测试中实现128K内100%精准召回。
+        *   **更强的多模态能力：**
+            *   **文生图：** CogView3模型在文生图多个指标上接近DALL-E 3。
+            *   **图像理解：** GLM-4V (视觉模型) 能力提升。
+        *   **All Tools能力（智能体能力）：**
+            *   能够自主理解用户意图，规划复杂指令，并自由调用网页浏览器、代码解释器（Python）、文生图（CogView3）等工具完成复杂任务。
+            *   支持文件处理（Excel、PDF、PPT等）、数据分析、图表绘制。
+            *   Function Call能力与GPT-4 Turbo相当或部分超越。
+        *   **更快推理速度和更低成本：** 提升了推理效率，降低了API使用成本。
+        *   **GLMs智能体：** 用户可以在智谱清言App上无代码创建和分享自己的智能体。
+        *   **开源举措：** 宣布了大模型科研基金、大模型开源基金和“Z计划”创业基金。
+    *   **性能指标 (部分，与GPT-4对比)：**
+        *   MMLU (5-shot): 达到GPT-4的94%
+        *   GSM8K (5-shot): 达到GPT-4的95%
+        *   MATH (4-shot): 达到GPT-4的91%
+        *   中文对齐能力（AlignBench）: 整体超过GPT-4。
+
+*   **GLM-4-Voice (2024年10月25日宣布上线，10月27日左右全面上线于智谱清言App)**
+    *   **模型架构：** 端到端语音模型，由GLM-4-Voice-Tokenizer、GLM-4-Voice-Decoder和GLM-4-Voice-9B（基于GLM-4-9B进行语音模态预训练和对齐）三部分组成。
+    *   **技术改进和优势：**
+        *   **端到端语音处理：** 直接理解和生成中英文语音，避免了传统ASR+LLM+TTS级联方案的信息损失。
+        *   **情感理解与表达：** 能够理解用户语音中的情感，并以带有相应情感、语调、语速的语音进行回复，支持高兴、悲伤、生气等多种情绪。
+        *   **实时交互：** 具有更低的延迟，支持实时打断，提升交互体验。
+        *   **语音可控性：** 用户可以指令模型改变语音的情感、语调、语速、方言（如粤语、重庆话、北京话）等属性。
+        *   **预训练：** 经过数百万小时音频和数千亿token的音频文本交错数据预训练。
+        *   **流式思考架构：** 可以流式交替输出文本和语音，保证回复内容质量的同时具备低延迟。
+    *   **开源情况：** GLM-4-Voice模型已开源。
+    *   **未来展望：** 计划上线视频通话功能，实现“能看又能说”的AI语音助理。
+
+## 三.重要里程碑和成就
+
+*   **2022年：** 发布GLM-130B模型，成为当时国内领先的超大规模预训练语言模型之一，并进行了开源，对国内大模型生态发展产生积极影响。
+*   **2023年8月：** 智谱清言（搭载ChatGLM系列模型）正式上线，成为首批通过《生成式人工智能服务管理暂行办法》备案的大模型产品之一，标志着其合规化和商业化应用的开始。
+*   **2023年10月：** 发布ChatGLM3系列模型，引入工具调用、代码解释器等重要功能，并全面开源多个版本，进一步推动了AI技术在开发者社区的应用和创新。
+*   **2024年1月16日 (Zhipu DevDay)：** 发布GLM-4系列基座大模型，性能大幅提升，多项指标逼近或超越GPT-4，并推出All Tools智能体能力、GLMs个性化智能体构建平台，以及多项开源和扶持计划，展示了其在AGI道路上的决心和技术实力。
+*   **2024年：** 智谱AI完成多轮融资，总融资额达25亿元人民币（截至2023年底数据，2024年有新融资报道），估值达到百亿级别（有报道称2024年初估值约140亿人民币，后续融资后估值可能更高），投资方包括社保基金、国开制造业转型升级基金、阿里、腾讯、小米等知名机构和企业，体现了资本市场对其技术和前景的认可。
+*   **2024年10月25日-27日：** GLM-4-Voice情感语音模型上线并开源，实现了端到端的、具备情感理解和表达能力的语音交互，是国产AI在高级语音能力方面的重要突破。
+
+## 四.实际应用案例
+
+智谱AI通过其MaaS（Model as a Service）平台（bigmodel.cn）向企业和开发者提供模型服务，其技术和产品已应用于多个行业：
+
+*   **教育：**
+    *   **AI助教/智能导师：** 例如，上海科技大学利用智谱清言的文档处理和问答能力，将其应用于生物信息学等课程的辅助教学，帮助学生理解教材、解答疑问，并支持创建和分享针对特定教学场景的AI智能体。
+    *   **个性化学习：** 为学生提供定制化的学习路径和辅导。
+*   **企业服务/办公：**
+    *   **智能客服：** 提供更自然、更智能的客户交互体验。
+    *   **文档处理与分析：** 如合同审查、报告生成、知识管理等，提升办公效率。
+    *   **代码生成与辅助：** CodeGeeX作为一款AI编程助手，帮助开发者提高编码效率和质量。
+    *   **企业智能体构建：** 允许企业基于GLM模型构建满足自身业务需求的定制化AI应用。
+*   **金融：**
+    *   **智能投顾、风险控制、市场分析**等。
+*   **医疗：**
+    *   **辅助诊疗、医学文献分析、智能问诊**等。
+*   **制造：**
+    *   CEO张鹏在访谈中提到，在某些制造场景中，应用智谱AI的技术可以带来约30%的效率提升，例如通过AI优化生产流程、进行质量检测等。
+*   **汽车：**
+    *   应用于智能座舱、自动驾驶辅助系统中的自然语言交互等。
+*   **内容创作：**
+    *   辅助文案撰写、营销材料生成、创意构思等。
+
+智谱AI的MaaS平台据称已服务超过70万企业用户，API调用量和收入实现快速增长。
+
+## 五.社会讨论
+
+智谱清言及智谱AI的技术发展引发了广泛的社会讨论，主要集中在以下几个方面：
+
+*   **技术追赶与创新：**
+    *   与OpenAI等国际领先AI公司的技术对比，如GLM-4与GPT-4的性能比较，引发了关于中国AI技术在全球竞争格局中地位的讨论。
+    *   智谱AI坚持全栈自研的技术路线受到关注，被视为中国在AI核心技术领域寻求自主可控的重要努力。
+*   **AI伦理、安全与隐私：**
+    *   与其他大模型一样，智谱清言也面临数据隐私保护、信息偏见、内容安全可控等方面的挑战。
+    *   智谱AI强调在发展过程中注重AI安全和价值对齐，采取措施防止模型被滥用。
+    *   关于AI生成内容的真实性、版权归属以及可能被用于制造虚假信息等问题，是社会普遍关注的伦理议题。
+*   **行业影响与就业：**
+    *   大模型的快速发展对各行各业的生产方式和就业结构可能带来深远影响，引发了关于哪些岗位可能被AI替代、哪些新岗位可能产生的讨论。
+    *   智谱AI等公司的发展被视为推动产业智能化转型的重要力量。
+*   **开源与生态建设：**
+    *   智谱AI在GLM系列模型上的持续开源举措，获得了开发者社区的积极评价，被认为有助于构建开放、繁荣的AI生态系统，降低AI技术的应用门槛。
+*   **监管与政策：**
+    *   作为首批通过备案的国产大模型，智谱清言的发展也受到国家相关政策法规的影响和规范。AI行业的健康发展需要技术创新与有效监管并重。
+
+## 六.当前局限性和未来发展方向
+
+**当前局限性：**
+
+*   **技术层面：**
+    *   **幻觉问题：** 与所有大语言模型类似，智谱清言在某些情况下仍可能产生不准确或与事实不符的“幻觉”内容。
+    *   **逻辑推理的深度和复杂性：** 虽然GLM-4在推理能力上已有显著提升，但在处理极其复杂或需要多步深度推理的问题时，仍有提升空间。
+    *   **多模态融合的深度：** 尽管在语音、图像理解和生成方面取得了进展，但实现更深层次、更无缝的多模态信息融合与交互仍是挑战。
+    *   **可解释性：** 大模型的决策过程往往缺乏透明度，提升模型的可解释性是一个持续的研究方向。
+    *   **实时性和效率：** 对于超长上下文处理和复杂任务，推理的实时性和计算效率仍需进一步优化，以降低成本和延迟。
+*   **数据层面：**
+    *   **高质量训练数据的获取与偏见：** 持续获取大规模、高质量、多样化的训练数据，并有效处理数据中可能存在的偏见，对模型性能和公平性至关重要。
+*   **应用层面：**
+    *   **垂直行业深度融合：** 将通用大模型能力与特定行业知识和业务流程深度融合，打造真正解决行业痛点的应用，仍需大量探索和实践。
+    *   **“杀手级”应用的出现：** 尽管应用场景广泛，但现象级的“杀手级”应用尚未大规模涌现。
+
+**未来发展方向：**
+
+*   **向通用人工智能（AGI）迈进：** 这是智谱AI的长期目标，意味着模型需要在更广泛的任务上达到或超越人类水平，具备更强的自主学习、推理和创造能力。
+*   **多模态能力的持续深化：** 不仅是支持更多模态，更在于实现不同模态信息之间的高效理解、转换和协同生成，例如更自然的视频交互、结合物理世界感知的交互等。
+*   **智能体（Agent）能力的进化：** 提升AI智能体的主动性、规划能力、工具使用熟练度以及在复杂环境中的适应性，使其能更自主地完成复杂任务。
+*   **模型效率与可访问性的提升：** 研发更小、更快、更高效的模型版本，降低部署和使用门槛，使AI技术能惠及更多用户和场景。
+*   **AI安全与伦理的深化研究：** 建立更完善的AI安全评估体系、偏见检测与消除机制、价值对齐方法，确保AI技术发展的可信和可控。
+*   **端侧AI与云端AI的协同：** 结合高通等芯片厂商的合作，推动大模型在端侧设备的部署和优化，实现云端与端侧协同的智能服务。
+*   **开放生态的持续建设：** 通过开源模型、开放平台、开发者社区支持等方式，持续构建和繁荣AI应用生态。
+*   **探索新的模型架构和训练范式：** 持续研究更先进的AI理论和技术，以突破现有瓶颈。
+
+智谱AI致力于通过技术迭代和生态建设，逐步克服当前局限，向着更强大、更通用、更安全的AI未来发展。
+
+`;
+
+        // Convert Markdown to HTML and inject it into the main content area
+        // Wrap sections in cards for styling and animation
+        function renderMarkdown() {
+            const mainContentElement = document.getElementById('main-content');
+            if (!mainContentElement) {
+                console.error("renderMarkdown Error: 'main-content' element not found!");
+                document.body.innerHTML = "Error: 'main-content' element not found! Critical error."; // Drastic fallback
+                return;
+            }
+
+            console.log("renderMarkdown: Starting. Markdown content length:", markdownContent ? markdownContent.length : 0);
+
+            if (!markdownContent || markdownContent.trim() === "") {
+                mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Markdown content is empty or missing.</p></div>";
+                console.warn("renderMarkdown: markdownContent is empty.");
+                return;
+            }
+
+            try {
+                const rawHtml = marked.parse(markdownContent.replace(/<mcreference[^>]*>[^<]*<\/mcreference>/g, ''));
+                console.log("renderMarkdown: Parsed HTML length:", rawHtml ? rawHtml.length : 0);
+
+                if (!rawHtml || rawHtml.trim() === "") {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Parsing markdown resulted in empty HTML. Check console for details (e.g., issues with 'marked' library or markdown syntax).</p></div>";
+                    console.warn("renderMarkdown: marked.parse(markdownContent) resulted in empty HTML.");
+                    return;
+                }
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = rawHtml;
+
+                if (tempDiv.children.length === 0 && rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: No child elements found after parsing markdown, but raw HTML is not empty. Displaying raw HTML.");
+                    mainContentElement.innerHTML = rawHtml;
+                    addScrollAnimations();
+                    return;
+                }
+
+                let cardHtml = '';
+                let currentCardContent = '';
+                let cardCount = 0;
+
+                Array.from(tempDiv.children).forEach(node => {
+                    if (node.tagName === 'H1') { // Skip the main H1, it's already in the header
+                        return;
+                    }
+
+                    if (node.tagName === 'H2') {
+                        if (currentCardContent) { // If there's content for a previous card, finalize it
+                            cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                            cardCount++;
+                        }
+                        currentCardContent = node.outerHTML; // Start new card with H2
+                    } else {
+                        // Append other content to the current card section
+                        if (currentCardContent) { // If a card (started by H2) is active
+                            currentCardContent += node.outerHTML;
+                        } else if (cardHtml === '' && !currentCardContent) {
+                            // This handles content that might appear before the very first H2 (after skipping H1)
+                            // It starts the first card with this content.
+                            currentCardContent = node.outerHTML;
+                        }
+                        // Content not fitting these conditions (e.g. orphaned after a card is closed but before new H2) might be skipped.
+                        // Given the expected structure (H1, then H2 sections), this should be robust.
+                    }
+                });
+
+                if (currentCardContent) { // Finalize the last card's content
+                    cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                    cardCount++;
+                }
+
+                console.log("renderMarkdown: Number of cards generated:", cardCount);
+                console.log("renderMarkdown: Final cardHtml length:", cardHtml.length);
+
+                if (cardHtml.trim() !== "") {
+                    mainContentElement.innerHTML = cardHtml;
+                } else if (rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: Card generation resulted in empty HTML. Falling back to raw HTML.");
+                    mainContentElement.innerHTML = rawHtml; // Fallback to raw HTML if card logic produced nothing but parsing was successful
+                } else {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Failed to generate card HTML and raw HTML is also empty. Content processing failed.</p></div>";
+                    console.error("renderMarkdown: Both cardHtml and rawHtml are effectively empty after processing.");
+                }
+
+                addScrollAnimations(); // Apply scroll animations to newly added cards
+
+            } catch (error) {
+                mainContentElement.innerHTML = `<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error during markdown rendering: ${error.message}. Check browser console for stack trace.</p></div>`;
+                console.error("Error in renderMarkdown function execution:", error);
+            }
+        }
+
+        // Scroll-triggered animations using a single IntersectionObserver
+        function addScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            if (animatedElements.length === 0) {
+                // console.warn("addScrollAnimations: No '.scroll-animate' elements found to animate.");
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0px)';
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                renderMarkdown(); // This function now also calls addScrollAnimations internally
+            } catch (e) {
+                console.error("Error during initial page setup (DOMContentLoaded):", e);
+                const mainContentElement = document.getElementById('main-content');
+                if (mainContentElement) {
+                    // Display a user-friendly error message on the page
+                    mainContentElement.innerHTML = `
+                        <div class="content-card" style="color: #ff6b6b; background: rgba(255,255,255,0.1); opacity:1; transform:translateY(0);">
+                            <h2 style="color: #ff6b6b;"><i class="fas fa-exclamation-triangle icon"></i> 页面加载错误</h2>
+                            <p>抱歉，加载此页面内容时发生错误。</p>
+                            <p><strong>错误详情:</strong> ${e.message}</p>
+                            <p>请尝试刷新页面，或按 F12 打开浏览器控制台查看更多技术信息。</p>
+                        </div>`;
+                } else {
+                    // Fallback if main-content is not even available
+                    document.body.innerHTML = `错误: ${e.message}. 未找到主要内容容器。`;
+                }
+            }
+        });
+
+    </script>
+</body>
+<html>

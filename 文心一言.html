@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文心一言 发展历程与深度解析</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.umd.min.js"></script>
+    <style>
+        body {
+            background-color: #1a1a2e; /* 深色背景 */
+            color: #e0e0e0; /* 亮色文字 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* 确保在内容之下 */
+        }
+        .content-card {
+            background: rgba(255, 255, 255, 0.05); /* 玻璃拟态背景 */
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(128, 0, 128, 0.3), 0 0 30px rgba(0, 0, 255, 0.2); /* 霓虹光效 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 25px rgba(128, 0, 128, 0.6), 0 0 45px rgba(0, 0, 255, 0.4); /* 悬停发光效果 */
+        }
+        h1, h2, h3 {
+            color: #9f7aea; /* 紫色标题 */
+            font-weight: bold;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 1em; text-align: center; }
+        h2 { font-size: 2em; margin-top: 1.5em; margin-bottom: 0.8em; border-bottom: 2px solid #9f7aea; padding-bottom: 0.3em;}
+        h3 { font-size: 1.5em; margin-top: 1em; margin-bottom: 0.5em; color: #63b3ed; }
+        p, li {
+            line-height: 1.8;
+            margin-bottom: 1em;
+            color: #c0c0c0;
+        }
+        ul { list-style-type: disc; margin-left: 20px; }
+        strong { color: #a0aec0; }
+        .reference-link {
+            font-size: 0.8em;
+            color: #63b3ed;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            margin-right: 8px;
+            color: #9f7aea;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer a {
+            color: #9f7aea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        /* 滚动动画的初始状态 */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Added transition for smoothness */
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center my-12">
+            <h1 class="text-5xl font-bold text-purple-400">文心一言 发展历程与深度解析</h1>
+        </header>
+
+        <main id="main-content">
+            <!-- Markdown content will be inserted here by JavaScript -->
+        </main>
+
+        <footer class="footer">
+            <p class="text-gray-400">信息来源：综合网络资源，包括但不限于维基百科、文心一言官网、各类科技媒体文章等。</p>
+            <p>
+                <a href="https://yiyan.baidu.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-globe icon"></i>文心一言 官方网站
+                </a>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">&copy; 2024 AI Timeline Project. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        const markdownContent = `
+# 文心一言：详细信息汇总
+
+## 一.项目的起始点和背后的研究动机
+
+文心一言是百度公司基于其深厚的AI技术积累，特别是“文心大模型”技术，于2023年3月16日推出的生成式对话产品。其研究动机源于对自然语言处理技术发展趋势的把握，以及满足日益增长的人机交互、内容创作、知识获取等需求的驱动。百度致力于打造自主可控的AI基础设施，推动人工智能技术的产业化应用，文心一言正是这一战略下的重要成果。其背后依托的是百度在人工智能领域长达十年的投入，包括知识图谱、自然语言处理、深度学习等核心技术的持续研发。
+
+文心一言的开发团队隶属于百度公司。百度创始人、董事长兼首席执行官李彦宏对项目高度重视并亲自参与。百度首席技术官（CTO）王海峰是文心大模型及文心一言项目的关键领导者，其团队在自然语言处理和AI大模型领域拥有深厚的技术积累和丰富的研发经验。飞桨（PaddlePaddle）深度学习平台为文心大模型的训练和推理提供了核心技术支撑。
+
+## 二.版本发布、技术改进及优势（按时间顺序）
+
+文心大模型经历了多个重要版本的迭代，文心一言作为其应用产品也随之升级：
+
+*   **文心大模型 1.0**：早期版本，奠定了知识增强的技术路线，通过引入知识图谱，提升了模型对语言的理解能力。
+*   **文心大模型 ERNIE 3.0 系列**：在模型结构、训练方法等方面持续创新，提出了统一的预训练框架，能够同时处理自然语言理解和生成任务。具备强大的跨语言、跨模态能力。
+*   **文心大模型 ERNIE 3.5**：在理解、生成、逻辑和记忆四大基础能力上均有显著提升，性能和效率得到优化。
+*   **文心一言（2023年3月16日发布）**：基于文心大模型技术推出的首个生成式对话产品。具备知识增强、检索增强和对话增强三大核心技术优势。
+    *   **知识增强**：引入大规模知识图谱，提升了理解和生成的准确性与可靠性。
+    *   **检索增强**：结合搜索引擎技术，能够获取实时、准确的信息，缓解大模型幻觉问题。
+    *   **对话增强**：优化对话管理、上下文理解和多轮交互能力，使对话更自然流畅。
+*   **文心大模型 4.0**：在理解、生成、逻辑、记忆四大能力上实现了全面提升，尤其在复杂推理、指令遵循、内容创作等方面表现突出。据称其综合能力与GPT-4相比毫不逊色。 <mcreference link="https://www.jiqizhixin.com/articles/2024-07-01-3" index="5">5</mcreference>
+    *   **模型架构**：持续优化，输入、输出两个阶段都运用知识点增强。 <mcreference link="https://www.qbitai.com/2024/07/162994.html" index="4">4</mcreference>
+    *   **训练数据**：基于万亿级网页数据、数万亿级搜索数据以及百亿级图片数据，结合精调数据进行训练。
+    *   **性能指标**：在多个权威评测中表现优异，例如在中国信通院“方升”大模型基准测试中，文心大模型4.5在基础能力结果中名列前茅。 <mcreference link="https://wenxin.baidu.com/" index="3">3</mcreference>
+*   **文心大模型 4.0 Turbo （2024年发布）**：作为4.0版本的增强版，速度更快，效果更好。 <mcreference link="https://www.jiqizhixin.com/articles/2024-07-01-3" index="5">5</mcreference> 智能体能力得到增强，能够可靠执行、自我进化，并一定程度上可以将思考过程白盒化。 <mcreference link="https://www.jiqizhixin.com/articles/2024-07-01-3" index="5">5</mcreference>
+*   **文心大模型 4.5 Turbo、X1 Turbo （截至2025年4月前发布）**：进一步提升性能和效率，旨在提供更强大的AI能力。 <mcreference link="https://wenxin.baidu.com/" index="3">3</mcreference>
+
+**技术改进和优势总结**：
+*   **知识增强**：持续的核心优势，通过融入大规模知识图谱，提升模型理解和生成的准确性、逻辑性和可信度。
+*   **多模态能力**：从文本到图像、语音等多模态数据的理解和生成能力不断增强。
+*   **产业级应用**：依托飞桨深度学习平台，文心大模型在训练效率、推理性能和部署灵活性方面具备优势，易于与产业结合。
+*   **生态建设**：通过千帆大模型平台等，降低企业使用大模型的门槛，推动生态发展。
+*   **持续学习与迭代**：通过持续学习技术，不断吸收新知识，实现模型效果的进化。
+
+## 三.重要里程碑和成就
+
+*   **2023年3月16日**：文心一言正式发布，标志着百度在大模型领域的成果开始面向公众提供服务。
+*   **用户规模破亿（约2023年底至2024年初）**：文心一言用户规模突破1亿，成为国内首个用户过亿的生成式AI应用，跨越了规模效益的门槛，显示了其技术应用潜力和市场竞争力。
+*   **技术持续领先**：文心大模型在多个国内外权威评测中取得优异成绩，例如在中国软件评测中心《人工智能大语言模型技术发展研究报告（2024年）》中，文心大模型在技术、产品、应用方面被认为全面领先，并在智能体、多模型创新方面具备先发优势。 <mcreference link="https://www.qbitai.com/2024/07/162994.html" index="4">4</mcreference>
+*   **效率大幅提升**：文心大模型的周均训练有效率达到98.8%，相比2023年文心一言发布时，训练效率提升到当时的5.1倍，推理性能提升到105倍。 <mcreference link="https://www.qbitai.com/2024/07/162994.html" index="4">4</mcreference>
+*   **广泛的应用赋能**：截至2025年4月前，飞桨文心开发者数量已超过2185万，服务超过67万家企业，创建的模型达到110万。 <mcreference link="https://wenxin.baidu.com/" index="3">3</mcreference> 文心一言已完成数十亿字的文本创作，生成数亿行代码，处理数亿字的专业合同，制定数百万次的旅行计划。
+*   **生态构建**：发布文心大模型星河共创计划，推动产业生态发展，已开发超过4000个应用。
+
+这些成就不仅展示了文心一言的技术实力，也体现了其在推动中国AI产业发展和参与国际竞争中的重要作用。
+
+## 四.实际应用案例
+
+文心一言及其背后的文心大模型已广泛应用于多个领域：
+
+*   **内容创作**：辅助撰写文案、新闻稿、小说、诗歌、邮件等，提高创作效率和质量。
+*   **办公提效**：在百度如流等办公软件中，提供智能写作、会议纪要、代码生成（如文心快码Comate）等功能，提升工作效率。百度80%的工程师已深度使用文心快码，代码采纳率达到46%。 <mcreference link="https://www.qbitai.com/2024/07/162994.html" index="4">4</mcreference>
+*   **教育**：作为智能助教，辅助备课、答疑解惑、个性化学习辅导等。
+*   **医疗与生物计算**：赋能新药研发、疾病诊断、蛋白质结构预测（如HelixFold）等。
+*   **金融**：应用于智能客服、风险控制、研报生成、量化交易等场景。
+*   **工业与能源**：在电力、能源等行业，用于设备巡检、故障诊断、安全生产等。
+*   **农业**：例如，基于文心智能体平台创建的“农民院士智能体”，为农民提供农业生产问题的专业解答，助力乡村振兴。 <mcreference link="https://www.jiqizhixin.com/articles/2024-07-01-3" index="5">5</mcreference>
+*   **文化与创意**：例如，AI焕活甲骨文，让古老文字能与现代人对话。 <mcreference link="https://www.jiqizhixin.com/articles/2024-07-01-3" index="5">5</mcreference>
+*   **智能客服**：提供更自然、高效的客户服务体验。
+*   **智能家居与车载**：提升人机交互的智能化水平。 <mcreference link="https://qianfan.cloud.baidu.com/qianfandev/topic/268456" index="2">2</mcreference>
+
+这些案例表明文心一言正在将AI技术融入各行各业，解决实际问题，创造商业和社会价值。
+
+## 五.社会讨论（隐私、安全、公平性）
+
+文心一言等大模型的快速发展也引发了广泛的社会讨论：
+
+*   **数据隐私**：大模型的训练依赖海量数据，如何确保用户数据的隐私和安全，防止数据泄露和滥用，是一个核心议题。百度强调在数据采集和使用过程中遵守相关法律法规，并采取技术手段保护用户隐私。
+*   **信息安全与内容可信度**：生成式AI可能被用于制造虚假信息、深度伪造等，对社会信任和舆论环境构成挑战。文心一言通过知识增强和检索增强等技术，努力提升生成内容的事实性和准确性，并设有安全机制过滤有害信息。
+*   **算法偏见与公平性**：训练数据中可能存在的偏见会导致模型在决策和内容生成上表现出不公平。百度等开发者需要持续关注并改进算法，减少偏见，确保模型的公平性。
+*   **知识产权**：AI生成内容的版权归属、以及模型训练数据是否侵犯他人知识产权等问题备受关注。相关法律法规仍在完善中。
+*   **就业影响**：AI在某些领域的应用可能取代部分人工，引发对就业结构变化的担忧。同时，AI也催生了新的职业和技能需求。
+*   **伦理规范与监管**：社会各界呼吁建立健全AI伦理规范和法律法规，引导AI技术向善发展。中国已出台相关管理办法，对生成式AI服务进行规范。
+
+百度等企业在发展技术的同时，也积极参与相关讨论，并采取措施应对这些挑战，例如加强内容审核、提升模型鲁棒性、推动行业自律等。
+
+## 六.当前局限性及未来发展方向
+
+**当前局限性**：
+
+*   **“幻觉”问题**：尽管通过检索增强等技术有所缓解，但生成式AI仍可能产生不符合事实或逻辑的“幻觉”内容。
+*   **深度理解与常识推理**：在需要深度理解复杂语境、进行复杂常识推理的任务上，仍有提升空间。
+*   **可解释性**：大模型的决策过程往往是“黑箱”，提升其可解释性是重要的研究方向。
+*   **训练和推理成本**：大模型的训练和运行需要巨大的算力支持，成本较高。
+*   **安全可控性**：防止模型被恶意利用，确保生成内容的安全性仍面临挑战。
+*   **特定领域知识的深度融合**：通用大模型在特定专业领域的知识深度和应用效果可能不如专用模型。
+
+**未来发展方向**：
+
+*   **多模态融合**：进一步融合文本、图像、语音、视频等多种模态信息，实现更全面的理解和生成能力。
+*   **智能体（Agent）技术**：发展能够自主理解、规划、执行复杂任务，并与环境交互、持续学习的智能体，这是大模型应用的重要方向。文心大模型已在此方向布局。 <mcreference link="https://www.qbitai.com/2024/07/162994.html" index="4">4</mcreference>
+*   **模型压缩与边缘计算**：研究更高效的模型压缩技术，使大模型能够在资源受限的设备上运行，拓展应用场景。
+*   **可信AI**：提升模型的可靠性、鲁棒性、公平性和透明度，构建更值得信赖的AI系统。
+*   **行业大模型与专用模型**：结合行业知识和数据，开发面向特定领域的专用大模型，提升在垂直领域的应用效果和价值。 <mcreference link="https://www.qbitai.com/2024/07/162994.html" index="4">4</mcreference>
+*   **人机协同**：探索更高效的人机协同模式，让AI成为人类能力的增强器。
+*   **持续学习与自适应能力**：使模型能够不断从新数据和交互中学习，适应动态变化的环境和需求。
+
+克服技术障碍（如提升推理能力、降低成本）和解决社会问题（如伦理、法规）是文心一言及整个AI领域未来发展需要持续努力的方向。
+
+`;
+
+        // Convert Markdown to HTML and inject it into the main content area
+        // Wrap sections in cards for styling and animation
+        function renderMarkdown() {
+            const mainContentElement = document.getElementById('main-content');
+            if (!mainContentElement) {
+                console.error("renderMarkdown Error: 'main-content' element not found!");
+                document.body.innerHTML = "Error: 'main-content' element not found! Critical error."; // Drastic fallback
+                return;
+            }
+
+            console.log("renderMarkdown: Starting. Markdown content length:", markdownContent ? markdownContent.length : 0);
+
+            if (!markdownContent || markdownContent.trim() === "") {
+                mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Markdown content is empty or missing.</p></div>";
+                console.warn("renderMarkdown: markdownContent is empty.");
+                return;
+            }
+
+            try {
+                const rawHtml = marked.parse(markdownContent.replace(/<mcreference[^>]*>[^<]*<\/mcreference>/g, ''));
+                console.log("renderMarkdown: Parsed HTML length:", rawHtml ? rawHtml.length : 0);
+
+                if (!rawHtml || rawHtml.trim() === "") {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Parsing markdown resulted in empty HTML. Check console for details (e.g., issues with 'marked' library or markdown syntax).</p></div>";
+                    console.warn("renderMarkdown: marked.parse(markdownContent) resulted in empty HTML.");
+                    return;
+                }
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = rawHtml;
+
+                if (tempDiv.children.length === 0 && rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: No child elements found after parsing markdown, but raw HTML is not empty. Displaying raw HTML.");
+                    mainContentElement.innerHTML = rawHtml;
+                    addScrollAnimations();
+                    return;
+                }
+
+                let cardHtml = '';
+                let currentCardContent = '';
+                let cardCount = 0;
+
+                Array.from(tempDiv.children).forEach(node => {
+                    if (node.tagName === 'H1') { // Skip the main H1, it's already in the header
+                        return;
+                    }
+
+                    if (node.tagName === 'H2') {
+                        if (currentCardContent) { // If there's content for a previous card, finalize it
+                            cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                            cardCount++;
+                        }
+                        currentCardContent = node.outerHTML; // Start new card with H2
+                    } else {
+                        // Append other content to the current card section
+                        if (currentCardContent) { // If a card (started by H2) is active
+                            currentCardContent += node.outerHTML;
+                        } else if (cardHtml === '' && !currentCardContent) {
+                            // This handles content that might appear before the very first H2 (after skipping H1)
+                            // It starts the first card with this content.
+                            currentCardContent = node.outerHTML;
+                        }
+                        // Content not fitting these conditions (e.g. orphaned after a card is closed but before new H2) might be skipped.
+                        // Given the expected structure (H1, then H2 sections), this should be robust.
+                    }
+                });
+
+                if (currentCardContent) { // Finalize the last card's content
+                    cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                    cardCount++;
+                }
+
+                console.log("renderMarkdown: Number of cards generated:", cardCount);
+                console.log("renderMarkdown: Final cardHtml length:", cardHtml.length);
+
+                if (cardHtml.trim() !== "") {
+                    mainContentElement.innerHTML = cardHtml;
+                } else if (rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: Card generation resulted in empty HTML. Falling back to raw HTML.");
+                    mainContentElement.innerHTML = rawHtml; // Fallback to raw HTML if card logic produced nothing but parsing was successful
+                } else {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Failed to generate card HTML and raw HTML is also empty. Content processing failed.</p></div>";
+                    console.error("renderMarkdown: Both cardHtml and rawHtml are effectively empty after processing.");
+                }
+
+                addScrollAnimations(); // Apply scroll animations to newly added cards
+
+            } catch (error) {
+                mainContentElement.innerHTML = `<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error during markdown rendering: ${error.message}. Check browser console for stack trace.</p></div>`;
+                console.error("Error in renderMarkdown function execution:", error);
+            }
+        }
+
+        // Scroll-triggered animations using a single IntersectionObserver
+        function addScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            if (animatedElements.length === 0) {
+                // console.warn("addScrollAnimations: No '.scroll-animate' elements found to animate.");
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0px)';
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                renderMarkdown(); // This function now also calls addScrollAnimations internally
+            } catch (e) {
+                console.error("Error during initial page setup (DOMContentLoaded):", e);
+                const mainContentElement = document.getElementById('main-content');
+                if (mainContentElement) {
+                    // Display a user-friendly error message on the page
+                    mainContentElement.innerHTML = `
+                        <div class="content-card" style="color: #ff6b6b; background: rgba(255,255,255,0.1); opacity:1; transform:translateY(0);">
+                            <h2 style="color: #ff6b6b;"><i class="fas fa-exclamation-triangle icon"></i> 页面加载错误</h2>
+                            <p>抱歉，加载此页面内容时发生错误。</p>
+                            <p><strong>错误详情:</strong> ${e.message}</p>
+                            <p>请尝试刷新页面，或按 F12 打开浏览器控制台查看更多技术信息。</p>
+                        </div>`;
+                } else {
+                    // Fallback if main-content is not even available
+                    document.body.innerHTML = `错误: ${e.message}. 未找到主要内容容器。`;
+                }
+            }
+        });
+
+    </script>
+</body>
+<html>

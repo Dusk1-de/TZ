@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豆包 发展历程与深度解析</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.umd.min.js"></script>
+    <style>
+        body {
+            background-color: #1a1a2e; /* 深色背景 */
+            color: #e0e0e0; /* 亮色文字 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* 确保在内容之下 */
+        }
+        .content-card {
+            background: rgba(255, 255, 255, 0.05); /* 玻璃拟态背景 */
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(128, 0, 128, 0.3), 0 0 30px rgba(0, 0, 255, 0.2); /* 霓虹光效 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 25px rgba(128, 0, 128, 0.6), 0 0 45px rgba(0, 0, 255, 0.4); /* 悬停发光效果 */
+        }
+        h1, h2, h3 {
+            color: #9f7aea; /* 紫色标题 */
+            font-weight: bold;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 1em; text-align: center; }
+        h2 { font-size: 2em; margin-top: 1.5em; margin-bottom: 0.8em; border-bottom: 2px solid #9f7aea; padding-bottom: 0.3em;}
+        h3 { font-size: 1.5em; margin-top: 1em; margin-bottom: 0.5em; color: #63b3ed; }
+        p, li {
+            line-height: 1.8;
+            margin-bottom: 1em;
+            color: #c0c0c0;
+        }
+        ul { list-style-type: disc; margin-left: 20px; }
+        strong { color: #a0aec0; }
+        .reference-link {
+            font-size: 0.8em;
+            color: #63b3ed;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            margin-right: 8px;
+            color: #9f7aea;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer a {
+            color: #9f7aea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        /* 滚动动画的初始状态 */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Added transition for smoothness */
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center my-12">
+            <h1 class="text-5xl font-bold text-purple-400">豆包 发展历程与深度解析</h1>
+        </header>
+
+        <main id="main-content">
+            <!-- Markdown content will be inserted here by JavaScript -->
+        </main>
+
+        <footer class="footer">
+            <p class="text-gray-400">信息来源：综合网络资源，包括但不限于维基百科、豆包官网、各类科技媒体文章等。</p>
+            <p>
+                <a href="https://www.doubao.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-globe icon"></i>豆包 官方网站
+                </a>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">&copy; 2024 AI Timeline Project. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        const markdownContent = `
+# 豆包AI综合信息
+
+## 一、项目起始点与研究动机
+
+豆包（Doubao）是字节跳动公司于2023年推出的免费AI对话机器人产品。其最初以“豆包”为名，作为字节跳动旗下首款面向公众的生成式AI应用，旨在为用户提供一个功能全面、易于使用的AI对话伙伴和智能创作助手。 <mcreference link="https://www.zhihu.com/column/c_1748087040981995520" index="1">1</mcreference> <mcreference link="https://www.thepaper.cn/newsDetail_forward_27890090" index="2">2</mcreference>
+
+研究动机包括：
+*   **抢占AI大模型市场先机**：在全球AI技术浪潮下，字节跳动作为科技巨头，推出豆包是其在AI大模型领域的重要布局，旨在与国内外其他AI产品竞争。
+*   **探索AI应用场景**：通过豆包，字节跳动可以探索AI在聊天、写作、学习、创作等多个场景的应用潜力，积累用户数据和反馈，优化模型性能。
+*   **普惠AI技术**：豆包提供免费服务，降低了用户使用AI技术的门槛，有助于AI技术的普及和推广。
+*   **赋能字节生态**：豆包的技术能力未来可能赋能字节跳动旗下的其他产品和服务，提升整体竞争力。
+
+*   **开发团队**：豆包主要由字节跳动的 **Flow部门** 负责研发。该部门专注于AI领域的研究与应用开发。 <mcreference link="https://www.thepaper.cn/newsDetail_forward_27890090" index="2">2</mcreference>
+*   **所属机构**：根据豆包的隐私政策，豆包由 **北京春田知韵科技有限公司及/或关联方** 提供。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+
+## 二、版本发布、技术改进与优势
+
+豆包自2023年上线以来，经历了多次迭代和功能增强。
+
+**初代版本及早期发展：**
+*   豆包最初于2023年8月左右上线，提供网页版和App版，支持iOS和安卓平台。 <mcreference link="https://www.thepaper.cn/newsDetail_forward_27890090" index="2">2</mcreference>
+*   早期功能主要集中在AI对话、文本创作（如写作文、写脚本、写代码）、知识问答等方面。
+*   其底层基于字节跳动自研的云雀大模型（Skylark）。 <mcreference link="https://www.thepaper.cn/newsDetail_forward_27890090" index="2">2</mcreference>
+
+**重要版本发布与技术改进：**
+
+豆包的功能不断扩展，体现了其技术上的持续改进：
+
+1.  **多模态能力增强**：
+    *   **图像生成**：豆包集成了文生图功能，用户可以通过文本描述生成图片。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference> <mcreference link="https://www.zhihu.com/column/c_1748087040981995520" index="1">1</mcreference>
+    *   **语音交互**：支持语音输入和语音播报，提升了交互的便捷性。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference>
+
+2.  **智能体（Agent）平台化**：
+    *   **智能体创建与发现**：用户可以创建和发布自己的智能体，也可以搜索和使用他人创建的智能体。这使得豆包从一个单一的AI助手向一个智能体平台演进。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference> <mcreference link="https://www.zhihu.com/column/c_1748087040981995520" index="1">1</mcreference>
+    *   **Ola Friend 智能体耳机集成**：豆包可以与Ola Friend智能体耳机连接，通过耳机唤醒AI语音助手，实现更便捷的AI服务。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+
+3.  **实用工具集成**：
+    *   **PDF分析与解读**：支持上传PDF文档进行分析、总结和问答。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference> <mcreference link="https://www.zhihu.com/column/c_1748087040981995520" index="1">1</mcreference>
+    *   **AI编程辅助**：提供代码生成、解释和调试等功能。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference>
+    *   **文案创作**：提供多种文案模板和创作辅助，如营销文案、短视频脚本等。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference>
+    *   **AI PPT生成**：支持根据主题快速生成PPT大纲和内容。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference>
+
+4.  **模型与性能优化**：
+    *   虽然具体的模型架构、训练数据和性能指标细节未完全公开，但从功能迭代和用户体验的提升来看，豆包的底层模型在持续优化。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+    *   隐私政策中提到，在经安全加密和去标识化处理的前提下，用户输入的数据和AI生成的回复可能用于模型训练，以调整优化模型效果和产品体验。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+    *   支持不同模型的选择，如云雀模型、ERNIE-Bot、ChatGLM等，用户可以根据需求切换。 <mcreference link="https://www.zhihu.com/column/c_1748087040981995520" index="1">1</mcreference>
+
+**豆包的优势：**
+*   **免费使用**：降低了用户使用门槛。
+*   **功能全面**：集成了对话、创作、工具、智能体等多种功能，满足多样化需求。
+*   **跨平台支持**：提供网页版、App（iOS、Android）、PC客户端及浏览器插件。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference> <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+*   **快速迭代**：功能更新迅速，不断引入新的AI能力。
+*   **智能体生态**：允许用户创建和分享智能体，具有平台化发展的潜力。
+*   **本土化优势**：更懂中文语境和用户习惯。
+
+## 三、重要里程碑与成就
+
+豆包作为一款应用型AI产品，其里程碑主要体现在用户增长、功能创新和市场影响力方面：
+
+*   **2023年8月**：豆包App正式上线，标志着字节跳动在C端AI应用市场的发力。 <mcreference link="https://www.thepaper.cn/newsDetail_forward_27890090" index="2">2</mcreference>
+*   **持续的功能扩展**：陆续上线了AI作画、PDF阅读、智能体、AI PPT等功能，使其成为功能较为全面的AI助手之一。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference> <mcreference link="https://www.zhihu.com/column/c_1748087040981995520" index="1">1</mcreference>
+*   **用户量增长**：虽然具体的官方用户数据披露较少，但作为一款免费且功能丰富的AI应用，豆包在用户中获得了一定的关注和使用量。
+*   **行业合作探索**：例如，上汽乘用车与豆包大模型合作，利用AI技术提升用户反馈处理效率，展示了豆包在企业级应用的潜力。 <mcreference link="https://www.sohu.com/a/788020600_121124373" index="5">5</mcreference>
+
+这些进展表明豆包正在积极拓展其应用边界，并努力提升用户体验和市场竞争力。
+
+## 四、实际应用案例
+
+豆包AI在多个领域展现了其实用价值：
+
+1.  **个人日常与学习**：
+    *   **信息查询与问答**：快速获取各种知识和信息。
+    *   **文本创作**：撰写邮件、报告、作文、诗歌、小说、代码等。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference>
+    *   **学习辅助**：解释概念、总结知识点、外语翻译和练习。
+    *   **PDF文档处理**：快速阅读、总结PDF内容，提取关键信息。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference>
+
+2.  **工作与创作**：
+    *   **文案与营销**：生成广告语、社交媒体帖子、产品描述等。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference>
+    *   **编程辅助**：编写代码片段、解释代码逻辑、调试程序。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference>
+    *   **内容创作**：生成短视频脚本、故事大纲、PPT演示文稿。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference>
+    *   **图像生成**：为文章、演示或社交媒体创作配图。 <mcreference link="https://www.doubao.com/" index="4">4</mcreference>
+
+3.  **商业应用**：
+    *   **客户服务**：作为智能客服，解答用户疑问，提供7x24小时服务。
+    *   **企业内部效率提升**：例如，上汽乘用车利用豆包大模型处理用户反馈，通过AI对海量用户声音进行分析、总结、分类，提升了反馈处理的效率和准确性。 <mcreference link="https://www.sohu.com/a/788020600_121124373" index="5">5</mcreference>
+
+4.  **娱乐与个性化**：
+    *   **智能体互动**：用户可以与各种预设或自定义的智能体进行角色扮演对话，获得个性化的娱乐体验。 <mcreference link="https://www.zhihu.com/column/c_1748087040981995520" index="1">1</mcreference>
+    *   **个性化推荐**：根据用户的使用习惯和偏好，推荐相关的输入指令和聊天机器人。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+
+这些案例展示了豆包作为一款多功能AI助手，在提高效率、辅助创作和提供个性化服务方面的潜力。
+
+## 五、社会讨论、隐私、安全与公平性
+
+**社会讨论：**
+豆包作为一款新兴的AI应用，引发了社会对其功能、影响以及潜在风险的讨论。讨论主要集中在其便捷性、免费特性以及对工作学习方式的改变。
+
+**隐私：**
+*   **数据收集与使用**：豆包的隐私政策详细说明了其在不同功能场景下（如注册登录、智能对话、文件上传、个性化推荐、Ola Friend耳机连接等）收集的个人信息类型和使用目的。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+    *   收集的信息可能包括设备信息、日志信息、输入内容、语音信息（需授权）、位置信息（特定功能需授权）等。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+    *   用户输入的数据在去标识化和加密处理后，可能用于模型训练以改进服务。用户可以选择关闭“改进语音服务”来撤回语音信息用于模型训练的授权。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+*   **用户控制权**：隐私政策强调用户对其个人信息的控制权，包括查阅、复制、更正、删除、撤回同意、注销账号等。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference> 用户可以关闭个性化推荐功能。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+*   **隐私担忧与争议**：
+    *   尽管有隐私政策，部分用户仍对AI应用收集和使用个人数据表示担忧。 <mcreference link="https://www.stcn.com/article/detail/1144587.html" index="6">6</mcreference>
+    *   曾有报道指出，有用户通过豆包搜索功能意外获取到陌生人的微信号，引发了对AI隐私保护边界的讨论和对平台数据隔离与安全性的质疑。 <mcreference link="https://www.stcn.com/article/detail/1144587.html" index="6">6</mcreference>
+
+**安全性：**
+*   **技术保障**：豆包承诺采用不低于行业同行的加密技术、匿名化处理等手段保护用户信息安全，并设有专门的安全部门和管理制度。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+*   **内容审核**：豆包通过智能技术协助内容审核，自动识别文本、图像和视频中的不良内容，并提供实时反馈，帮助审核人员快速定位和处理问题内容。 <mcreference link="https://www.chinaz.com/news/2024/0516/1617922.shtml" index="7">7</mcreference>
+*   **数据存储**：用户个人信息存储于中华人民共和国境内。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+*   **第三方共享**：隐私政策列出了数据使用过程中可能涉及的合作方以及转移、公开个人信息的原则和情形，并提供了第三方信息共享清单。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+
+**公平性：**
+*   目前公开信息中关于豆包AI在算法公平性方面的具体讨论较少。AI大模型普遍面临数据偏见可能导致生成内容带有偏见的问题，这需要持续的技术投入和伦理考量来解决。
+*   豆包作为内容生成工具，其输出内容的客观性、中立性和避免歧视性是未来需要持续关注和改进的方面。
+
+**政策法规回应：**
+*   豆包的运营遵循中国的相关法律法规，如《中华人民共和国个人信息保护法》、《网络安全法》等。
+*   其隐私政策中明确了在特定法律法规要求下（如履行法定义务、国家安全、公共利益等）收集和使用个人信息可不必事先征得用户授权同意的情形。 <mcreference link="https://www.doubao.com/legal/privacy" index="3">3</mcreference>
+
+## 六、当前局限性与未来发展方向
+
+**当前局限性：**
+1.  **信息准确性与“AI幻觉”**：与其他大语言模型类似，豆包生成的内容可能存在不准确、不完整或完全错误的情况（即“AI幻觉”），尤其是在处理复杂或专业性较强的问题时。
+2.  **深度理解与推理能力**：虽然豆包在多轮对话和上下文理解方面有一定能力，但在深度逻辑推理、复杂问题解决和创造性思维方面仍有提升空间。
+3.  **知识更新滞后性**：模型的知识库更新可能滞后于现实世界的发展，导致对最新事件或信息的回答不准确。
+4.  **过度依赖与原创性**：用户可能过度依赖AI生成的内容，影响独立思考和原创能力。同时，AI生成内容的版权归属和原创性认定也是一个复杂问题。
+5.  **隐私与数据安全风险**：尽管有安全措施，但用户数据泄露、滥用的风险依然存在，需要持续加强防护。
+6.  **个性化与通用性的平衡**：在提供个性化服务的同时，如何避免形成信息茧房，保证信息的广度和多样性是一个挑战。
+7.  **算力成本与可持续性**：大模型的训练和运行需要巨大的算力支持，免费模式下的商业可持续性是其面临的长期考验。
+
+**未来发展方向：**
+1.  **模型能力持续增强**：
+    *   **更强的多模态融合**：深化文本、图像、语音、视频等多种信息的理解和生成能力，实现更自然的交互和更丰富的输出。
+    *   **提升逻辑推理与规划能力**：使AI能够更好地理解复杂指令，进行多步推理和任务规划。
+    *   **知识实时更新与校验**：探索更高效的知识更新机制，确保信息的时效性和准确性。
+2.  **Agent（智能体）生态深化**：
+    *   **更强大的智能体创建与协作能力**：允许用户创建更复杂、能执行多步骤任务的智能体，并支持智能体之间的协作。 <mcreference link="https://medium.com/@evelyn.z.liu/agents-the-next-frontier-in-ai-and-why-doubao-is-leading-the-charge-in-china-1d79700901d1" index="8">8</mcreference>
+    *   **个性化智能体市场**：形成活跃的智能体市场，用户可以发现、使用和交易各种专业化、个性化的智能体。
+3.  **垂直领域深度应用**：
+    *   结合行业知识库和特定场景需求，开发针对教育、医疗、金融、法律等垂直领域的专业AI解决方案。
+4.  **个性化与主动服务**：
+    *   基于对用户更深层次的理解，提供更精准的个性化推荐和更主动的服务，预测用户需求并提前提供帮助。
+5.  **人机协同与信任构建**：
+    *   优化人机交互体验，使AI成为更可靠、更值得信赖的助手和伙伴。
+    *   提高AI决策过程的透明度和可解释性。
+6.  **伦理与安全治理**：
+    *   加强AI伦理研究，确保技术发展的公平、公正和可控。
+    *   持续投入资源应对AI安全挑战，如深度伪造、滥用等问题。
+
+**需克服的技术障碍或社会问题：**
+*   **技术障碍**：大规模模型训练的效率和成本、高质量训练数据的获取、模型的可解释性和鲁棒性、多模态信息的有效融合等。
+*   **社会问题**：数据隐私保护与监管、算法偏见与歧视、AI对就业市场的影响、AI生成内容的版权与责任界定、公众对AI的认知与信任、AI伦理规范的建立与执行等。
+
+豆包作为字节跳动在AI领域的重要产品，其未来的发展将受到技术进步、市场需求、政策法规以及社会接受度等多方面因素的影响。 <mcreference link="https://www.rrdpm.com/pd/2308200.html" index="9">9</mcreference>
+
+`;
+
+        // Convert Markdown to HTML and inject it into the main content area
+        // Wrap sections in cards for styling and animation
+        function renderMarkdown() {
+            const mainContentElement = document.getElementById('main-content');
+            if (!mainContentElement) {
+                console.error("renderMarkdown Error: 'main-content' element not found!");
+                document.body.innerHTML = "Error: 'main-content' element not found! Critical error."; // Drastic fallback
+                return;
+            }
+
+            console.log("renderMarkdown: Starting. Markdown content length:", markdownContent ? markdownContent.length : 0);
+
+            if (!markdownContent || markdownContent.trim() === "") {
+                mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Markdown content is empty or missing.</p></div>";
+                console.warn("renderMarkdown: markdownContent is empty.");
+                return;
+            }
+
+            try {
+                const rawHtml = marked.parse(markdownContent.replace(/<mcreference[^>]*>[^<]*<\/mcreference>/g, ''));
+                console.log("renderMarkdown: Parsed HTML length:", rawHtml ? rawHtml.length : 0);
+
+                if (!rawHtml || rawHtml.trim() === "") {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Parsing markdown resulted in empty HTML. Check console for details (e.g., issues with 'marked' library or markdown syntax).</p></div>";
+                    console.warn("renderMarkdown: marked.parse(markdownContent) resulted in empty HTML.");
+                    return;
+                }
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = rawHtml;
+
+                if (tempDiv.children.length === 0 && rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: No child elements found after parsing markdown, but raw HTML is not empty. Displaying raw HTML.");
+                    mainContentElement.innerHTML = rawHtml;
+                    addScrollAnimations();
+                    return;
+                }
+
+                let cardHtml = '';
+                let currentCardContent = '';
+                let cardCount = 0;
+
+                Array.from(tempDiv.children).forEach(node => {
+                    if (node.tagName === 'H1') { // Skip the main H1, it's already in the header
+                        return;
+                    }
+
+                    if (node.tagName === 'H2') {
+                        if (currentCardContent) { // If there's content for a previous card, finalize it
+                            cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                            cardCount++;
+                        }
+                        currentCardContent = node.outerHTML; // Start new card with H2
+                    } else {
+                        // Append other content to the current card section
+                        if (currentCardContent) { // If a card (started by H2) is active
+                            currentCardContent += node.outerHTML;
+                        } else if (cardHtml === '' && !currentCardContent) {
+                            // This handles content that might appear before the very first H2 (after skipping H1)
+                            // It starts the first card with this content.
+                            currentCardContent = node.outerHTML;
+                        }
+                        // Content not fitting these conditions (e.g. orphaned after a card is closed but before new H2) might be skipped.
+                        // Given the expected structure (H1, then H2 sections), this should be robust.
+                    }
+                });
+
+                if (currentCardContent) { // Finalize the last card's content
+                    cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                    cardCount++;
+                }
+
+                console.log("renderMarkdown: Number of cards generated:", cardCount);
+                console.log("renderMarkdown: Final cardHtml length:", cardHtml.length);
+
+                if (cardHtml.trim() !== "") {
+                    mainContentElement.innerHTML = cardHtml;
+                } else if (rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: Card generation resulted in empty HTML. Falling back to raw HTML.");
+                    mainContentElement.innerHTML = rawHtml; // Fallback to raw HTML if card logic produced nothing but parsing was successful
+                } else {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Failed to generate card HTML and raw HTML is also empty. Content processing failed.</p></div>";
+                    console.error("renderMarkdown: Both cardHtml and rawHtml are effectively empty after processing.");
+                }
+
+                addScrollAnimations(); // Apply scroll animations to newly added cards
+
+            } catch (error) {
+                mainContentElement.innerHTML = `<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error during markdown rendering: ${error.message}. Check browser console for stack trace.</p></div>`;
+                console.error("Error in renderMarkdown function execution:", error);
+            }
+        }
+
+        // Scroll-triggered animations using a single IntersectionObserver
+        function addScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            if (animatedElements.length === 0) {
+                // console.warn("addScrollAnimations: No '.scroll-animate' elements found to animate.");
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0px)';
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                renderMarkdown(); // This function now also calls addScrollAnimations internally
+            } catch (e) {
+                console.error("Error during initial page setup (DOMContentLoaded):", e);
+                const mainContentElement = document.getElementById('main-content');
+                if (mainContentElement) {
+                    // Display a user-friendly error message on the page
+                    mainContentElement.innerHTML = `
+                        <div class="content-card" style="color: #ff6b6b; background: rgba(255,255,255,0.1); opacity:1; transform:translateY(0);">
+                            <h2 style="color: #ff6b6b;"><i class="fas fa-exclamation-triangle icon"></i> 页面加载错误</h2>
+                            <p>抱歉，加载此页面内容时发生错误。</p>
+                            <p><strong>错误详情:</strong> ${e.message}</p>
+                            <p>请尝试刷新页面，或按 F12 打开浏览器控制台查看更多技术信息。</p>
+                        </div>`;
+                } else {
+                    // Fallback if main-content is not even available
+                    document.body.innerHTML = `错误: ${e.message}. 未找到主要内容容器。`;
+                }
+            }
+        });
+
+    </script>
+</body>
+<html>

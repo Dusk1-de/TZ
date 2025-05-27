@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星火 发展历程与深度解析</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.umd.min.js"></script>
+    <style>
+        body {
+            background-color: #1a1a2e; /* 深色背景 */
+            color: #e0e0e0; /* 亮色文字 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* 确保在内容之下 */
+        }
+        .content-card {
+            background: rgba(255, 255, 255, 0.05); /* 玻璃拟态背景 */
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(128, 0, 128, 0.3), 0 0 30px rgba(0, 0, 255, 0.2); /* 霓虹光效 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 25px rgba(128, 0, 128, 0.6), 0 0 45px rgba(0, 0, 255, 0.4); /* 悬停发光效果 */
+        }
+        h1, h2, h3 {
+            color: #9f7aea; /* 紫色标题 */
+            font-weight: bold;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 1em; text-align: center; }
+        h2 { font-size: 2em; margin-top: 1.5em; margin-bottom: 0.8em; border-bottom: 2px solid #9f7aea; padding-bottom: 0.3em;}
+        h3 { font-size: 1.5em; margin-top: 1em; margin-bottom: 0.5em; color: #63b3ed; }
+        p, li {
+            line-height: 1.8;
+            margin-bottom: 1em;
+            color: #c0c0c0;
+        }
+        ul { list-style-type: disc; margin-left: 20px; }
+        strong { color: #a0aec0; }
+        .reference-link {
+            font-size: 0.8em;
+            color: #63b3ed;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            margin-right: 8px;
+            color: #9f7aea;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer a {
+            color: #9f7aea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        /* 滚动动画的初始状态 */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Added transition for smoothness */
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center my-12">
+            <h1 class="text-5xl font-bold text-purple-400">星火 发展历程与深度解析</h1>
+        </header>
+
+        <main id="main-content">
+            <!-- Markdown content will be inserted here by JavaScript -->
+        </main>
+
+        <footer class="footer">
+            <p class="text-gray-400">信息来源：综合网络资源，包括但不限于维基百科、星火官网、各类科技媒体文章等。</p>
+            <p>
+                <a href="https://xinghuo.xfyun.cn" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-globe icon"></i>星火 官方网站
+                </a>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">&copy; 2024 AI Timeline Project. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        const markdownContent = `
+# 讯飞星火认知大模型
+
+## 一.项目起始与研究动机
+
+科大讯飞在人工智能领域拥有数十年的研究和技术积累 <mcreference link="https://zhuanlan.zhihu.com/p/668061526" index="4">4</mcreference>。早在2022年12月，科大讯飞便正式启动了“1+N”认知大模型专项攻关，“1”即通用认知智能大模型，“N”则代表大模型在教育、办公、汽车、人机交互等多个领域的应用落地 <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="3">3</mcreference> <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="5">5</mcreference>。其研究动机在于构建一个全面、准确、灵活的认知模型，能够模拟人类的思维和逻辑推理过程，解决语言理解和推理中的挑战 <mcreference link="https://zhuanlan.zhihu.com/p/668061526" index="4">4</mcreference>。
+
+讯飞星火认知大模型的研发主体是科大讯飞股份有限公司。其研发团队由专业人工智能研究人员、数据科学家和领域专家组成，依托认知智能全国重点实验室进行技术攻关 <mcreference link="https://zhuanlan.zhihu.com/p/668061526" index="4">4</mcreference> <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="3">3</mcreference> <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="5">5</mcreference>。
+
+## 二.版本发布、技术改进与优势
+
+### V1.0 (2023年5月6日发布)
+
+*   **核心能力**：首次发布，展示了文本生成、语言理解、知识问答、逻辑推理、数学能力、代码能力及多模态能力等七大核心能力 <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="3">3</mcreference> <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="5">5</mcreference>。
+*   **技术特点**：基于对海量数据的高质量清洗和大规模参数模型的学习训练，实现了在多个领域的智慧涌现 <mcreference link="https://edu.iflytek.com/about-us/news/company-news/83.html" index="4">4</mcreference>。
+*   **优势**：在中文领域的文本生成、知识问答、数学能力三个维度上超越了当时的ChatGPT <mcreference link="https://edu.iflytek.com/about-us/news/company-news/83.html" index="4">4</mcreference>。
+
+### V1.5 (2023年6月9日发布)
+
+*   **核心能力升级**：开放式知识问答取得突破，多轮对话、逻辑和数学能力再升级 <mcreference link="https://edu.iflytek.com/about-us/news/company-news/793" index="1">1</mcreference>。
+*   **技术改进**：结合类搜索插件，有效解决了新知识难以更新、事实类问答容易“张冠李戴”等行业难题，知识问答能力提升24% <mcreference link="https://edu.iflytek.com/about-us/news/company-news/793" index="1">1</mcreference>。
+*   **配套发布**：星火APP同步发布，上线200多个面向生活、工作场景的小助手 <mcreference link="https://edu.iflytek.com/about-us/news/company-news/793" index="1">1</mcreference>。
+
+### V2.0 (2023年8月15日发布)
+
+*   **核心能力升级**：代码能力和多模态交互能力提升。
+*   **技术改进**：代码方面，迭代升级了代码自动生成、代码解释、代码纠错和单元测试生成等能力；多模态方面，实现了多模态理解和生成，支持图文生成、图片理解、虚拟人合成等。
+
+### V3.0 (2023年10月24日发布)
+
+*   **核心能力升级**：文本生成、语言理解、知识问答、逻辑推理、数学能力、代码能力、多模态能力七大能力全面提升，其中语言理解、数学能力超越GPT-4 Turbo，代码和多模态能力对标GPT-4 Turbo。
+*   **技术改进**：医疗领域问答效果提升，并能生成医疗报告；个性化人设功能上线。
+
+### V3.5 (2024年1月30日发布)
+
+*   **核心能力升级**：首个基于全国产算力平台“飞星一号”训练的大模型。语言理解、数学能力超过GPT-4 Turbo，代码能力达到GPT-4 Turbo的96%，多模态理解达到GPT-4V的91%。
+*   **技术改进**：在逻辑推理、文本生成、代码生成、多模态交互等方面均有显著提升。发布了星火语音大模型，支持37个语种的语音识别和40个语种的语音合成。
+*   **开源**：发布了星火开源-13B大模型。
+
+### V4.0 (2024年6月27日发布)
+
+*   **核心能力升级**：七大核心能力全面提升，整体超越GPT-4 Turbo。中文能力超越GPT-4o。
+*   **技术改进**：基于全国产算力平台“飞星一号/二号”训练。支持74种语言实时语音交互，视觉问答准确率达95%。代码开发能力逼近GPT-4 Turbo水平。
+*   **新增功能**：“个人空间”功能和星火企业智能体平台发布。
+
+## 三.重要里程碑与成就
+
+*   **2023年5月6日**：讯飞星火认知大模型V1.0发布，标志着科大讯飞正式入局大模型领域，并在中文特定能力上展现出领先性 <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="3">3</mcreference> <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="5">5</mcreference>。
+*   **2023年10月24日**：讯飞星火认知大模型V3.0发布，在语言理解、数学能力上对标并部分超越GPT-4 Turbo，用户数突破1200万。
+*   **2024年1月30日**：讯飞星火认知大模型V3.5发布，成为首个基于全国产算力训练的大模型，多项核心能力接近或达到GPT-4 Turbo水平，并开源了星火-13B模型。
+*   **2024年6月27日**：讯飞星火认知大模型V4.0发布，整体能力超越GPT-4 Turbo，中文能力超越GPT-4o，标志着国产大模型在技术上取得重要突破。
+
+这些成就推动了国产AI技术的发展，并在一定程度上提升了中国在全球AI领域的竞争力。
+
+## 四.实际应用案例
+
+讯飞星火认知大模型已广泛应用于多个行业：
+
+*   **教育**：赋能讯飞AI学习机，提供作文批改、口语陪练等功能 <mcreference link="https://www.xfyun.cn/solutions/xinghuoAPI?ch=apisq" index="2">2</mcreference>。星火教师助手覆盖2000+学校。
+*   **办公**：推出讯飞听见智慧屏、讯飞智文等产品，提升会议记录、文档生成效率 <mcreference link="https://xinghuo.xfyun.cn/" index="1">1</mcreference>。
+*   **医疗**：应用于医疗诊后康复管理平台，提供个性化康复计划和咨询服务 <mcreference link="https://www.geekpark.net/news/321496" index="3">3</mcreference>。医疗诊断准确率超90%，服务超2000万医疗用户。
+*   **汽车**：提升车载人机交互体验。
+*   **金融**：实现智能问答、智能投顾、营销文案生成等功能 <mcreference link="https://xinghuo.xfyun.cn/" index="1">1</mcreference>。
+*   **工业**：赋能羚羊工业互联网平台 <mcreference link="https://edu.iflytek.com/about-us/news/company-news/793" index="1">1</mcreference>。
+*   **数字员工/虚拟人**：打造更自然的实时交互体验，应用于数字人新闻官等 <mcreference link="https://www.geekpark.net/news/321496" index="3">3</mcreference>。
+
+这些应用有效解决了各行业的痛点问题，提升了效率，创造了新的价值。
+
+## 五.社会讨论、隐私、安全与公平性
+
+*   **隐私与安全**：科大讯飞发布了《讯飞星火认知大模型隐私政策》，明确了个人信息的收集、使用、存储和保护规则 <mcreference link="https://www.xfyun.cn/doc/spark/SparkPrivacyPolicy.html" index="2">2</mcreference>。政策强调在中国境内存储数据，并对儿童个人信息保护做了特别规定 <mcreference link="https://www.xfyun.cn/doc/spark/SparkPrivacyPolicy.html" index="2">2</mcreference>。开发者在使用SDK/API时，需向最终用户告知并获取授权 <mcreference link="https://www.xfyun.cn/doc/spark/SparkPrivacyPolicy.html" index="2">2</mcreference>。
+*   **公平性与伦理**：科大讯飞参与了中国信通院大模型标准体系2.0的建设，并牵头发布《通用人工智能大模型评测体系》，旨在推动大模型在科学的评测体系下发展，关注模型是否能解决刚需、是否真的有用 <mcreference link="https://edu.iflytek.com/about-us/news/company-news/793" index="1">1</mcreference> <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="3">3</mcreference> <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="5">5</mcreference>。尽管如此，大模型技术仍面临新知识更新不及时、事实类问答可能出错、史实编造等问题，这些是持续改进的方向 <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="3">3</mcreference> <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="5">5</mcreference>。
+
+## 六.当前局限性与未来发展方向
+
+*   **局限性**：
+    *   **新知识更新**：大模型知识库的实时更新仍是一个挑战 <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="3">3</mcreference> <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="5">5</mcreference>。
+    *   **事实准确性**：在事实类问答和处理史实、传统典籍时，仍有“张冠李戴”或“编造情节”的风险 <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="3">3</mcreference> <mcreference link="https://www.ncsti.gov.cn/kjdt/ztbd/rgzn/cgzs/202308/t20230831_132502.html" index="5">5</mcreference>。
+    *   **模型可解释性**：提升模型决策过程的透明度和可解释性是持续努力的方向 <mcreference link="https://zhuanlan.zhihu.com/p/668061526" index="4">4</mcreference>。
+    *   **大规模数据处理与模型复杂性**：虽然已有解决方案，但仍是持续优化的方向 <mcreference link="https://zhuanlan.zhihu.com/p/668061526" index="4">4</mcreference>。
+*   **未来发展方向**：
+    *   **持续提升核心能力**：在现有七大能力基础上持续迭代优化。
+    *   **深化行业应用**：进一步拓展和深化在教育、医疗、办公等关键领域的应用，解决更多实际问题。
+    *   **推动生态建设**：通过开放平台、开发者社区、场景创新赛等方式，与合作伙伴共建人工智能生态 <mcreference link="https://edu.iflytek.com/about-us/news/company-news/793" index="1">1</mcreference>。
+    *   **源头技术创新**：在类脑智能、神经网络大模型、博弈智能等方面探索通用人工智能的更多潜在路径和前沿交叉研究 <mcreference link="https://edu.iflytek.com/about-us/news/company-news/793" index="1">1</mcreference>。
+    *   **国产化替代**：依托全国产算力平台，持续推动AI技术的自主可控。
+
+克服这些技术障碍和解决相关的社会问题，将是讯飞星火及整个AI行业未来发展的重要课题。
+
+`;
+
+        // Convert Markdown to HTML and inject it into the main content area
+        // Wrap sections in cards for styling and animation
+        function renderMarkdown() {
+            const mainContentElement = document.getElementById('main-content');
+            if (!mainContentElement) {
+                console.error("renderMarkdown Error: 'main-content' element not found!");
+                document.body.innerHTML = "Error: 'main-content' element not found! Critical error."; // Drastic fallback
+                return;
+            }
+
+            console.log("renderMarkdown: Starting. Markdown content length:", markdownContent ? markdownContent.length : 0);
+
+            if (!markdownContent || markdownContent.trim() === "") {
+                mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Markdown content is empty or missing.</p></div>";
+                console.warn("renderMarkdown: markdownContent is empty.");
+                return;
+            }
+
+            try {
+                const rawHtml = marked.parse(markdownContent.replace(/<mcreference[^>]*>[^<]*<\/mcreference>/g, ''));
+                console.log("renderMarkdown: Parsed HTML length:", rawHtml ? rawHtml.length : 0);
+
+                if (!rawHtml || rawHtml.trim() === "") {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Parsing markdown resulted in empty HTML. Check console for details (e.g., issues with 'marked' library or markdown syntax).</p></div>";
+                    console.warn("renderMarkdown: marked.parse(markdownContent) resulted in empty HTML.");
+                    return;
+                }
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = rawHtml;
+
+                if (tempDiv.children.length === 0 && rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: No child elements found after parsing markdown, but raw HTML is not empty. Displaying raw HTML.");
+                    mainContentElement.innerHTML = rawHtml;
+                    addScrollAnimations();
+                    return;
+                }
+
+                let cardHtml = '';
+                let currentCardContent = '';
+                let cardCount = 0;
+
+                Array.from(tempDiv.children).forEach(node => {
+                    if (node.tagName === 'H1') { // Skip the main H1, it's already in the header
+                        return;
+                    }
+
+                    if (node.tagName === 'H2') {
+                        if (currentCardContent) { // If there's content for a previous card, finalize it
+                            cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                            cardCount++;
+                        }
+                        currentCardContent = node.outerHTML; // Start new card with H2
+                    } else {
+                        // Append other content to the current card section
+                        if (currentCardContent) { // If a card (started by H2) is active
+                            currentCardContent += node.outerHTML;
+                        } else if (cardHtml === '' && !currentCardContent) {
+                            // This handles content that might appear before the very first H2 (after skipping H1)
+                            // It starts the first card with this content.
+                            currentCardContent = node.outerHTML;
+                        }
+                        // Content not fitting these conditions (e.g. orphaned after a card is closed but before new H2) might be skipped.
+                        // Given the expected structure (H1, then H2 sections), this should be robust.
+                    }
+                });
+
+                if (currentCardContent) { // Finalize the last card's content
+                    cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                    cardCount++;
+                }
+
+                console.log("renderMarkdown: Number of cards generated:", cardCount);
+                console.log("renderMarkdown: Final cardHtml length:", cardHtml.length);
+
+                if (cardHtml.trim() !== "") {
+                    mainContentElement.innerHTML = cardHtml;
+                } else if (rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: Card generation resulted in empty HTML. Falling back to raw HTML.");
+                    mainContentElement.innerHTML = rawHtml; // Fallback to raw HTML if card logic produced nothing but parsing was successful
+                } else {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Failed to generate card HTML and raw HTML is also empty. Content processing failed.</p></div>";
+                    console.error("renderMarkdown: Both cardHtml and rawHtml are effectively empty after processing.");
+                }
+
+                addScrollAnimations(); // Apply scroll animations to newly added cards
+
+            } catch (error) {
+                mainContentElement.innerHTML = `<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error during markdown rendering: ${error.message}. Check browser console for stack trace.</p></div>`;
+                console.error("Error in renderMarkdown function execution:", error);
+            }
+        }
+
+        // Scroll-triggered animations using a single IntersectionObserver
+        function addScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            if (animatedElements.length === 0) {
+                // console.warn("addScrollAnimations: No '.scroll-animate' elements found to animate.");
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0px)';
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                renderMarkdown(); // This function now also calls addScrollAnimations internally
+            } catch (e) {
+                console.error("Error during initial page setup (DOMContentLoaded):", e);
+                const mainContentElement = document.getElementById('main-content');
+                if (mainContentElement) {
+                    // Display a user-friendly error message on the page
+                    mainContentElement.innerHTML = `
+                        <div class="content-card" style="color: #ff6b6b; background: rgba(255,255,255,0.1); opacity:1; transform:translateY(0);">
+                            <h2 style="color: #ff6b6b;"><i class="fas fa-exclamation-triangle icon"></i> 页面加载错误</h2>
+                            <p>抱歉，加载此页面内容时发生错误。</p>
+                            <p><strong>错误详情:</strong> ${e.message}</p>
+                            <p>请尝试刷新页面，或按 F12 打开浏览器控制台查看更多技术信息。</p>
+                        </div>`;
+                } else {
+                    // Fallback if main-content is not even available
+                    document.body.innerHTML = `错误: ${e.message}. 未找到主要内容容器。`;
+                }
+            }
+        });
+
+    </script>
+</body>
+<html>
