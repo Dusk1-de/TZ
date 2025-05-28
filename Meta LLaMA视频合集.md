@@ -39,7 +39,7 @@
    - 发布时间：2025-05-13
 
 7. [transformers源码阅读——如何看懂模型代码（以llama为例）](https://www.bilibili.com/video/av448503241)  
-   ![封面]images/c1aa3a020db1d738ff9e5f958a780e64a842be41.jpg)  
+   ![封面](images/c1aa3a020db1d738ff9e5f958a780e64a842be41.jpg)  
    - 播放量：37562
    - 时长：39:07
    - 发布时间：2023-09-16
