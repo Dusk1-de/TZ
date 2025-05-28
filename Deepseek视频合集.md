@@ -3,7 +3,7 @@
 ## 热门视频
 
 1. [【清华大学】DeepSeek从入门到精通，全程干货无废话！让你少走99%的弯路！](https://www.bilibili.com/video/av114557381053997)
-   ![封面](https://i1.hdslb.com/bfs/archive/a6284695fbb1684a60b0384d836e5f02e2963d20.png)
+   ![封面](images/a6284695fbb1684a60b0384d836e5f02e2963d20.png)
    - 播放量：2.9万
    - 时长：15:42
    - 发布时间：2025-05-23
