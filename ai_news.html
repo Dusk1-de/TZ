@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI新闻</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .news-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .news-item h2 {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+        .news-item h2 a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .news-item h2 a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        .news-item p {
+            font-size: 1em;
+            color: #555;
+            margin-top: 0;
+        }
+        .loading-message, .error-message {
+            text-align: center;
+            font-size: 1.2em;
+            color: #7f8c8d;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>每日AI新闻</h1>
+        <div id="news-container">
+            <p class="loading-message">正在加载新闻...</p>
+        </div>
+    </div>
+
+    <script>
+        async function fetchNews() {
+            const newsContainer = document.getElementById('news-container');
+            try {
+                const response = await fetch('AI热点新闻.md');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const markdownText = await response.text();
+                displayNews(markdownText);
+            } catch (error) {
+                console.error('获取新闻失败:', error);
+                newsContainer.innerHTML = `<p class="error-message">加载新闻失败，请稍后再试。</p>`;
+            }
+        }
+
+        function parseMarkdown(markdown) {
+            const lines = markdown.split('\n');
+            const newsItems = [];
+            let currentItem = null;
+
+            for (const line of lines) {
+                const trimmedLine = line.trim();
+                if (trimmedLine.startsWith('## ')) {
+                    if (currentItem) {
+                        newsItems.push(currentItem);
+                    }
+                    // 提取标题和链接，例如：## 1. [标题](链接)
+                    const match = trimmedLine.match(/^## \d*\.?\s*\[(.*?)\]\((.*?)\)/);
+                    if (match) {
+                        currentItem = {
+                            title: match[1].trim(),
+                            link: match[2].trim(),
+                            description: ''
+                        };
+                    } else {
+                         // 处理没有链接的标题，例如：# AI热点新闻 (2025年5月30日)
+                        const mainTitleMatch = trimmedLine.match(/^#\s*(.*)/);
+                        if (mainTitleMatch && newsItems.length === 0 && !currentItem) { // 确保是主标题
+                            // 可以选择在页面某处显示主标题，或者忽略
+                            // document.querySelector('h1').textContent = mainTitleMatch[1].trim();
+                            currentItem = null; // 重置，因为这不是新闻条目
+                            continue;
+                        }
+                        // 备用：处理可能没有序号或链接格式略有不同的标题
+                        const simpleTitleMatch = trimmedLine.match(/^##\s*(.*)/);
+                        if (simpleTitleMatch){
+                            currentItem = {
+                                title: simpleTitleMatch[1].trim(),
+                                link: '#',
+                                description: ''
+                            };
+                        }
+                    }
+                } else if (currentItem && trimmedLine !== '' && !trimmedLine.startsWith('#')) {
+                    currentItem.description += (currentItem.description ? ' ' : '') + trimmedLine;
+                }
+            }
+            if (currentItem) {
+                newsItems.push(currentItem);
+            }
+            return newsItems;
+        }
+
+        function displayNews(markdown) {
+            const newsContainer = document.getElementById('news-container');
+            const newsItems = parseMarkdown(markdown);
+
+            if (newsItems.length === 0) {
+                newsContainer.innerHTML = `<p class="error-message">未能解析到新闻内容。</p>`;
+                return;
+            }
+
+            newsContainer.innerHTML = ''; // 清空加载提示
+
+            // 更新主标题 (如果需要从Markdown中提取)
+            const lines = markdown.split('\n');
+            if (lines.length > 0 && lines[0].startsWith('# ')) {
+                document.querySelector('h1').textContent = lines[0].substring(2).trim();
+            }
+
+            newsItems.forEach(item => {
+                const newsElement = document.createElement('div');
+                newsElement.classList.add('news-item');
+
+                const titleElement = document.createElement('h2');
+                const linkElement = document.createElement('a');
+                linkElement.href = item.link;
+                linkElement.textContent = item.title;
+                linkElement.target = '_blank'; // 在新标签页打开链接
+                titleElement.appendChild(linkElement);
+
+                const descriptionElement = document.createElement('p');
+                descriptionElement.textContent = item.description;
+
+                newsElement.appendChild(titleElement);
+                newsElement.appendChild(descriptionElement);
+                newsContainer.appendChild(newsElement);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchNews);
+    </script>
+</body>
+</html>
