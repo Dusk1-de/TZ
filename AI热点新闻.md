@@ -1,33 +1,33 @@
 # AI热点新闻 (2025年5月30日)
 
-## 1. [华为发布昇腾大模型：无GPU训练高数大题仅需2秒！](https://www.aibase.com/news/18541)
+## 1. [华为发布昇腾大模型：无GPU训练高数大题仅需2秒！](https://www.aibase.com/zh/news/18541)
 华为最新发布的昇腾大模型在数学推理能力上取得重大突破，无需GPU加速即可在2秒内完成高等数学难题的训练和求解，展示了强大的计算效率和推理能力。
 
-## 2. [阿里云通义灵码 AI IDE 正式上线，带来编程新体验](https://www.aibase.com/news/18534)
+## 2. [阿里云通义灵码 AI IDE 正式上线，带来编程新体验](https://www.aibase.com/zh/news/18534)
 阿里云推出的通义灵码AI IDE集成了代码生成、自动补全、错误检测等智能功能，支持多种编程语言，可显著提升开发效率，为程序员带来全新的智能编程体验。
 
-## 3. [手机照片一键变艺术！Runway Gen-4 References解锁相机胶卷新玩法](https://www.aibase.com/news/18533)
+## 3. [手机照片一键变艺术！Runway Gen-4 References解锁相机胶卷新玩法](https://www.aibase.com/zh/news/18533)
 Runway推出的Gen-4 References功能允许用户通过上传参考图像和文本提示，对手机照片进行艺术化处理，实现多种风格转换，为普通照片增添艺术价值。
 
-## 4. [Anthropic再放大招！Claude新功能解锁AI应用开发，AI Studio迎来新机遇](https://www.aibase.com/news/18529)
+## 4. [Anthropic再放大招！Claude新功能解锁AI应用开发，AI Studio迎来新机遇](https://www.aibase.com/zh/news/18529)
 Anthropic为Claude模型新增了应用开发功能，开发者可以通过自然语言描述快速构建AI应用，大幅降低了AI应用开发门槛，为AI Studio生态带来新机遇。
 
-## 5. [Midjourney V7重磅更新：渲染速度飙升40%，新增用户投票决定功能开发](https://www.aibase.com/news/18528)
+## 5. [Midjourney V7重磅更新：渲染速度飙升40%，新增用户投票决定功能开发](https://www.aibase.com/zh/news/18528)
 Midjourney V7版本在图像生成速度上提升40%，同时引入社区投票机制，让用户参与决定未来功能的开发方向，增强了产品的社区互动性。
 
-## 6. [Manus Slides重磅发布：一键生成专业幻灯片](https://www.aibase.com/news/18525)
+## 6. [Manus Slides重磅发布：一键生成专业幻灯片](https://www.aibase.com/zh/news/18525)
 Manus Slides利用AI技术实现从文本内容自动生成专业级幻灯片，支持多种模板和风格选择，可大幅提升商务演示的制作效率。
 
-## 7. [Anthropic重磅开源！"电路追踪"工具解锁AI大脑，揭秘大模型决策全过程](https://www.aibase.com/news/18524)
+## 7. [Anthropic重磅开源！"电路追踪"工具解锁AI大脑，揭秘大模型决策全过程](https://www.aibase.com/zh/news/18524)
 Anthropic开源的"电路追踪"工具可以可视化大模型的内部决策过程，帮助研究人员理解神经网络的工作原理，推动AI可解释性研究的发展。
 
-## 8. [小米多模态大模型Xiaomi MiMo-VL开源](https://www.aibase.com/news/18521)
+## 8. [小米多模态大模型Xiaomi MiMo-VL开源](https://www.aibase.com/zh/news/18521)
 小米开源的多模态大模型Xiaomi MiMo-VL支持图像、文本、语音等多种模态的联合理解和生成，在多个基准测试中达到行业领先水平。
 
-## 9. [Hume发布语音语言模型Hume EVI3：低延迟、高情感](https://www.aibase.com/news/18520)
+## 9. [Hume发布语音语言模型Hume EVI3：低延迟、高情感](https://www.aibase.com/zh/news/18520)
 Hume EVI3语音模型在保持低延迟的同时，能够准确识别和表达丰富的情感变化，为人机语音交互带来更自然流畅的体验。
 
-## 10. [黑森林实验室推出 FLUX.1Kontext：可通过文本和参考图像对图像进行多次修改](https://www.aibase.com/news/18514)
+## 10. [黑森林实验室推出 FLUX.1Kontext：可通过文本和参考图像对图像进行多次修改](https://www.aibase.com/zh/news/18514)
 FLUX.1Kontext允许用户通过文本描述和参考图像对原始图像进行多次迭代修改，实现精细化的图像编辑和控制，为设计师提供强大工具。
 
 ## 11. [DeepSeek开源新版R1-0528](https://www.aibase.com/daily/18495)
