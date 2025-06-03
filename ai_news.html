@@ -6,59 +6,111 @@
     <title>每日AI新闻</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f7f6;
+            padding: 0;
+            background-color: #eef2f7; /* 更柔和的背景色 */
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 30px 15px; /* 增加整体内边距 */
+            box-sizing: border-box;
         }
         .container {
-            max-width: 800px;
+            width: 100%;
+            max-width: 850px; /* 稍微增加最大宽度 */
             margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+            padding: 35px 40px; /* 增加内边距 */
+            border-radius: 12px; /* 更大的圆角 */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* 更明显的阴影 */
+            box-sizing: border-box;
         }
         h1 {
             color: #2c3e50;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px; /* 增加标题下边距 */
+            font-size: 2.5em; /* 增大标题字体 */
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #3498db; /* 强调色 */
+            border-radius: 2px;
         }
         .news-item {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 30px; /* 增加新闻条目间距 */
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e0e6ed; /* 更柔和的分割线 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
         }
         .news-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
         }
+        .news-item:hover {
+            transform: translateY(-5px); /* 鼠标悬停上浮效果 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 鼠标悬停阴影效果 */
+        }
         .news-item h2 {
-            font-size: 1.5em;
+            font-size: 1.6em; /* 增大新闻标题字体 */
             margin-top: 0;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
         .news-item h2 a {
-            color: #3498db;
+            color: #3498db; /* 强调色 */
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease; /* 颜色过渡 */
         }
         .news-item h2 a:hover {
             color: #2980b9;
             text-decoration: underline;
         }
         .news-item p {
-            font-size: 1em;
+            font-size: 1.05em; /* 稍微增大描述字体 */
             color: #555;
             margin-top: 0;
+            line-height: 1.7;
         }
         .loading-message, .error-message {
             text-align: center;
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: #7f8c8d;
-            padding: 20px;
+            padding: 30px;
+            background-color: #f9fbfd;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            .container {
+                padding: 25px 20px;
+            }
+            h1 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .news-item h2 {
+                font-size: 1.4em;
+            }
+            .news-item p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
