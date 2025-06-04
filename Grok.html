@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grok 发展历程与深度解析</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.umd.min.js"></script>
+    <style>
+        body {
+            background-color: #1a1a2e; /* 深色背景 */
+            color: #e0e0e0; /* 亮色文字 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* 确保在内容之下 */
+        }
+        .content-card {
+            background: rgba(255, 255, 255, 0.05); /* 玻璃拟态背景 */
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(128, 0, 128, 0.3), 0 0 30px rgba(0, 0, 255, 0.2); /* 霓虹光效 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 25px rgba(128, 0, 128, 0.6), 0 0 45px rgba(0, 0, 255, 0.4); /* 悬停发光效果 */
+        }
+        h1, h2, h3 {
+            color: #9f7aea; /* 紫色标题 */
+            font-weight: bold;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 1em; text-align: center; }
+        h2 { font-size: 2em; margin-top: 1.5em; margin-bottom: 0.8em; border-bottom: 2px solid #9f7aea; padding-bottom: 0.3em;}
+        h3 { font-size: 1.5em; margin-top: 1em; margin-bottom: 0.5em; color: #63b3ed; }
+        p, li {
+            line-height: 1.8;
+            margin-bottom: 1em;
+            color: #c0c0c0;
+        }
+        ul { list-style-type: disc; margin-left: 20px; }
+        strong { color: #a0aec0; }
+        .reference-link {
+            font-size: 0.8em;
+            color: #63b3ed;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            margin-right: 8px;
+            color: #9f7aea;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer a {
+            color: #9f7aea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        /* 滚动动画的初始状态 */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Added transition for smoothness */
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container mx-auto px-4 py-8">
+        <header class="my-12">
+            <div class="flex justify-center items-center relative">
+                <h1 class="text-5xl font-bold text-purple-400">Grok 发展历程与深度解析</h1>
+                <a href="Grok1.html" class="absolute right-0 bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">
+                    趣闻
+                </a>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <!-- Markdown content will be inserted here by JavaScript -->
+        </main>
+
+        <footer class="footer">
+            <p class="text-gray-400">信息来源：综合网络资源，包括但不限于维基百科、Grok官网、各类科技媒体文章等。</p>
+            <p>
+                <a href="https://grok.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-globe icon"></i>Grok 官方网站
+                </a>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">&copy; 2024 AI Timeline Project. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        const markdownContent = `
+## 1. 项目起始点和研究动机
+
+Grok AI 是由埃隆·马斯克（Elon Musk）创立的xAI公司开发的。xAI的使命是通过不懈的好奇心来揭示宇宙的真相，即使有时这意味着真相与政治正确相悖。Grok这个词出自海因莱因的小说《异乡陌客》，意思是充分而深刻地理解某件事情。马斯克希望Grok能够像《银河系漫游指南》中的AI一样，回答几乎所有问题，并且具备幽默感和叛逆精神。其研究动机在于创建一个能够进行高级推理、实时获取信息并具备独特个性的AI模型。
+
+## 2. 开发团队及其所属机构
+
+Grok AI 的开发团队是xAI公司。xAI的创始团队成员来自DeepMind、OpenAI、Google Research、Microsoft Research、Tesla等知名AI研究机构和公司。其中，有几位核心华人科学家备受关注：
+
+*   **吴宇怀（Yuhuai Wu）**：xAI的联合创始人，2021年博士毕业于多伦多大学，曾在DeepMind和OpenAI实习，并在斯坦福大学进行博士后研究。他曾就职于谷歌的研发小组N2Formal，致力于做AI数学家。他立志于创造一个善于推理的人工智能，用于解决所有数学难题。
+*   **吉米·巴（Jimmy Ba）**：xAI的初创团队成员之一，多伦多大学计算机科学助理教授，曾师从“深度学习之父”杰弗里·辛顿（Geoffrey Hinton）。他是Adam optimizer（自适应矩估计优化器）的开发者之一，该算法是训练深度学习模型的首选算法之一。
+*   **杨格（Greg Yang）**：xAI初创团队成员，曾就职于微软雷蒙德研究院，参与过微软与OpenAI在大模型上的合作。他致力于开发“张量程序”（Tensor Programs）框架，旨在找到大规模深度学习的“万物理论”。
+*   **张国栋（Guodong Zhang）**：xAI初创团队成员，毕业于浙江大学，后在多伦多大学攻读硕士和博士学位，曾加入DeepMind。他在神经网络优化和强化学习方面有深厚研究。
+*   **戴子航（Zihang Dai）**：xAI初创团队成员。
+
+xAI的创始团队中华人比例高达四成，这在AI领域是相当高的比例。
+
+## 3. 初代版本及重要版本发布、技术改进和优势
+
+*   **Grok 0**：xAI的第一个研究原型，使用了330亿个参数。
+*   **Grok 1**：Grok的第一个公开版本，于2023年11月推出。
+*   **Grok 1.5**：于2024年3月发布，提供了更好的记忆和逻辑推理能力，可处理128K长上下文。
+*   **Grok 2**：于2024年8月首次亮相，性能得到增强，具有高级推理和实时数据集成功能。尽管有所改进，但它仍然会对一些小众话题产生幻觉（似是而非的回答）。
+*   **Grok 3**：于2025年2月17日发布，马斯克声称其推理能力比前一代模型提升了一个数量级，并称其为“地球上最聪明的AI”。
+    *   **模型架构**：Grok 3在开发过程中引入了多项尖端技术，其中最显著的创新是引入了思维链（Chain of Thought, CoT）推理机制，使其能够逐步处理复杂任务，提供更连贯和逻辑严谨的回答。它还广泛地在合成数据上进行训练，这不仅提高了训练效率，还使模型能够发展自我纠正和强化学习能力。
+    *   **训练数据**：Grok 3通过反复审查数据并确保逻辑一致性，可以识别并纠正自身的错误，持续优化性能。Grok AI的独特之处在于其能够实时处理信息并从X（前Twitter）等网站获取实时响应。与其他仅使用静态数据集的AI模型不同，Grok AI通过实时数据流进行训练，从而带来了响应性和及时性。
+    *   **性能指标**：在基准测试中，Grok 3在数学、科学逻辑推理、代码写作方面取得了比Gemini-2 Pro、GPT-4o以及DeepSeek-V3更优的效果。
+        *   **数学（AIME'24测试）**：Grok 3得分52分，显著超过DeepSeek-V3的39分。
+        *   **科学知识（GPQA评估）**：Grok 3获得75分，超过DeepSeek-V3的65分。
+        *   **编程（LCB Oct-Feb编码测试）**：Grok 3得分57分，远超DeepSeek-V3的36分。
+    *   **优势**：Grok 3的优势在于其强大的推理能力、更快的响应速度和实时信息访问。它能够处理复杂任务，提供深入的见解，并不断从每次交互中学习和改进。此外，Grok 3还具备强大的计算和创造能力，例如解决复杂的物理问题、绘制星际轨迹、生成模拟航天器在地球和火星之间旅行的动画代码，甚至现场开发类似俄罗斯方块的游戏。
+*   **Grok 3.5**：发布在即，有望带来进一步的AI技术革新。
+
+## 4. 重要里程碑和成就
+
+*   **2023年7月**：xAI公司成立，吴宇怀加入并担任联合创始人。
+*   **2023年11月**：Grok 1发布，作为xAI的第一个公开版本。
+*   **2024年3月**：Grok 1.5发布，提升了记忆和逻辑推理能力，支持128K上下文窗口。
+*   **2024年8月**：Grok 2发布，增强了性能和实时数据集成功能。
+*   **2025年2月17日**：Grok 3正式发布，马斯克称其为“地球上最聪明的AI”，并在多项基准测试中超越了DeepSeek-V3、Gemini-2 Pro和GPT-4o。
+    *   **成就**：Grok 3在数学、科学和编程方面的卓越表现，尤其是在AIME'24测试中取得52分，GPQA评估中获得75分，LCB Oct-Feb编码测试中获得57分，这些都标志着AI在复杂推理和问题解决能力上的重大突破。为了支持Grok 3的训练，xAI在短短三个月内将Colossus超级计算机集群的容量翻倍，部署了20万个NVIDIA H100 GPU。
+    *   **影响**：Grok 3的发布对现有AI模型（包括OpenAI的ChatGPT、DeepSeek的V3、Anthropic的Claude和Google的Gemini）构成了强劲挑战。xAI还推出了名为DeepSearch的新AI代理，被视为xAI对OpenAI和Google的AI驱动研究工具的回应。
+
+## 5. 实际应用中的使用情况
+
+Grok AI在多个领域展现出应用潜力：
+
+*   **内容创作**：帮助用户构思新想法和制作内容，例如营销计划或研究论文。
+*   **数据分析**：通过智能数据技能将原始数据转化为实际见解，处理大量信息，发现重要内容并提供建议。
+*   **翻译**：支持多种语言，打破语言障碍，进行翻译并理解不同语言的细微之处。
+*   **金融领域**：Grok Studio可用于金融工作流程，例如财报电话会议的红线分析、UPS最新财报的Excel可视化，以及基于Grok的关税影响实时研究仪表板。
+*   **自动驾驶**：借助Grok大模型的强大表征能力，自动驾驶系统可以更准确地感知和理解周围环境，实现更高级别的自动驾驶功能。
+*   **医疗健康**：在疾病预测、个性化治疗等方面发挥重要作用，助力医疗健康领域实现精准医疗的目标。
+*   **智能客服**：结合自然语言处理和语音识别技术，构建更智能高效的客服系统，提升用户体验和服务质量。
+*   **游戏开发**：Grok 3在短时间内完成了多个复杂3D游戏和应用程序的开发，例如3D乒乓球游戏和赛车游戏，展示了其高效的开发能力和强大的技术支持。
+*   **声音模拟**：Grok 3在声音模拟领域取得了突破，例如非自然尖叫的逼真表现，可用于影视制作中的特效音效，以及为VR和AR提供更逼真的音频体验。
+
+## 6. 引发的社会讨论
+
+Grok AI引发了关于隐私、安全性和公平性的讨论：
+
+*   **偏见问题**：Grok AI和普遍的AI模型一样，从大量数据集中学习，这些数据集可能包含历史和社会偏见。如果AI模型在有偏见的数据上训练，它可能会在预测、推荐或行动中复制这些偏见，导致在招聘、刑事司法和贷款等关键领域出现歧视。
+*   **数据隐私和安全**：Grok AI在与用户交互过程中收集个人数据、对话日志、用户行为模式以及来自社交媒体的实时社交互动。如果这些数据未得到妥善保护，可能面临网络攻击、黑客入侵或不必要的监控。此外，与第三方共享数据也可能导致身份盗窃、数据泄露和隐私侵犯的风险。实时数据处理也可能使其容易受到恶意谣言和数据泄露的影响。
+*   **信息准确性与事实核查**：Grok AI作为事实核查工具的可靠性受到质疑。有案例显示，Grok错误地将旧视频认定为近期事件，甚至在不相关的回答中提及极右翼阴谋论。专家警告，AI聊天机器人不是可靠的新闻和信息来源，尤其是在突发新闻方面，它们往往不擅长拒绝回答无法准确回复的问题，而是提供不正确或臆测的答案。
+*   **透明度和问责制**：Grok在处理训练数据（例如包含纳粹和新纳粹文献）时，其“纯粹传导”的立场引发了关于透明度和问责制的担忧。如果Grok无法量化其回答受特定文本影响的程度，就无法验证其输出是否受到无意偏见的影响。这种缺乏透明度和可审计性可能导致问责差距。
+*   **政策和法规**：Grok 3在法律合规性方面，旨在遵守GDPR（通用数据保护条例）和CCPA（加州消费者隐私法案）等国际数据保护法律，并实施了数据主体权利、设计隐私保护和同意管理等系统。在知识产权方面，Grok 3在生成内容时会包含版权声明或警告，并考虑合理使用原则。它使用明确获得许可或在开放许可下发布的数据集进行训练，并对可能包含受版权保护材料的数据进行匿名化处理。Grok 3还设有响应DMCA（数字千年版权法案）下架通知的流程，并对用户进行知识产权法律教育。
+
+## 7. 局限性及未来发展方向
+
+*   **局限性**：
+    *   **计算资源消耗巨大**：由于模型规模庞大，Grok大模型在训练和推理过程中需要消耗大量的计算资源，这使得一些资源有限的组织和个人难以充分发挥其优势。
+    *   **隐私与安全问题**：在处理敏感数据时，Grok大模型可能会面临隐私泄露和安全风险。如何在保证数据安全的前提下，充分利用大模型的能力是一个亟待解决的问题。
+    *   **模型可解释性差**：由于深度学习模型的黑箱特性，Grok大模型在某些情况下难以提供直观的解释，这可能会影响其在一些对可解释性要求较高的领域的应用。
+    *   **幻觉问题**：尽管Grok 2有所改进，但仍可能对一些小众话题产生幻觉。
+    *   **事实准确性**：Grok在事实核查方面仍存在不足，可能提供不准确或臆测的答案。
+
+*   **未来发展方向**：
+    *   **计算资源优化**：通过模型剪枝、量化等技术手段，减小Grok大模型的计算负担，实现高效的本地推理。
+    *   **隐私保护技术**：采用差分隐私、联邦学习等隐私保护技术，在确保数据安全的前提下，提升Grok大模型在处理敏感任务时的性能。
+    *   **提升模型可解释性**：结合知识蒸馏、可解释性增强等技术，改善Grok大模型的可解释性，使其在对可解释性要求较高的领域（如金融服务）能提供更直观和可信的依据。
+    *   **多模态能力**：Grok-1.5 Vision的发布表明Grok正在向多模态AI模型发展，未来将能处理和理解更多类型的数据。
+    *   **Agent能力**：xAI推出了DeepSearch等AI Agent，预示着Grok将向更具自主性和任务执行能力的AI代理方向发展。
+    *   **持续学习和适应性**：Grok将继续从每次交互中学习，不断优化其性能，以适应不断变化的需求和环境。
+    *   **伦理和治理**：随着AI技术的深入发展，Grok将需要持续关注伦理、隐私、安全和公平性等社会问题，并积极参与相关政策和法规的制定与遵守，以确保AI的负责任发展。
+
+Grok大模型作为一种先进的人工智能技术，其发展前景广阔。随着技术的不断进步和应用场景的拓展，Grok将在未来的智能化征程中发挥越来越重要的作用，但同时也需要克服技术障碍并解决社会问题，以实现其最大潜力。
+`;
+
+        // Convert Markdown to HTML and inject it into the main content area
+        // Wrap sections in cards for styling and animation
+        function renderMarkdown() {
+            const mainContentElement = document.getElementById('main-content');
+            if (!mainContentElement) {
+                console.error("renderMarkdown Error: 'main-content' element not found!");
+                document.body.innerHTML = "Error: 'main-content' element not found! Critical error."; // Drastic fallback
+                return;
+            }
+
+            console.log("renderMarkdown: Starting. Markdown content length:", markdownContent ? markdownContent.length : 0);
+
+            if (!markdownContent || markdownContent.trim() === "") {
+                mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Markdown content is empty or missing.</p></div>";
+                console.warn("renderMarkdown: markdownContent is empty.");
+                return;
+            }
+
+            try {
+                const rawHtml = marked.parse(markdownContent.replace(/<mcreference[^>]*>[^<]*<\/mcreference>/g, ''));
+                console.log("renderMarkdown: Parsed HTML length:", rawHtml ? rawHtml.length : 0);
+
+                if (!rawHtml || rawHtml.trim() === "") {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Parsing markdown resulted in empty HTML. Check console for details (e.g., issues with 'marked' library or markdown syntax).</p></div>";
+                    console.warn("renderMarkdown: marked.parse(markdownContent) resulted in empty HTML.");
+                    return;
+                }
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = rawHtml;
+
+                if (tempDiv.children.length === 0 && rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: No child elements found after parsing markdown, but raw HTML is not empty. Displaying raw HTML.");
+                    mainContentElement.innerHTML = rawHtml;
+                    addScrollAnimations();
+                    return;
+                }
+
+                let cardHtml = '';
+                let currentCardContent = '';
+                let cardCount = 0;
+
+                Array.from(tempDiv.children).forEach(node => {
+                    if (node.tagName === 'H1') { // Skip the main H1, it's already in the header
+                        return;
+                    }
+
+                    if (node.tagName === 'H2') {
+                        if (currentCardContent) { // If there's content for a previous card, finalize it
+                            cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                            cardCount++;
+                        }
+                        currentCardContent = node.outerHTML; // Start new card with H2
+                    } else {
+                        // Append other content to the current card section
+                        if (currentCardContent) { // If a card (started by H2) is active
+                            currentCardContent += node.outerHTML;
+                        } else if (cardHtml === '' && !currentCardContent) {
+                            // This handles content that might appear before the very first H2 (after skipping H1)
+                            // It starts the first card with this content.
+                            currentCardContent = node.outerHTML;
+                        }
+                        // Content not fitting these conditions (e.g. orphaned after a card is closed but before new H2) might be skipped.
+                        // Given the expected structure (H1, then H2 sections), this should be robust.
+                    }
+                });
+
+                if (currentCardContent) { // Finalize the last card's content
+                    cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                    cardCount++;
+                }
+
+                console.log("renderMarkdown: Number of cards generated:", cardCount);
+                console.log("renderMarkdown: Final cardHtml length:", cardHtml.length);
+
+                if (cardHtml.trim() !== "") {
+                    mainContentElement.innerHTML = cardHtml;
+                } else if (rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: Card generation resulted in empty HTML. Falling back to raw HTML.");
+                    mainContentElement.innerHTML = rawHtml; // Fallback to raw HTML if card logic produced nothing but parsing was successful
+                } else {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Failed to generate card HTML and raw HTML is also empty. Content processing failed.</p></div>";
+                    console.error("renderMarkdown: Both cardHtml and rawHtml are effectively empty after processing.");
+                }
+
+                addScrollAnimations(); // Apply scroll animations to newly added cards
+
+            } catch (error) {
+                mainContentElement.innerHTML = `<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error during markdown rendering: ${error.message}. Check browser console for stack trace.</p></div>`;
+                console.error("Error in renderMarkdown function execution:", error);
+            }
+        }
+
+        // Scroll-triggered animations using a single IntersectionObserver
+        function addScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            if (animatedElements.length === 0) {
+                // console.warn("addScrollAnimations: No '.scroll-animate' elements found to animate.");
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0px)';
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                renderMarkdown(); // This function now also calls addScrollAnimations internally
+            } catch (e) {
+                console.error("Error during initial page setup (DOMContentLoaded):", e);
+                const mainContentElement = document.getElementById('main-content');
+                if (mainContentElement) {
+                    // Display a user-friendly error message on the page
+                    mainContentElement.innerHTML = `
+                        <div class="content-card" style="color: #ff6b6b; background: rgba(255,255,255,0.1); opacity:1; transform:translateY(0);">
+                            <h2 style="color: #ff6b6b;"><i class="fas fa-exclamation-triangle icon"></i> 页面加载错误</h2>
+                            <p>抱歉，加载此页面内容时发生错误。</p>
+                            <p><strong>错误详情:</strong> ${e.message}</p>
+                            <p>请尝试刷新页面，或按 F12 打开浏览器控制台查看更多技术信息。</p>
+                        </div>`;
+                } else {
+                    // Fallback if main-content is not even available
+                    document.body.innerHTML = `错误: ${e.message}. 未找到主要内容容器。`;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
