@@ -98,25 +98,6 @@
             line-height: 1.6;
             margin-bottom: 0.5em;
         }
-        .video-meta {
-            font-size: 0.75em;
-            color: #9090b0;
-            margin-top: 0.5rem;
-            display: flex;
-            flex-wrap: wrap; /* Allow items to wrap on smaller cards */
-            gap: 0.5rem; /* Space between meta items */
-        }
-        .video-meta span {
-            display: inline-flex;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 0.2em 0.5em;
-            border-radius: 4px;
-        }
-        .video-meta i {
-            margin-right: 0.3em;
-            color: #bb86fc; /* Icon color */
-        }
         .back-button {
             display: inline-flex; /* For aligning icon and text */
             align-items: center; /* For aligning icon and text */
@@ -194,91 +175,113 @@
 
                 for (let i = 0; i < lines.length; i++) {
                     const trimmedLine = lines[i].trim();
+                    // console.log(`Processing line ${i + 1}: "${trimmedLine}"`); // 可选：详细日志
 
+                    // 寻找第一个视频条目开始的标志，例如 "1. ["
+                    // 同时确保不是在解析头部信息，如 "# Deepseek 相关视频合集" 或 "## 热门视频"
                     if (!parsingStarted && /^\d+\.\s*\[/.test(trimmedLine)) {
                         parsingStarted = true;
+                        console.log('Video parsing started.');
                     }
 
                     if (!parsingStarted) {
-                        continue;
+                        // console.log('Skipping header line or non-video content.'); // 可选：详细日志
+                        continue; // 跳过头部或非视频内容直到第一个视频条目
                     }
 
+                    // 匹配标题和链接: 1. [标题](链接)
                     const titleLinkMatch = trimmedLine.match(/^\d+\.\s*\[([^\]]+)\]\(([^\)]+)\)/);
                     if (titleLinkMatch) {
                         if (currentVideo) {
                             videos.push(currentVideo);
+                            // console.log('Saved previous video:', currentVideo.title); // 可选：详细日志
                         }
                         currentVideo = {
                             title: titleLinkMatch[1].trim(),
-                            link: titleLinkMatch[2].trim(),
-                            cover: '',
-                            playCount: '',
+                            url: titleLinkMatch[2].trim(),
+                            thumbnail: '',
+                            views: '',
                             duration: '',
                             publishDate: ''
                         };
-                    } else if (currentVideo) {
-                        const coverMatch = trimmedLine.match(/^!\[封面\]\(([^\)]+)\)/);
-                        if (coverMatch) {
-                            currentVideo.cover = coverMatch[1].trim();
-                        } else if (trimmedLine.startsWith('- 播放量：')) {
-                            currentVideo.playCount = trimmedLine.replace('- 播放量：', '').trim();
-                        } else if (trimmedLine.startsWith('- 时长：')) {
-                            currentVideo.duration = trimmedLine.replace('- 时长：', '').trim();
-                        } else if (trimmedLine.startsWith('- 发布时间：')) {
-                            currentVideo.publishDate = trimmedLine.replace('- 发布时间：', '').trim();
-                        }
+                        // console.log('New video entry started:', currentVideo.title); // 可选：详细日志
+                        continue;
+                    }
+
+                    if (!currentVideo) continue; // 如果还没有currentVideo对象，则跳过后续匹配
+
+                    // 匹配封面: ![封面](链接)
+                    const thumbnailMatch = trimmedLine.match(/^!\[封面\]\(([^\)]+)\)/);
+                    if (thumbnailMatch) {
+                        currentVideo.thumbnail = thumbnailMatch[1].trim();
+                        // console.log('Thumbnail found for ' + currentVideo.title + ':', currentVideo.thumbnail); // 可选：详细日志
+                        continue;
+                    }
+
+                    // 匹配播放量: - 播放量：xxx
+                    const viewsMatch = trimmedLine.match(/^- 播放量：(.+)/);
+                    if (viewsMatch) {
+                        currentVideo.views = viewsMatch[1].trim();
+                        // console.log('Views found for ' + currentVideo.title + ':', currentVideo.views); // 可选：详细日志
+                        continue;
+                    }
+
+                    // 匹配时长: - 时长：xx:xx
+                    const durationMatch = trimmedLine.match(/^- 时长：(.+)/);
+                    if (durationMatch) {
+                        currentVideo.duration = durationMatch[1].trim();
+                        // console.log('Duration found for ' + currentVideo.title + ':', currentVideo.duration); // 可选：详细日志
+                        continue;
+                    }
+
+                    // 匹配发布时间: - 发布时间：xxxx-xx-xx
+                    const publishDateMatch = trimmedLine.match(/^- 发布时间：(.+)/);
+                    if (publishDateMatch) {
+                        currentVideo.publishDate = publishDateMatch[1].trim();
+                        // console.log('Publish date found for ' + currentVideo.title + ':', currentVideo.publishDate); // 可选：详细日志
+                        continue;
                     }
                 }
-                if (currentVideo) { // Push the last video
-                    videos.push(currentVideo);
+
+                if (currentVideo) {
+                    videos.push(currentVideo); // 保存最后一个视频信息
+                    // console.log('Saved last video:', currentVideo.title); // 可选：详细日志
                 }
-                console.log('Parsed videos:', videos); // Log parsed videos
-                return videos;
+
+                const filteredVideos = videos.filter(video => video.title && video.url);
+                console.log('Markdown parsing finished. Videos found:', filteredVideos.length);
+                if (videos.length > 0 && filteredVideos.length === 0) {
+                     console.warn('All video entries were filtered out. Check Markdown format and parsing logic.');
+                } else if (videos.length !== filteredVideos.length) {
+                    console.warn('Some video entries were filtered out due to missing title or URL.');
+                }
+                return filteredVideos;
             }
 
             function renderVideos(videos, container) {
+                console.log('Rendering videos. Count:', videos.length);
                 if (!videos || videos.length === 0) {
-                    container.innerHTML = '<p class="text-gray-400">暂无视频信息。</p>';
+                    // 更明确的提示信息，并保留之前的错误提示样式
+                    container.innerHTML = '<p class="text-red-400">未能加载视频列表，或列表为空。请检查Markdown文件格式及路径是否正确，并查看控制台日志。</p>';
+                    console.log('No videos to render or video list is empty. Check Markdown source and parsing logs.');
                     return;
                 }
 
-                videos.forEach(video => {
-                    if (!video.title || !video.link) {
-                        console.warn('Skipping video with missing title or link:', video);
-                        return;
-                    }
-
-                    const videoItem = document.createElement('div');
-                    videoItem.className = 'video-item-card';
-
-                    let coverImage = './placeholder.png'; // Default placeholder
-                    if (video.cover && video.cover.startsWith('images/')) {
-                        // Assuming 'images/' is relative to the HTML file's location or a known base path
-                        coverImage = video.cover;
-                    } else if (video.cover) {
-                        // If it's an absolute URL or different relative path, use as is (though Bilibili links might be blocked)
-                        coverImage = video.cover;
-                    }
-
-                    let metaHTML = '<div class="video-meta">';
-                    if (video.playCount) {
-                        metaHTML += `<span><i class="fas fa-play"></i> ${video.playCount}</span>`;
-                    }
-                    if (video.duration) {
-                        metaHTML += `<span><i class="fas fa-clock"></i> ${video.duration}</span>`;
-                    }
-                    if (video.publishDate) {
-                        metaHTML += `<span><i class="fas fa-calendar-alt"></i> ${video.publishDate}</span>`;
-                    }
-                    metaHTML += '</div>';
-
-                    videoItem.innerHTML = `
-                        <img src="${coverImage}" alt="${video.title} 封面" onerror="this.onerror=null;this.src='./placeholder.png';">
-                        <h3><a href="${video.link}" target="_blank" rel="noopener noreferrer">${video.title}</a></h3>
-                        ${metaHTML}
+                let content = '';
+                videos.forEach((video, index) => {
+                    // console.log(`Rendering video ${index + 1}:`, video.title); // 可选：详细日志
+                    content += `
+                        <div class="video-item-card">
+                            <h3><a href="${video.url}" target="_blank" rel="noopener noreferrer">${video.title}</a></h3>
+                            ${video.thumbnail ? `<img src="${video.thumbnail}" alt="${video.title} 封面">` : ''} <!-- 修正alt文本 -->
+                            ${video.views ? `<p>播放量：${video.views}</p>` : ''}
+                            ${video.duration ? `<p>时长：${video.duration}</p>` : ''}
+                            ${video.publishDate ? `<p>发布时间：${video.publishDate}</p>` : ''}
+                        </div>
                     `;
-                    container.appendChild(videoItem);
                 });
+                container.innerHTML = content;
+                console.log('Video rendering complete.');
             }
         });
     </script>
