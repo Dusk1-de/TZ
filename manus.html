@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manus 发展历程与深度解析</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.umd.min.js"></script>
+    <style>
+        body {
+            background-color: #1a1a2e; /* 深色背景 */
+            color: #e0e0e0; /* 亮色文字 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* 确保在内容之下 */
+        }
+        .content-card {
+            background: rgba(255, 255, 255, 0.05); /* 玻璃拟态背景 */
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(128, 0, 128, 0.3), 0 0 30px rgba(0, 0, 255, 0.2); /* 霓虹光效 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 25px rgba(128, 0, 128, 0.6), 0 0 45px rgba(0, 0, 255, 0.4); /* 悬停发光效果 */
+        }
+        h1, h2, h3 {
+            color: #9f7aea; /* 紫色标题 */
+            font-weight: bold;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 1em; text-align: center; }
+        h2 { font-size: 2em; margin-top: 1.5em; margin-bottom: 0.8em; border-bottom: 2px solid #9f7aea; padding-bottom: 0.3em;}
+        h3 { font-size: 1.5em; margin-top: 1em; margin-bottom: 0.5em; color: #63b3ed; }
+        p, li {
+            line-height: 1.8;
+            margin-bottom: 1em;
+            color: #c0c0c0;
+        }
+        ul { list-style-type: disc; margin-left: 20px; }
+        strong { color: #a0aec0; }
+        .reference-link {
+            font-size: 0.8em;
+            color: #63b3ed;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+        .icon {
+            margin-right: 8px;
+            color: #9f7aea;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer a {
+            color: #9f7aea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        /* 滚动动画的初始状态 */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Added transition for smoothness */
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container mx-auto px-4 py-8">
+        <header class="my-12">
+            <div class="flex justify-center items-center relative">
+                <h1 class="text-5xl font-bold text-purple-400">Manus 发展历程与深度解析</h1>
+                <a href="Manus1.html" class="absolute right-0 bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">
+                    趣闻
+                </a>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <!-- Markdown content will be inserted here by JavaScript -->
+        </main>
+
+        <footer class="footer">
+            <p class="text-gray-400">信息来源：综合网络资源，包括但不限于维基百科、manus官网、各类科技媒体文章等。</p>
+            <p>
+                <a href="https://manus.im" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-globe icon"></i>Manus 官方网站
+                </a>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">&copy; 2024 AI Timeline Project. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        const markdownContent = `
+## 1. 项目起始点和研究动机
+
+Manus AI Agent（简称 Manus）是由中国团队 Monica.im 推出的通用型自主 AI 智能体产品 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference>。项目始于北京团队的立项研发，经过一年时间有了雏形 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。“Manus”来自拉丁语“Mens et Manus”，意为“手脑并用”，象征知识不仅存在于思维中，还应能通过行动得以实现，体现了 Agent 与 AI Bot（聊天机器人）产品从提供信息到执行任务的本质进阶 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。Manus 的定位是成为一个性能强大的通用型助手，不仅提供想法，更能将想法付诸实践，真正解决问题 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference> <mcreference link="https://developer.aliyun.com/article/1655796" index="3">3</mcreference>。
+
+Manus 由 Monica.im 公司开发，该公司成立于2023年，专注于人工智能助手开发 <mcreference link="https://developer.aliyun.com/article/1655796" index="3">3</mcreference>。Monica.im 的创始人是肖弘（Red），他被一些媒体塑造为“连续创业天才” <mcreference link="https://zhuanlan.zhihu.com/p/28326249035" index="5">5</mcreference>。团队分布在北京和武汉两地 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+
+## 2. 版本发布、技术改进和优势
+
+**初代版本及发布：**
+
+*   Manus 于2025年3月初开启部分内测 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+*   2025年3月6日凌晨，Monica 宣布推出全球首款通用型AI智能体产品 Manus <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference> <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference>。
+
+**技术改进和优势：**
+
+*   **自主完成复杂任务：** Manus 能自主规划并执行一系列操作，将用户的想法付诸实践，直接产出最终结果，如撰写报告、制作表格等 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference> <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+*   **多领域通用能力：** 展现出跨领域的任务处理能力，包括旅游行程规划、股票数据分析、教育课件创作、保险方案对比、筛选简历、房地产市场调研、金融数据分析，甚至编写Python脚本进行数据可视化并部署交互式网站 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference> <mcreference link="https://ai-bot.cn/manus/" index="4">4</mcreference>。
+*   **卓越的性能表现：** 在通用 AI 助手评测基准 GAIA 测试中取得了新的 SOTA 成绩，在所有难度级别上均刷新纪录，综合表现超越了 OpenAI 同层次的大模型 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference>。
+*   **多模型协作与可靠输出：** 采用多模型协同的“多重签名”机制，由多个独立AI模型共同驱动，以确保决策和结果的可靠性，提高准确性和稳健性 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference>。
+*   **持续学习与记忆：** 拥有“数字大脑”，具备超强的学习能力和适应性，能长程记忆用户信息和偏好，不断自我改进 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference>。
+*   **异步云端执行：** 运行于云端，以异步方式执行任务，用户提交任务后可关闭本地设备，任务完成后反馈结果 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference>。
+*   **多代理架构 (Multiple Agent)：** 将复杂任务拆分为规划、执行、验证等子模块，每个代理基于独立的语言模型或强化学习模型，通过API协同工作，在虚拟机中调用工具完成任务 <mcreference link="https://developer.aliyun.com/article/1655796" index="3">3</mcreference> <mcreference link="https://zhuanlan.zhihu.com/p/28326249035" index="5">5</mcreference>。
+*   **LLM操作系统架构：** 将大模型作为中央处理器，支持多模态数据输入输出，通过智能体工具实现跨应用协同 <mcreference link="https://developer.aliyun.com/article/1655796" index="3">3</mcreference>。
+*   **工具调用能力：** 拥有强大的工具调用能力，能自主完成从任务规划到执行的全流程，如文件处理、数据分析、代码编写、内容创作等 <mcreference link="https://ai-bot.cn/manus/" index="4">4</mcreference>。
+
+**后续更新：**
+
+*   **2025年3月11日：** 宣布与阿里通义千问团队达成战略合作，基于通义千问系列开源模型，在国产模型和算力平台上实现 Manus 的全部功能 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+*   **2025年3月28日：** 正式推出付费计划，提供每月39美元的Starter级别和每月199美元的Pro级两种订阅机制 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+*   **2025年5月12日：** 宣布开放注册，所有用户每天可免费执行一项任务（300积分），并一次性获得1000积分奖励 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+*   **2025年5月16日：** 推出图像生成功能，不仅能生成图像，还能理解用户意图、规划解决方案并有效利用多种工具完成任务 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+*   **2025年6月4日：** 推出文本转视频功能，AI智能体可在数分钟内将文本指令转化为结构清晰的视频故事 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+
+## 3. 重要里程碑和成就
+
+*   **2025年3月6日：** Manus 正式发布，被称为全球首款通用型自主 AI Agent 产品 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference> <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+*   **GAIA 基准测试 SOTA：** 在 GAIA 测试中取得新的 SOTA 成绩，全面领先于 OpenAI 的同类模型 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference>。GAIA 是一套涵盖现实世界复杂问题的严苛评测，此前GPT-4 Turbo平均得分不到7%，最优方案也仅约40% <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference>。
+*   **2025年3月12日：** Manus 使用申请等候名单增加到200万人 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。这表明了市场对 AI Agent 的高度期待和 Manus 的影响力。
+*   **与阿里通义千问合作：** 标志着 Manus 在国产化和本土化方面的努力，有望为中国用户提供更具创造力的通用智能体产品 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+
+## 4. 实际应用案例分析
+
+Manus 在多个领域展示了其应用潜力：
+
+*   **商业和金融：**
+    *   为金融分析师自动完成股票市场相关性分析和投资报告撰写 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference>。
+    *   比较复杂的保险产品方案并生成对比结果 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference> <mcreference link="https://developer.aliyun.com/article/1655796" index="3">3</mcreference>。
+    *   执行房地产市场调研，汇总房产数据与分析结论 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference>。
+    *   分析亚马逊等电商平台的过去市场情绪变化 <mcreference link="https://developer.aliyun.com/article/1655796" index="3">3</mcreference>。
+*   **人力资源和运营：**
+    *   筛选求职简历，提取关键信息，并根据条件进行排序推荐 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference> <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+*   **个性化旅行规划：**
+    *   根据用户需求（如预算、兴趣点、特殊需求如求婚地点推荐），整合航班、酒店、景点等信息，生成详细的行程安排和HTML旅行手册 <mcreference link="https://developer.aliyun.com/article/1655796" index="3">3</mcreference> <mcreference link="https://ai-bot.cn/manus/" index="4">4</mcreference>。
+*   **教育支持：**
+    *   为教师创建视频演示材料，如讲解动量定理等复杂物理概念 <mcreference link="https://developer.aliyun.com/article/1655796" index="3">3</mcreference>。
+*   **内容创作：**
+    *   撰写文章、生成视频脚本、制作演示文稿（一键生成幻灯片，支持导出pptx） <mcreference link="https://ai-bot.cn/manus/" index="4">4</mcreference>。
+*   **创意娱乐：**
+    *   制作迷你游戏，如模拟扮演泽连斯基进行白宫互动 <mcreference link="https://ai-bot.cn/manus/" index="4">4</mcreference>。
+
+这些案例展示了 Manus 如何通过自主规划、工具调用和多模型协作来解决实际问题，为不同行业的用户提高效率和创造价值。
+
+## 5. 社会讨论（隐私、安全、公平性）
+
+Manus 的发布引发了广泛的社会讨论：
+
+*   **技术炒作与“套壳”质疑：** 尽管 Manus 声势浩大，但也面临技术真实性的质疑。有开发者指出其核心架构与 Anthropic 的 “Computer Use” 高度相似，其“自主规划”能力实则是基于现有大语言模型（如GPT-4）的调用，并未展示底层技术的突破 <mcreference link="https://zhuanlan.zhihu.com/p/28326249035" index="5">5</mcreference>。其多代理协作机制也被指与智领云科技的 Agentic RAG 系统设计理念雷同 <mcreference link="https://zhuanlan.zhihu.com/p/28326249035" index="5">5</mcreference>。这种“理想化”的宣传和“全知全能”的叙事，被一些业内人士认为是营销驱动，而非真正的技术革命 <mcreference link="https://zhuanlan.zhihu.com/p/28326249035" index="5">5</mcreference>。
+*   **用户反馈的落差：** 部分内测用户指出，Manus 在专业场景（如金融分析）中表现不稳定，例如对股票相关性的分析依赖单一数据源，缺乏交叉验证机制，导致结论可信度存疑。其“记忆用户偏好”功能也仅限于简单场景 <mcreference link="https://zhuanlan.zhihu.com/p/28326249035" index="5">5</mcreference>。
+*   **AI Agent 的爆发点：** Manus 的发布被认为再次印证中国AI研发能力已达到世界顶尖水平，并说明 AI Agent 目前已达到爆发的临界点。预计2025年有望成为真正的 AI Agent 商业爆发元年 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+*   **商标注册情况：** “MANUS”商标已被多方申请注册，涉及家居、日化用品、广告销售等多个领域，显示出该名称的商业价值已被关注 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+*   **服务备案：** Manus 的国内产品 Monica 完成生成式人工智能服务登记，表明其在合规性方面的进展 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+
+目前关于 Manus 在隐私、安全和公平性方面的具体深入讨论信息较少，更多的是围绕其技术能力、市场定位和商业模式的讨论。
+
+## 6. 当前局限性和未来发展方向
+
+**当前局限性：**
+
+*   **技术成熟度和稳定性：** 如前所述，部分用户反馈在专业场景下表现不稳定，结论可信度有待提高 <mcreference link="https://zhuanlan.zhihu.com/p/28326249035" index="5">5</mcreference>。
+*   **对底层大模型的依赖：** 其核心能力可能仍较大程度依赖于现有成熟的大语言模型，真正的底层技术突破尚不明确 <mcreference link="https://zhuanlan.zhihu.com/p/28326249035" index="5">5</mcreference>。
+*   **“套壳”质疑：** 需要进一步证明其技术原创性和独特性，以消除市场疑虑 <mcreference link="https://zhuanlan.zhihu.com/p/28326249035" index="5">5</mcreference>。
+*   **复杂任务处理的深度：** 虽然能处理多种任务，但在需要深度专业知识和复杂推理的场景，其表现和可靠性仍需检验。
+
+**未来发展方向：**
+
+*   **与国产模型和算力平台的深度融合：** 与阿里通义千问的合作是一个重要方向，旨在打造更适合中国用户、基于本土技术生态的 AI Agent <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。
+*   **持续提升自主学习和适应能力：** 进一步强化“数字大脑”的学习和记忆功能，使其能更好地理解用户偏好，提供更个性化的服务 <mcreference link="https://zhuanlan.zhihu.com/p/28463488611" index="1">1</mcreference>。
+*   **扩展应用场景和工具集成：** 继续拓展 Manus 的应用领域，并集成更多实用工具，提升其解决实际问题的能力。
+*   **提升多模态交互能力：** 继图像生成和文本转视频功能后，未来可能会支持更多模态的输入和输出，使交互更自然高效。
+*   **解决技术瓶颈，追求真正的通用智能：** Manus 被视为人机协作的新范式，甚至可能是通向 AGI（通用人工智能）的一个窗口 <mcreference link="https://baike.baidu.com/item/Manus/65463546" index="2">2</mcreference>。未来的研究需要克服当前的技术障碍，例如提升模型的推理能力、常识理解、以及在开放和动态环境中的鲁棒性。
+*   **关注伦理和社会影响：** 随着 AI Agent能力的增强，需要更深入地研究和解决相关的隐私、安全、公平性以及就业影响等社会问题。
+
+总体而言，Manus 作为一款备受瞩目的 AI Agent 产品，其发展代表了 AI 技术从辅助工具向自主智能体转变的趋势。未来能否真正实现其宣称的“通用智能”，并被广泛应用于各行各业，仍有待观察和进一步的技术突破。
+`;
+
+        // Convert Markdown to HTML and inject it into the main content area
+        // Wrap sections in cards for styling and animation
+        function renderMarkdown() {
+            const mainContentElement = document.getElementById('main-content');
+            if (!mainContentElement) {
+                console.error("renderMarkdown Error: 'main-content' element not found!");
+                document.body.innerHTML = "Error: 'main-content' element not found! Critical error."; // Drastic fallback
+                return;
+            }
+
+            console.log("renderMarkdown: Starting. Markdown content length:", markdownContent ? markdownContent.length : 0);
+
+            if (!markdownContent || markdownContent.trim() === "") {
+                mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Markdown content is empty or missing.</p></div>";
+                console.warn("renderMarkdown: markdownContent is empty.");
+                return;
+            }
+
+            try {
+                const rawHtml = marked.parse(markdownContent.replace(/<mcreference[^>]*>[^<]*<\/mcreference>/g, ''));
+                console.log("renderMarkdown: Parsed HTML length:", rawHtml ? rawHtml.length : 0);
+
+                if (!rawHtml || rawHtml.trim() === "") {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Parsing markdown resulted in empty HTML. Check console for details (e.g., issues with 'marked' library or markdown syntax).</p></div>";
+                    console.warn("renderMarkdown: marked.parse(markdownContent) resulted in empty HTML.");
+                    return;
+                }
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = rawHtml;
+
+                if (tempDiv.children.length === 0 && rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: No child elements found after parsing markdown, but raw HTML is not empty. Displaying raw HTML.");
+                    mainContentElement.innerHTML = rawHtml;
+                    addScrollAnimations();
+                    return;
+                }
+
+                let cardHtml = '';
+                let currentCardContent = '';
+                let cardCount = 0;
+
+                Array.from(tempDiv.children).forEach(node => {
+                    if (node.tagName === 'H1') { // Skip the main H1, it's already in the header
+                        return;
+                    }
+
+                    if (node.tagName === 'H2') {
+                        if (currentCardContent) { // If there's content for a previous card, finalize it
+                            cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                            cardCount++;
+                        }
+                        currentCardContent = node.outerHTML; // Start new card with H2
+                    } else {
+                        // Append other content to the current card section
+                        if (currentCardContent) { // If a card (started by H2) is active
+                            currentCardContent += node.outerHTML;
+                        } else if (cardHtml === '' && !currentCardContent) {
+                            // This handles content that might appear before the very first H2 (after skipping H1)
+                            // It starts the first card with this content.
+                            currentCardContent = node.outerHTML;
+                        }
+                        // Content not fitting these conditions (e.g. orphaned after a card is closed but before new H2) might be skipped.
+                        // Given the expected structure (H1, then H2 sections), this should be robust.
+                    }
+                });
+
+                if (currentCardContent) { // Finalize the last card's content
+                    cardHtml += `<div class="content-card scroll-animate">${currentCardContent}</div>`;
+                    cardCount++;
+                }
+
+                console.log("renderMarkdown: Number of cards generated:", cardCount);
+                console.log("renderMarkdown: Final cardHtml length:", cardHtml.length);
+
+                if (cardHtml.trim() !== "") {
+                    mainContentElement.innerHTML = cardHtml;
+                } else if (rawHtml.trim() !== "") {
+                    console.warn("renderMarkdown: Card generation resulted in empty HTML. Falling back to raw HTML.");
+                    mainContentElement.innerHTML = rawHtml; // Fallback to raw HTML if card logic produced nothing but parsing was successful
+                } else {
+                    mainContentElement.innerHTML = "<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error: Failed to generate card HTML and raw HTML is also empty. Content processing failed.</p></div>";
+                    console.error("renderMarkdown: Both cardHtml and rawHtml are effectively empty after processing.");
+                }
+
+                addScrollAnimations(); // Apply scroll animations to newly added cards
+
+            } catch (error) {
+                mainContentElement.innerHTML = `<div class='content-card' style='opacity:1; transform:translateY(0);'><p>Error during markdown rendering: ${error.message}. Check browser console for stack trace.</p></div>`;
+                console.error("Error in renderMarkdown function execution:", error);
+            }
+        }
+
+        // Scroll-triggered animations using a single IntersectionObserver
+        function addScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            if (animatedElements.length === 0) {
+                // console.warn("addScrollAnimations: No '.scroll-animate' elements found to animate.");
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0px)';
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                renderMarkdown(); // This function now also calls addScrollAnimations internally
+            } catch (e) {
+                console.error("Error during initial page setup (DOMContentLoaded):", e);
+                const mainContentElement = document.getElementById('main-content');
+                if (mainContentElement) {
+                    // Display a user-friendly error message on the page
+                    mainContentElement.innerHTML = `
+                        <div class="content-card" style="color: #ff6b6b; background: rgba(255,255,255,0.1); opacity:1; transform:translateY(0);">
+                            <h2 style="color: #ff6b6b;"><i class="fas fa-exclamation-triangle icon"></i> 页面加载错误</h2>
+                            <p>抱歉，加载此页面内容时发生错误。</p>
+                            <p><strong>错误详情:</strong> ${e.message}</p>
+                            <p>请尝试刷新页面，或按 F12 打开浏览器控制台查看更多技术信息。</p>
+                        </div>`;
+                } else {
+                    // Fallback if main-content is not even available
+                    document.body.innerHTML = `错误: ${e.message}. 未找到主要内容容器。`;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
