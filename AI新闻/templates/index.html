@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>AI每日新闻</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h1>AI每日新闻</h1>
+            <p class="subtitle">每日更新最新AI资讯</p>
+        </div>
+
+        <ul class="news-list">
+            {% for news in news_list %}
+            <li class="news-item">
+                <!-- 添加 target="_blank" 属性 -->
+                <a href="/news/{{ news.filename }}" target="_blank">{{ news.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>AI每日新闻汇总 - {{ today }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h1><a href="/" style="color: inherit; text-decoration: none;">AI每日新闻</a></h1>
+            <p class="subtitle">{{ today }} 汇总</p>
+        </div>
+        <h2>{{ today }}</h2>
+        <div class="news-content">
+            {% for content in news_content %}
+            <div class="news-item">
+                {{ content|safe }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

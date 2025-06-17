@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>历史新闻</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h1>历史新闻</h1>
+            <a href="/" class="btn">返回主页</a>
+        </div>
+        <ul class="news-list">
+            {% for file in files %}
+            <li class="news-item">
+                <!-- 添加 target="_blank" 属性 -->
+                <a href="/saved/{{ file|replace('.html','') }}" target="_blank">{{ file }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
