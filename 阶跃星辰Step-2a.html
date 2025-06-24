@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣闻</title>
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2a2a4e 100%);
+            color: #e0e0e0;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .content-card {
+            background: rgba(40, 40, 70, 0.6);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(128, 0, 128, 0.37), 0 0 40px rgba(0, 0, 255, 0.25);
+            max-width: 900px; /* Increased max-width */
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(128, 0, 128, 0.45), 0 0 50px rgba(0, 0, 255, 0.3);
+        }
+        h1 {
+            color: #bb86fc;
+            font-weight: 700;
+            font-size: 2.8em;
+            margin-bottom: 1.2em;
+            text-shadow: 0 0 10px rgba(187, 134, 252, 0.5);
+        }
+        h2.section-title {
+            color: #a16eff;
+            font-weight: 600;
+            font-size: 1.8em;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            border-bottom: 2px solid rgba(161, 110, 255, 0.3);
+            padding-bottom: 0.5em;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 1.5rem;
+        }
+        .video-item-card {
+            background: rgba(50, 50, 80, 0.7);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensures content is spaced out */
+        }
+        .video-item-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(187, 134, 252, 0.3);
+        }
+        .video-item-card img {
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        .video-item-card h3 a {
+            color: #dabfff;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .video-item-card h3 a:hover {
+            color: #bb86fc;
+            text-decoration: underline;
+        }
+        .video-item-card p {
+            font-size: 0.85em;
+            color: #b0b0d0;
+            line-height: 1.6;
+            margin-bottom: 0.5em;
+        }
+        .back-button {
+            display: inline-flex; /* For aligning icon and text */
+            align-items: center; /* For aligning icon and text */
+            margin-top: 2.5rem;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #bb86fc, #9f7aea);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(187, 134, 252, 0.4);
+        }
+        .back-button:hover {
+            background: linear-gradient(135deg, #9f7aea, #bb86fc);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(187, 134, 252, 0.6);
+        }
+        .back-button i {
+            margin-right: 8px;
+        }
+        .view-all-link a {
+            color: #dabfff;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .view-all-link a:hover {
+            color: #bb86fc;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-card">
+        <h1>趣闻天地</h1>
+        <div class="text-left mt-8">
+            <div class="video-grid" id="video-grid-container">
+                <!-- 视频卡片将由JavaScript动态生成 -->
+            </div>
+            <div class="mt-8 view-all-link">
+                 <p><a href="https://www.bilibili.com/search?keyword=阶跃星辰" target="_blank" rel="noopener noreferrer">查看完整视频列表 <i class="fas fa-external-link-alt ml-1"></i></a></p>
+            </div>
+        </div>
+        <a href="阶跃星辰Step-2.html" class="back-button"><i class="fas fa-arrow-left"></i> 返回主页</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoGrid = document.getElementById('video-grid-container');
+            const markdownUrl = './阶跃星辰视频合集.md'; // 相对于HTML文件的路径
+
+            fetch(markdownUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    const videos = parseMarkdown(markdown);
+                    renderVideos(videos, videoGrid);
+                })
+                .catch(error => {
+                    console.error('Error fetching or parsing markdown:', error);
+                    videoGrid.innerHTML = '<p class="text-red-400">加载视频列表失败，请检查控制台获取更多信息。</p>';
+                });
+
+            function parseMarkdown(markdown) {
+                console.log('Starting Markdown parsing...');
+                const videos = [];
+                const lines = markdown.split('\n');
+                let currentVideo = null;
+                let parsingStarted = false;
+
+                for (let i = 0; i < lines.length; i++) {
+                    const trimmedLine = lines[i].trim();
+                    // console.log(`Processing line ${i + 1}: "${trimmedLine}"`); // 可选：详细日志
+
+                    // 寻找第一个视频条目开始的标志，例如 "1. ["
+                    // 同时确保不是在解析头部信息，如 "# Deepseek 相关视频合集" 或 "## 热门视频"
+                    if (!parsingStarted && /^\d+\.\s*\[/.test(trimmedLine)) {
+                        parsingStarted = true;
+                        console.log('Video parsing started.');
+                    }
+
+                    if (!parsingStarted) {
+                        // console.log('Skipping header line or non-video content.'); // 可选：详细日志
+                        continue; // 跳过头部或非视频内容直到第一个视频条目
+                    }
+
+                    // 匹配标题和链接: 1. [标题](链接)
+                    const titleLinkMatch = trimmedLine.match(/^\d+\.\s*\[([^\]]+)\]\(([^\)]+)\)/);
+                    if (titleLinkMatch) {
+                        if (currentVideo) {
+                            videos.push(currentVideo);
+                            // console.log('Saved previous video:', currentVideo.title); // 可选：详细日志
+                        }
+                        currentVideo = {
+                            title: titleLinkMatch[1].trim(),
+                            url: titleLinkMatch[2].trim(),
+                            thumbnail: '',
+                            views: '',
+                            duration: '',
+                            publishDate: ''
+                        };
+                        // console.log('New video entry started:', currentVideo.title); // 可选：详细日志
+                        continue;
+                    }
+
+                    if (!currentVideo) continue; // 如果还没有currentVideo对象，则跳过后续匹配
+
+                    // 匹配封面: ![封面](链接)
+                    const thumbnailMatch = trimmedLine.match(/^!\[封面\]\(([^\)]+)\)/);
+                    if (thumbnailMatch) {
+                        currentVideo.thumbnail = thumbnailMatch[1].trim();
+                        // console.log('Thumbnail found for ' + currentVideo.title + ':', currentVideo.thumbnail); // 可选：详细日志
+                        continue;
+                    }
+
+                    // 匹配播放量: - 播放量：xxx
+                    const viewsMatch = trimmedLine.match(/^- 播放量：(.+)/);
+                    if (viewsMatch) {
+                        currentVideo.views = viewsMatch[1].trim();
+                        // console.log('Views found for ' + currentVideo.title + ':', currentVideo.views); // 可选：详细日志
+                        continue;
+                    }
+
+                    // 匹配时长: - 时长：xx:xx
+                    const durationMatch = trimmedLine.match(/^- 时长：(.+)/);
+                    if (durationMatch) {
+                        currentVideo.duration = durationMatch[1].trim();
+                        // console.log('Duration found for ' + currentVideo.title + ':', currentVideo.duration); // 可选：详细日志
+                        continue;
+                    }
+
+                    // 匹配发布时间: - 发布时间：xxxx-xx-xx
+                    const publishDateMatch = trimmedLine.match(/^- 发布时间：(.+)/);
+                    if (publishDateMatch) {
+                        currentVideo.publishDate = publishDateMatch[1].trim();
+                        // console.log('Publish date found for ' + currentVideo.title + ':', currentVideo.publishDate); // 可选：详细日志
+                        continue;
+                    }
+                }
+
+                if (currentVideo) {
+                    videos.push(currentVideo); // 保存最后一个视频信息
+                    // console.log('Saved last video:', currentVideo.title); // 可选：详细日志
+                }
+
+                const filteredVideos = videos.filter(video => video.title && video.url);
+                console.log('Markdown parsing finished. Videos found:', filteredVideos.length);
+                if (videos.length > 0 && filteredVideos.length === 0) {
+                     console.warn('All video entries were filtered out. Check Markdown format and parsing logic.');
+                } else if (videos.length !== filteredVideos.length) {
+                    console.warn('Some video entries were filtered out due to missing title or URL.');
+                }
+                return filteredVideos;
+            }
+
+            function renderVideos(videos, container) {
+                console.log('Rendering videos. Count:', videos.length);
+                if (!videos || videos.length === 0) {
+                    // 更明确的提示信息，并保留之前的错误提示样式
+                    container.innerHTML = '<p class="text-red-400">未能加载视频列表，或列表为空。请检查Markdown文件格式及路径是否正确，并查看控制台日志。</p>';
+                    console.log('No videos to render or video list is empty. Check Markdown source and parsing logs.');
+                    return;
+                }
+
+                let content = '';
+                videos.forEach((video, index) => {
+                    // console.log(`Rendering video ${index + 1}:`, video.title); // 可选：详细日志
+                    content += `
+                        <div class="video-item-card">
+                            <h3><a href="${video.url}" target="_blank" rel="noopener noreferrer">${video.title}</a></h3>
+                            ${video.thumbnail ? `<img src="${video.thumbnail}" alt="${video.title} 封面">` : ''} <!-- 修正alt文本 -->
+                            ${video.views ? `<p>播放量：${video.views}</p>` : ''}
+                            ${video.duration ? `<p>时长：${video.duration}</p>` : ''}
+                            ${video.publishDate ? `<p>发布时间：${video.publishDate}</p>` : ''}
+                        </div>
+                    `;
+                });
+                container.innerHTML = content;
+                console.log('Video rendering complete.');
+            }
+        });
+    </script>
+</body>
+</html>
