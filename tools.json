@@ -1,0 +1,256 @@
+{
+  "tools": [
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "category": "content",
+      "description": "OpenAI推出的AI聊天助手，支持日常对话、写作文、编程、翻译、数据分析等功能。",
+      "image": "https://1000logos.net/wp-content/uploads/2023/02/ChatGPT-Logo.png",
+      "tags": ["多轮对话", "代码生成", "图像分析"],
+      "price": "免费版 | $20/月",
+      "company": "OpenAI",
+      "features": [
+        "自然语言处理：支持多轮对话、逻辑推理、代码生成（Python/Java等）",
+        "多模态能力：图像分析（通过DALL·E）、视频生成（与Luma AI集成）",
+        "实时联网搜索：通过插件访问互联网数据（需订阅版）"
+      ],
+      "useCases": ["学术研究", "商业分析", "创意写作", "编程辅助", "团队协作"],
+      "pricing": [
+        {"name": "免费版", "description": "基础功能（GPT-4o模型）可用，但有使用限制", "features": ["每日请求次数限制", "响应长度限制"]},
+        {"name": "ChatGPT Plus", "price": "$20/月", "features": ["解锁GPT-4.5模型", "实时联网搜索", "优先访问新功能"]}
+      ],
+      "officialUrl": "https://chatgpt.com"
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "category": "content",
+      "description": "Anthropic打造的隐私保护型AI，擅长超长文本处理和代码生成。",
+      "image": "https://tse1-mm.cn.bing.net/th/id/OIP-C.C49uVJfP_8hQrhoSjEhnTAHaHa?rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3",
+      "tags": ["超长上下文", "代码生成", "隐私保护"],
+      "price": "免费版 | $20/月",
+      "company": "Anthropic",
+      "features": [
+        "超长上下文：支持10万tokens（约7.5万字）的单次输入处理",
+        "Constitutional AI：内置安全准则，减少有害输出风险",
+        "文档分析：支持PDF/Word/Excel等格式文件的上传与解析"
+      ],
+      "useCases": ["法律文档处理", "技术文档分析", "企业安全合规", "金融数据分析", "学术研究辅助"],
+      "pricing": [
+        {"name": "免费版", "description": "基础Claude 3 Haiku模型，有使用限制", "features": ["每日消息数量限制", "支持5万tokens上下文"]},
+        {"name": "Claude Pro", "price": "$20/月", "features": ["Claude 3 Opus模型", "10万tokens上下文", "优先访问新功能"]}
+      ],
+      "officialUrl": "https://claude.ai"
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "category": "image",
+      "description": "图像生成领域的领先工具，通过文字描述生成4K图片。",
+      "image": "https://certif-ia.fr/wp-content/uploads/2024/05/Midjourney-logo-header.webp",
+      "tags": ["4K分辨率", "中文优化", "视频生成"],
+      "price": "免费版 | 9.9元/月起",
+      "company": "Midjourney Inc.",
+      "features": [
+        "高分辨率图像生成：支持最高4K分辨率图片输出",
+        "风格定制：可自定义艺术风格、光照效果和构图",
+        "视频生成：支持将静态图像转换为短视频动画"
+      ],
+      "useCases": ["创意设计", "广告素材", "游戏美术", "概念设计", "社交媒体内容"],
+      "pricing": [
+        {"name": "免费版", "description": "基础图像生成功能，有限制", "features": ["每月有限次数生成", "基础分辨率"]},
+        {"name": "Pro版", "price": "9.9元/月起", "features": ["无限生成次数", "4K分辨率", "商业授权"]}
+      ],
+      "officialUrl": "https://www.midjourney.com"
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "category": "content",
+      "description": "Google开发的多模态AI助手，支持文本、图像、音频和视频的理解与生成。",
+      "image": "https://www.gstatic.com/lamda/images/gemini-logo-1717136780888.svg",
+      "tags": ["多模态", "实时数据", "代码生成"],
+      "price": "免费版 | $19.99/月",
+      "company": "Google",
+      "features": [
+        "多模态理解：同时处理文本、图像、音频和视频输入",
+        "实时联网：直接访问Google搜索获取最新信息",
+        "代码能力：支持20+编程语言的生成与调试"
+      ],
+      "useCases": ["内容创作", "教育辅导", "市场分析", "软件开发", "创意设计"],
+      "pricing": [
+        {"name": "免费版", "description": "基础Gemini模型，有使用限制", "features": ["每日查询限制", "标准响应速度"]},
+        {"name": "Gemini Advanced", "price": "$19.99/月", "features": ["Gemini Ultra模型", "无限制查询", "优先支持"]}
+      ],
+      "officialUrl": "https://gemini.google.com"
+    },
+    {
+      "id": "characterai",
+      "name": "Character.AI",
+      "category": "more",
+      "description": "专注于虚拟角色互动的AI平台，可与各种虚构或真实人物进行对话。",
+      "image": "https://pbs.twimg.com/profile_images/1571263637922686977/3gg9FpNs_400x400.jpg",
+      "tags": ["角色互动", "情感对话", "自定义角色"],
+      "price": "免费版 | $9.99/月",
+      "company": "Character AI, Inc.",
+      "features": [
+        "角色定制：创建具有独特性格和背景的AI角色",
+        "情感交互：支持情感化对话和长期记忆",
+        "多人聊天：允许多个AI角色和用户共同参与对话"
+      ],
+      "useCases": ["娱乐互动", "创意写作", "角色扮演", "心理支持", "语言学习"],
+      "pricing": [
+        {"name": "免费版", "description": "基础角色互动功能", "features": ["标准响应速度", "部分角色访问"]},
+        {"name": "Character AI Plus", "price": "$9.99/月", "features": ["优先响应", "所有角色访问", "无广告体验"]}
+      ],
+      "officialUrl": "https://character.ai"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "category": "content",
+      "description": "深度求索开发的中文AI助手，专注于代码生成和数学推理。",
+      "image": "https://deepseek.com/images/logo.svg",
+      "tags": ["代码生成", "数学推理", "中文优化"],
+      "price": "免费版 | 付费API",
+      "company": "深度求索",
+      "features": [
+        "代码专家：支持多语言代码生成、解释和调试",
+        "数学能力：复杂数学问题求解和公式推导",
+        "中文优化：针对中文语境的理解和生成"
+      ],
+      "useCases": ["编程学习", "科研计算", "技术文档", "数据分析", "教育辅导"],
+      "pricing": [
+        {"name": "免费版", "description": "基础功能，有使用限制", "features": ["每日查询限制", "标准模型"]},
+        {"name": "API服务", "price": "按量计费", "features": ["更高并发", "自定义模型", "企业级支持"]}
+      ],
+      "officialUrl": "https://www.deepseek.com"
+    },
+    {
+      "id": "doubao",
+      "name": "豆包",
+      "category": "content",
+      "description": "字节跳动开发的中文AI助手，整合了抖音生态和多模态能力。",
+      "image": "https://www.doubao.com/favicon.ico",
+      "tags": ["中文对话", "短视频创作", "生活助手"],
+      "price": "免费版 | 会员制",
+      "company": "字节跳动",
+      "features": [
+        "中文优化：深度理解中文语境和文化",
+        "视频创作：支持短视频脚本生成和剪辑建议",
+        "生活服务：整合本地生活信息和实用工具"
+      ],
+      "useCases": ["内容创作", "生活助手", "学习辅导", "营销文案", "娱乐互动"],
+      "pricing": [
+        {"name": "免费版", "description": "基础功能", "features": ["标准响应", "基础工具"]},
+        {"name": "豆包会员", "price": "19元/月", "features": ["高级模型", "更多工具", "无广告"]}
+      ],
+      "officialUrl": "https://www.doubao.com"
+    },
+    {
+      "id": "wenxinyiyan",
+      "name": "文心一言",
+      "category": "content",
+      "description": "百度开发的中文大语言模型，整合了百度搜索和知识图谱。",
+      "image": "https://yiyan.baidu.com/favicon.ico",
+      "tags": ["中文理解", "知识图谱", "搜索增强"],
+      "price": "免费试用 | 会员制",
+      "company": "百度",
+      "features": [
+        "中文专长：深度优化中文语义理解和生成",
+        "知识整合：接入百度百科和知识图谱",
+        "多模态创作：文本、图像、音频和视频生成"
+      ],
+      "useCases": ["内容创作", "知识问答", "营销文案", "教育学习", "企业服务"],
+      "pricing": [
+        {"name": "免费版", "description": "基础功能，有使用限制", "features": ["标准响应", "基础模型"]},
+        {"name": "文心一言会员", "price": "29.9元/月", "features": ["高级模型", "更多生成次数", "优先体验新功能"]}
+      ],
+      "officialUrl": "https://yiyan.baidu.com"
+    },
+    {
+      "id": "qwen",
+      "name": "通义千问",
+      "category": "content",
+      "description": "阿里巴巴开发的企业级AI助手，专注于商业场景和数据分析。",
+      "image": "https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg",
+      "tags": ["商业分析", "企业服务", "多模态"],
+      "price": "免费试用 | 企业版",
+      "company": "阿里巴巴",
+      "features": [
+        "商业智能：数据分析和报表生成",
+        "企业集成：对接阿里生态系统",
+        "安全合规：符合企业数据安全标准"
+      ],
+      "useCases": ["市场分析", "商业决策", "供应链管理", "客户服务", "财务分析"],
+      "pricing": [
+        {"name": "免费版", "description": "基础功能试用", "features": ["有限查询次数", "标准模型"]},
+        {"name": "企业版", "price": "定制化", "features": ["专属部署", "定制模型", "企业级支持"]}
+      ],
+      "officialUrl": "https://tongyi.aliyun.com"
+    },
+    {
+      "id": "yuanbao",
+      "name": "腾讯元宝",
+      "category": "content",
+      "description": "腾讯开发的AI助手，整合了微信生态和腾讯云服务。",
+      "image": "https://ai.tencent.com/zh_CN/images/yuanbao-logo.png",
+      "tags": ["微信生态", "办公助手", "多模态"],
+      "price": "免费试用 | 会员制",
+      "company": "腾讯",
+      "features": [
+        "微信整合：与微信生态深度集成",
+        "办公助手：文档处理和会议纪要生成",
+        "创意生成：图像、音频和视频内容创作"
+      ],
+      "useCases": ["办公协作", "内容创作", "客户服务", "教育培训", "营销推广"],
+      "pricing": [
+        {"name": "免费版", "description": "基础功能", "features": ["标准响应", "基础工具"]},
+        {"name": "元宝会员", "price": "28元/月", "features": ["高级模型", "更多生成次数", "专属客服"]}
+      ],
+      "officialUrl": "https://ai.tencent.com"
+    },
+    {
+      "id": "xiaobing",
+      "name": "小冰框架",
+      "category": "more",
+      "description": "微软亚洲研究院开发的情感计算AI，专注于情感交互和内容创作。",
+      "image": "https://www.xiaobing.com/favicon.ico",
+      "tags": ["情感计算", "内容创作", "虚拟形象"],
+      "price": "免费版 | API收费",
+      "company": "微软亚洲研究院",
+      "features": [
+        "情感交互：理解和表达复杂情感",
+        "内容创作：诗歌、故事、音乐和绘画生成",
+        "虚拟形象：可定制的AI虚拟角色"
+      ],
+      "useCases": ["情感陪伴", "创意写作", "艺术创作", "虚拟主播", "心理疏导"],
+      "pricing": [
+        {"name": "免费版", "description": "个人非商业使用", "features": ["基础功能", "使用次数限制"]},
+        {"name": "商业API", "price": "按量计费", "features": ["高并发", "定制模型", "商业授权"]}
+      ],
+      "officialUrl": "https://www.xiaobing.com"
+    },
+    {
+      "id": "xinghuo",
+      "name": "讯飞星火",
+      "category": "content",
+      "description": "科大讯飞开发的中文AI助手，专注于语音交互和教育场景。",
+      "image": "https://xinghuo.xfyun.cn/favicon.ico",
+      "tags": ["语音交互", "教育学习", "中文优化"],
+      "price": "免费版 | 会员制",
+      "company": "科大讯飞",
+      "features": [
+        "语音专长：高精度语音识别和合成",
+        "教育工具：学习辅导和作业批改",
+        "多模态交互：文本、语音、图像综合处理"
+      ],
+      "useCases": ["语言学习", "教育培训", "语音助手", "内容创作", "无障碍服务"],
+      "pricing": [
+        {"name": "免费版", "description": "基础功能", "features": ["标准响应", "基础工具"]},
+        {"name": "星火会员", "price": "39元/月", "features": ["高级模型", "更多语音时长", "专属功能"]}
+      ],
+      "officialUrl": "https://xinghuo.xfyun.cn"
+    }
+  ]
+}

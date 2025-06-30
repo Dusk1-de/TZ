@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI工具集合 | 探索人工智能的无限可能</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#722ED1',
+                        accent: '#FF7D00',
+                        dark: '#1D2129',
+                        light: '#F2F3F5',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .gradient-bg {
+                background: linear-gradient(135deg, #165DFF 0%, #722ED1 100%);
+            }
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                background-image: linear-gradient(135deg, #165DFF 0%, #722ED1 100%);
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 text-dark">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center">
+                        <i class="fa fa-robot text-white text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold">AI工具集</span>
+                </div>
+
+                <!-- 桌面导航 -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#tools" class="text-gray-700 hover:text-primary transition-colors">工具</a>
+                    <a href="#features" class="text-gray-700 hover:text-primary transition-colors">特点</a>
+                    <a href="#faq" class="text-gray-700 hover:text-primary transition-colors">常见问题</a>
+                </nav>
+
+                <div class="flex items-center space-x-4">
+
+                    <!-- 移动端菜单按钮 -->
+                    <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#tools" class="block py-2 text-gray-700 hover:text-primary transition-colors">工具</a>
+                <a href="#features" class="block py-2 text-gray-700 hover:text-primary transition-colors">特点</a>
+                <a href="#faq" class="block py-2 text-gray-700 hover:text-primary transition-colors">常见问题</a>
+                
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero区域 -->
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 -z-10"></div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight">
+                            探索<span class="text-gradient">人工智能</span>的无限可能
+                        </h1>
+                        <p class="text-lg text-gray-600 max-w-xl">
+                            汇集各类顶尖AI工具，助力你的创意与工作。从内容生成到图像识别，从数据分析到自动化，一站式满足你的所有需求。
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <a href="#tools" class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30">
+                                浏览工具库
+                            </a>
+                            <a href="http://192.168.10.3:5000" target="_blank" class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all">
+                                最新AI新闻
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl opacity-30 -z-10"></div>
+                        <img src="https://picsum.photos/id/1/600/400" alt="AI工具展示" class="rounded-xl shadow-2xl">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-xl max-w-xs">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                                    <i class="fa fa-line-chart text-green-600 text-xl"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-50 to-transparent"></div>
+        </section>
+
+        <!-- 工具分类导航 -->
+        <section id="tools" class="py-16 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">精选AI工具</h2>
+                    <p class="text-gray-600">我们精心挑选了各类高质量AI工具，满足你的不同需求</p>
+                </div>
+
+                <!-- 分类标签 -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button class="px-5 py-2 bg-primary text-white rounded-full category-btn active" data-category="all">全部</button>
+                    <button class="px-5 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors category-btn" data-category="content">AI聊天助手</button>
+                    <button class="px-5 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors category-btn" data-category="image">AI图像助手</button>
+                    <button class="px-5 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors category-btn" data-category="data">AI视频工具</button>
+                    <button class="px-5 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors category-btn" data-category="automation">AI办公工具</button>
+                    <!-- 新增的视频处理分类 -->
+                    <button class="px-5 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors category-btn" data-category="video">AI编程助手</button>
+                    <button class="px-5 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors category-btn" data-category="more">虚拟角色互动</button>
+                </div>
+
+                <!-- 工具卡片网格 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6" id="tools-container">
+                    <!-- 工具卡片将通过JavaScript动态生成 -->
+                </div>
+
+        </section>
+
+        <!-- 特点部分 -->
+        <section id="features" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">为什么选择我们的AI工具集</h2>
+                    <p class="text-gray-600">我们精心挑选和整合了市场上最优秀的AI工具，为你提供一站式解决方案</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 特点1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-lg gradient-bg flex items-center justify-center mb-6">
+                            <i class="fa fa-rocket text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">提高效率</h3>
+                        <p class="text-gray-600">自动化重复性任务，节省时间，让你专注于更有价值的工作。</p>
+                    </div>
+
+                    <!-- 特点2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-lg gradient-bg flex items-center justify-center mb-6">
+                            <i class="fa fa-lightbulb-o text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">激发创意</h3>
+                        <p class="text-gray-600">提供创意灵感和辅助，帮助你突破创作瓶颈，实现更多可能性。</p>
+                    </div>
+
+                    <!-- 特点3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-lg gradient-bg flex items-center justify-center mb-6">
+                            <i class="fa fa-cogs text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">易于集成</h3>
+                        <p class="text-gray-600">提供简单易用的API和插件，轻松集成到你现有的工作流程和工具中。</p>
+                    </div>
+
+                    <!-- 特点4 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-lg gradient-bg flex items-center justify-center mb-6">
+                            <i class="fa fa-shield text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">安全可靠</h3>
+                        <p class="text-gray-600">严格的数据保护措施，确保你的数据安全和隐私不受侵犯。</p>
+                    </div>
+
+                    <!-- 特点5 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-lg gradient-bg flex items-center justify-center mb-6">
+                            <i class="fa fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">持续更新</h3>
+                        <p class="text-gray-600">我们不断添加新工具和功能，确保你始终能够使用到最新的AI技术。</p>
+                    </div>
+
+                    <!-- 特点6 -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-lg gradient-bg flex items-center justify-center mb-6">
+                            <i class="fa fa-comments text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">专家支持</h3>
+                        <p class="text-gray-600">提供专业的技术支持和培训，帮助你充分利用AI工具的潜力。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- FAQ部分 -->
+        <section id="faq" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">常见问题</h2>
+                    <p class="text-gray-600">以下是用户经常问到的一些问题</p>
+                </div>
+
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- FAQ项目1 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                            <span class="font-bold">这些AI工具需要付费吗？</span>
+                            <i class="fa fa-plus text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-600">大部分工具提供免费试用版本，让你可以在购买前体验其功能。付费版本通常提供更多高级功能和更大的使用额度，即使不付费也不影响基本的使用。</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ项目2 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                            <span class="font-bold">如何将这些工具集成到我现有的工作流程中？</span>
+                            <i class="fa fa-plus text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-600">大多数工具提供API和插件，可以轻松集成到常见的应用程序和平台中。官网提供详细的文档和教程，帮助你完成集成过程。</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ项目3 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                            <span class="font-bold">使用这些工具需要具备AI专业知识吗？</span>
+                            <i class="fa fa-plus text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-600">不需要。我们精选的这些工具都设计得非常直观，易于使用。即使你没有AI或技术背景，也能快速上手并从中受益。我们还提供社区支持，帮助你充分利用这些工具。</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ项目4 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                            <span class="font-bold">你们如何保护我的数据安全和隐私？</span>
+                            <i class="fa fa-plus text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-600">数据安全和隐私是我们的首要任务。我们严格遵守相关数据保护法规，并采用行业标准的安全措施来保护你的数据。大多数工具提供数据加密、访问控制和数据删除选项。在使用任何工具之前，我们建议你查看其隐私政策和安全措施。</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ项目5 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left focus:outline-none">
+                            <span class="font-bold">如何获取新工具和更新的通知？</span>
+                            <i class="fa fa-plus text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-6 pt-0 border-t border-gray-100">
+                            <p class="text-gray-600">我们会在社交媒体平台上分享最新动态。此外，如果你已注册账户，我们会通过站内消息通知你相关更新。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 订阅部分 -->
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center">
+                            <i class="fa fa-robot text-white text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold">AI工具集</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">汇集各类顶尖AI工具，助力你的创意与工作。</p>
+                    <div class="flex space-x-4">
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">工具分类</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI聊天助手</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI图像助手</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI办公工具</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI编程助手</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">虚拟角色互动</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI视频工具</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">公司</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">联系方式</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">加入我们</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">博客</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">帮助中心</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6">法律</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">隐私政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">服务条款</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">版权声明</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm">© 2025 AI工具集. 保留所有权利</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">隐私政策</a>
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">服务条款</a>
+                        <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Cookie政策</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-2', 'shadow-md');
+                    navbar.classList.remove('py-4', 'shadow-sm');
+                } else {
+                    navbar.classList.add('py-4', 'shadow-sm');
+                    navbar.classList.remove('py-2', 'shadow-md');
+                }
+            });
+        }
+
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuToggle.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+                } else {
+                    menuToggle.innerHTML = '<i class="fa fa-times text-xl"></i>';
+                }
+            });
+        }
+
+        // FAQ切换效果
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+
+                // 关闭其他所有FAQ
+                document.querySelectorAll('.faq-content').forEach(item => {
+                    if (item !== content) {
+                        item.classList.add('hidden');
+                        const otherIcon = item.previousElementSibling.querySelector('i');
+                        otherIcon.classList.remove('fa-minus', 'rotate-45');
+                        otherIcon.classList.add('fa-plus');
+                    }
+                });
+
+                // 切换当前FAQ
+                content.classList.toggle('hidden');
+                if (content.classList.contains('hidden')) {
+                    icon.classList.remove('fa-minus', 'rotate-45');
+                    icon.classList.add('fa-plus');
+                } else {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus', 'rotate-45');
+                }
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // 关闭移动菜单（如果打开）
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        menuToggle.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+                    }
+                }
+            });
+        });
+
+        // 工具分类筛选功能
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const toolCards = document.querySelectorAll('.tool-card');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // 更新按钮样式
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                button.classList.remove('bg-gray-100', 'text-gray-700');
+                button.classList.add('bg-primary', 'text-white');
+
+                // 获取选中的分类
+                const category = button.getAttribute('data-category');
+
+                // 筛选工具卡片
+                toolCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 加载更多工具功能
+        // 加载更多工具功能
+        const loadMoreBtn = document.getElementById('load-more');
+        let isLoading = false;
+
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+                if (isLoading) return;
+
+                isLoading = true;
+                loadMoreBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> 加载中...';
+
+                // 模拟加载更多工具的延迟
+                setTimeout(() => {
+                    // 这里可以添加实际加载更多工具的逻辑
+                    // 为了演示，我们只是显示一个提示
+                    alert('已加载全部工具');
+
+                    isLoading = false;
+                    loadMoreBtn.innerHTML = '加载更多工具 <i class="fa fa-angle-down ml-2"></i>';
+                }, 1500);
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+// 动态加载工具数据并生成卡片
+function loadTools() {
+  console.log('开始加载工具数据...');
+  fetch('tools.json')
+    .then(response => {
+      console.log('HTTP响应状态:', response.status);
+      if (!response.ok) {
+        throw new Error(`HTTP错误! 状态码: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('成功解析工具数据:', data);
+      console.log('工具列表长度:', data.tools.length);
+      data.tools.forEach((tool, index) => {
+        console.log(`工具${index+1}:`, tool);
+        console.log(`工具${index+1}图片URL:`, tool.image);
+      });
+      if (!data || !data.tools || !Array.isArray(data.tools)) {
+        throw new Error('工具数据格式不正确，缺少tools数组');
+      }
+      const toolsContainer = document.getElementById('tools-container');
+      if (!toolsContainer) {
+        throw new Error('未找到工具容器元素');
+      }
+      console.log('找到工具容器，开始生成卡片...');
+      const toolCards = data.tools.map(tool => `
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover tool-card" data-category="${tool.category}">
+          <div class="h-48 overflow-hidden relative">
+            <img src="${tool.image}" alt="${tool.name}" class="w-full h-full object-contain bg-gray-50 p-4" onerror="this.src='https://picsum.photos/150/150?text=No+Image'; this.onerror=null;">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <div class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">${getCategoryName(tool.category)}</div>
+            </div>
+            <h3 class="text-xl font-bold mb-2">${tool.name}</h3>
+            <p class="text-gray-600 text-sm mb-4">${tool.description}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              ${tool.tags.map(tag => `<span class="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">${tag}</span>`).join('')}
+            </div>
+            <div class="bg-gray-50 p-3 rounded-lg mb-4">
+              <p class="text-xs text-gray-600 mb-1">价格：</p>
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-medium">${tool.price}</span>
+              </div>
+            </div>
+            <a href="tool-detail.html?id=${tool.id}" class="text-primary font-medium hover:text-primary/80 flex items-center mt-4" onclick="console.log('打开详情页:', '${tool.id}')">
+              查看详情 <i class="fa fa-arrow-right ml-1 text-xs"></i>
+            </a>
+          </div>
+        </div>
+      `).join('');
+      toolsContainer.innerHTML = toolCards;
+      console.log('工具卡片生成完成，共生成', data.tools.length, '个卡片');
+    })
+    .catch(error => {
+      console.error('加载工具数据失败:', error);
+      // 显示错误提示给用户
+      const toolsContainer = document.getElementById('tools-container');
+      if (toolsContainer) {
+        toolsContainer.innerHTML = `
+          <div class="text-center py-10 w-full">
+            <p class="text-red-500 mb-2">加载工具失败: ${error.message}</p>
+            <p class="text-gray-500 text-sm">请检查tools.json文件是否存在或格式是否正确</p>
+          </div>
+        `;
+      }
+    });
+}
+
+// 获取分类显示名称
+function getCategoryName(category) {
+  const categories = {
+    'content': 'AI聊天助手',
+    'image': 'AI图像助手',
+    'video': 'AI视频工具',
+    'automation': 'AI办公工具',
+    'more': '虚拟角色互动'
+  };
+  return categories[category] || category;
+}
+
+// 页面加载时执行
+window.addEventListener('DOMContentLoaded', () => {
+  loadTools();
+  // ... 保留其他现有事件监听 ...
+});
+</script>
